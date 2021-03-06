@@ -1,7 +1,7 @@
 const renderLogin = () => {
   $("#login").empty();
 
-  $("#login").append(createlogin);
+  $("#login").append(createlogin());
 };
 
 const createlogin = () => {
