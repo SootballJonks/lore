@@ -52,13 +52,13 @@ Landing Page
 READ GET /
 
 User
-BROWSE GET /:userID www.website.com/SootballJonks/12846198715
-READ GET /:userID
+BROWSE GET users/:userID www.website.com/SootballJonks/12846198715
+READ GET users/:userID
 
 STORY EDIT
-READ GET /users/:storyID www.website.com/UserName/38423795817
-EDIT POST /users/:storyID
+READ GET users/story/:storyID www.website.com/UserName/38423795817
+EDIT POST users/story/:storyID
 
 PIECES
-READ GET /users/story/piece:id
-DELETE POST /users/story/piece:id
+READ GET /users/story/pieces/piece:id
+DELETE POST /users/story/pieces/piece:id

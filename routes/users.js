@@ -21,5 +21,10 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+
+  router.get("/:userNAME", (req, res) => {
+    res.send('test');
+  });
+
   return router;
 };
