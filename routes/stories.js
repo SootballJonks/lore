@@ -14,7 +14,6 @@ module.exports = (db) => {
     console.log(query);
     db.query(query)
       .then(data => {
-        console.log(data);
         const stories = data.rows;
         res.json({ stories });
       })
