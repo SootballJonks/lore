@@ -10,7 +10,7 @@ const sass           = require("node-sass-middleware");
 const app            = express();
 const morgan         = require('morgan');
 const cookieSession  = require('cookie-session');
-
+const db              = require('./db/db.js');
 
 // PG database client/connection setup
 
@@ -61,7 +61,7 @@ app.get("/", (req, res) => {
 });
 
 app.get('/login/:id', (req, res) => {
-  req.session.userID = req.params.id;
+  req.session.user_id = req.params.id;
   res.redirect('/');
 })
 
