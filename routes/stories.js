@@ -5,8 +5,8 @@
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
-const express = require('express');
-const router  = express.Router();
+const express = require("express");
+const router = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
@@ -17,10 +17,8 @@ module.exports = (db) => {
         const stories = data.rows;
         res.json({ stories });
       })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
       });
   });
   return router;
