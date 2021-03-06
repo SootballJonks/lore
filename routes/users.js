@@ -13,6 +13,7 @@ module.exports = (db) => {
     db.query(`SELECT * FROM users;`)
       .then(data => {
         const users = data.rows;
+        console.log(users)
         res.json({ users });
       })
       .catch(err => {
@@ -22,9 +23,9 @@ module.exports = (db) => {
       });
   });
 
-  router.get("/:userNAME", (req, res) => {
-    res.send('test');
-  });
+  // router.get("/:userNAME", (req, res) => {
+  //   res.send('test');
+  // });
 
   return router;
 };

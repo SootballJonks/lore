@@ -10,7 +10,7 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    let query = `SELECT * FROM stories`;
+    let query = `SELECT * FROM stories;`;
     console.log(query);
     db.query(query)
       .then(data => {
