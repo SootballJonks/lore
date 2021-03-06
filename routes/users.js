@@ -13,13 +13,17 @@ module.exports = (db) => {
     db.query(`SELECT * FROM users;`)
       .then((data) => {
         const users = data.rows;
-
-        res.send(users);
+        console.log(users)
+        res.json({ users });
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
       });
   });
+
+  // router.get("/:userNAME", (req, res) => {
+  //   res.send('test');
+  // });
 
   return router;
 };
