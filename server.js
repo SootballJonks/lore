@@ -60,7 +60,7 @@ app.get("/", (req, res) => {
 });
 
 app.get('/login/:id', (req, res) => {
-  req.session.userID = req.params.id;
+  req.session.user_id = req.params.id;
   res.redirect('/');
 })
 
