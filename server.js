@@ -13,7 +13,6 @@ const app = express();
 const morgan = require("morgan");
 
 // PG database client/connection setup
-
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
@@ -35,16 +34,18 @@ app.use(express.static("public"));
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users.js");
-const storiesRoutes = require("./routes/stories.js");
+const storiesRoutes = require("./routes/storiesRoutes.js");
 const loginRoutes = require("./routes/login.js");
-const upvotes = require("./routes/upvotes.js");
+const upvotesRoutes = require("./routes/upvotes.js");
+const pages = require("./routes/pages.js");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/stories", storiesRoutes(db));
 app.use("/api/login", loginRoutes(db));
-app.use("/api/upvotes", upvotes(db));
+app.use("/api/upvotes", upvotesRoutes(db));
+app.use("/", pages);
 // Note: mount other resources here, using the same pattern above
 
 // Home page

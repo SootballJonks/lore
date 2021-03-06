@@ -13,7 +13,7 @@ module.exports = (db) => {
     let query = `SELECT * FROM stories`;
     db.query(query)
       .then((data) => {
-        const stories = data.rows;
+        const stories = data.rows[0];
         res.json({ stories });
       })
       .catch((err) => {
