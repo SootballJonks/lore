@@ -16,7 +16,7 @@ const renderStories = (stories) => {
 const createStories = (story) => {
   let $story = $(`<wired-card elevation="4" class="story">
   <header>
-      <span class="user-id">${story.user_id}</span>
+
     <span class="story-title">${story.title}</span>
   </header>
   <p class="story-text">${story.text}</p>

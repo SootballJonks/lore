@@ -7,16 +7,29 @@ body {
   h1 {
     color: #244751;
   }
-
+}
+.all-stories-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   main {
     display: flex;
     flex-direction: column;
-    max-width: 20rem;
     justify-content: center;
-    align-content: center;
+    max-width: max-content;
+    text-align: center;
 
     .story {
+      cursor: pointer;
+      transition: ease-in-out 0.3s;
+      &:hover {
+        background-color: white;
+      }
       margin: 1rem;
+      .story-title {
+        font-weight: 600;
+      }
     }
   }
 }
