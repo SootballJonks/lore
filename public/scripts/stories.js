@@ -14,12 +14,17 @@ const renderStories = (stories) => {
 };
 //create the story elements to append in the stories.ejs
 const createStories = (story) => {
+  let snippet = "";
+  for (let i = 0; i < 120; i++) {
+    snippet += story.text[i];
+  }
   let $story = $(`<wired-card elevation="4" class="story">
   <header>
     <span class="story-title">${story.title}</span>
   </header>
-  <p class="story-text">${story.text}</p>
-  <footer>
+  <p class="story-text">${snippet}...</p>
+  <span class="story-read-more">Read More</span>
+  <footer class="story-tags">
     ${story.tags}
     </div>
   </footer>

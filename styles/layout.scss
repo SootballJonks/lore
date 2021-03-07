@@ -18,7 +18,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: max-content;
+    max-width: 30rem;
     text-align: center;
 
     .story {
@@ -30,7 +30,21 @@ body {
       }
       margin: 1rem;
       .story-title {
-        font-weight: 600;
+        font-weight: 700;
+      }
+      header {
+        margin: 1rem;
+      }
+
+      p {
+        margin: 1rem;
+        text-align: left;
+      }
+      .story-read-more {
+        font-size: 0.8rem;
+      }
+      footer {
+        margin: 1rem;
       }
     }
   }
