@@ -13,13 +13,8 @@ module.exports = (db) => {
     let query = `SELECT * FROM stories;`;
     console.log(query);
     db.query(query)
-<<<<<<< HEAD:routes/storiesRoutes.js
-      .then((data) => {
-        const stories = data.rows[0];
-=======
       .then(data => {
         const stories = data.rows;
->>>>>>> b5fa5778dc55e64bb85ef345f1110cb7c28b74fd:routes/stories.js
         res.json({ stories });
       })
       .catch((err) => {
