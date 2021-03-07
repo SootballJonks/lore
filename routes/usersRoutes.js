@@ -9,15 +9,23 @@ const express = require("express");
 const router = express.Router();
 
 module.exports = (db) => {
-  router.get("/", (req, res) => {
-    db.query(`SELECT * FROM users;`)
-      .then((data) => {
-        const users = data.rows;
-        console.log(users)
-        res.json({ users });
+  router.post("/", (req, res) => {
+    console.log(req.body);
+
+    const queryString = `
+      SELECT *
+      FROM stories
+      WHERE user_id = $1;
+    `;
+    const values = [req.body.user_id];
+
+    return db.query(queryString, values)
+      .then(data => {
+        const userStories = data.rows;
+        res.json({ userStories });
       })
-      .catch((err) => {
-        res.status(500).json({ error: err.message });
+      .catch(err => {
+        console.error('query error:', err.stack)
       });
   });
 

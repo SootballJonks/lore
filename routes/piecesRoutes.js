@@ -2,48 +2,50 @@ const express = require("express");
 const router = express.Router();
 
 module.exports = (db) => {
-  //GET UPVOTE COUNT
+  //GET PIECES FOR SPECIFIC STORY
   router.get("/", (req, res) => {
     const queryString = `
-      SELECT count(*)
-      FROM upvotes
-      WHERE piece_id = $1;
+      SELECT *
+      FROM pieces
+      WHERE story_id = $1;
     `;
-    const values = [req.body.piece_id];
+    const values = [req.body.story_id];
 
     return db.query(queryString, values)
       .then(data => {
-        const upvoteCount = data.rows;
-        res.json({ upvoteCount });
+        const allPieces = data.rows;
+        res.json({ allPieces });
       })
       .catch(err => {
         console.error('query error:', err.stack)
       });
   });
 
-  //ADD UPVOTE
+  //SUBMIT A PIECE TO STORY AS PENDING
   router.post("/", (req, res) => {
     const queryString = `
-    INSERT INTO upvotes
-    (user_id, piece_id)
+    INSERT INTO pieces
+    (user_id, story_id, text)
     VALUES
-    ($1, $2)
-    RETURNING * ;
+    ($1, $2, $3)
+    RETURNING *;
   `;
   const values = [
     req.body.user_id,
-    req.body.piece_id
-  ]
+    req.body.story_id,
+    req.body.text
+  ];
 
   return db.query(queryString, values)
     .then(data => {
-      const upvote = data.rows[0]
-      res.json({ upvote });
+      const newPiece = data.rows[0];
+      res.json({ newPiece });
     })
     .catch(err => {
       console.error('query error:', err.stack)
     });
   })
+
 
   return router;
 };

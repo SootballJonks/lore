@@ -19,22 +19,22 @@ module.exports = (db) => {
   `;
 
   //specific user
-  if(req.user_id) {
+  if(req.body.user_id) {
     queryParams.push(`%${req.user_id}%`);
     queryString += `AND user_id LIKE $${queryParams.length} `;
   }
   //specific title
-  if(req.title) {
+  if(req.body.title) {
     queryParams.push(`%${req.title}%`);
     queryString += `AND title LIKE $${queryParams.length} `;
   }
   //specific tags
-  if(req.tags) {
+  if(req.body.tags) {
     queryParams.push(`%${req.tags}%`);
     queryString += `AND tags ANY($${queryParams.length}) `;
   }
   //active status
-  if(req.active) {
+  if(req.body.active) {
     queryParams.push(`%${req.active}%`);
     queryString += `AND active = $${queryParams.length} `;
   }
@@ -51,7 +51,10 @@ module.exports = (db) => {
     });
   });
 
+
+  //POST USED TO SEARCH FOR SPECIFIC STORIES
   router.post("/", (req, res) => {
+    console.log(req.body);
     const queryParams = [];
 
   let queryString = `
@@ -61,22 +64,22 @@ module.exports = (db) => {
   `;
 
   //specific user
-  if(req.user_id) {
+  if(req.body.user_id) {
     queryParams.push(`%${req.user_id}%`);
     queryString += `AND user_id LIKE $${queryParams.length} `;
   }
   //specific title
-  if(req.title) {
+  if(req.body.title) {
     queryParams.push(`%${req.title}%`);
     queryString += `AND title LIKE $${queryParams.length} `;
   }
   //specific tags
-  if(req.tags) {
+  if(req.body.tags) {
     queryParams.push(`%${req.tags}%`);
     queryString += `AND tags ANY($${queryParams.length}) `;
   }
   //active status
-  if(req.active) {
+  if(req.body.active) {
     queryParams.push(`%${req.active}%`);
     queryString += `AND active = $${queryParams.length} `;
   }
