@@ -13,4 +13,4 @@ const createlogin = () => {
   return $story;
 };
 
-$(document).ready(renderLogin());
+$(document).ready($("#login-button").click(() => renderLogin()));
