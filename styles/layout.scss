@@ -1,9 +1,22 @@
 // See: https://sass-lang.com/
 
 body {
-  background-color: #EEE;
+  font-family: "Mali", cursive;
+  background-color: #eee;
 
   h1 {
     color: #244751;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    max-width: 20rem;
+    justify-content: center;
+    align-content: center;
+
+    .story {
+      margin: 1rem;
+    }
   }
 }

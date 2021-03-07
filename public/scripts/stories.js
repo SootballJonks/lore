@@ -1,29 +1,30 @@
-const renderStories = (stories) => {
-  $(".all-stories").empty();
-
-  $(".all-stories").append(createStories(stories));
-};
-
+//Load all the stories from
 const loadStories = (action) => {
   $.ajax("api/stories", { method: "get" })
     .then((res) => action(res))
     .catch((err) => console.log(err));
 };
 
-const createStories = (stories) => {
-  let $story = $(`<article class="tweet-feed">
+const renderStories = (stories) => {
+  $(".all-stories").empty();
+
+  for (story of stories) {
+    $(".all-stories").append(createStories(story));
+  }
+};
+
+const createStories = (story) => {
+  let $story = $(`<wired-card elevation="4" class="story">
   <header>
-    <div class="user-profile-name">
-      <span class="username">${stories.stories.user_id}</span>
-    </div>
-    <a class="user-ID">${stories.stories.user_id}</a>
+      <span class="user-id">${story.user_id}</span>
+    <span class="story-title">${story.title}</span>
   </header>
-  <p>${stories.stories.title}</p>
+  <p class="story-text">${story.text}</p>
   <footer>
-    ${stories.stories.tags}
+    ${story.tags}
     </div>
   </footer>
-  </article>"`);
+  </wired-card>"`);
 
   return $story;
 };

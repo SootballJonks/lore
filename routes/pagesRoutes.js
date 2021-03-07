@@ -7,8 +7,8 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
   // if (!req.session.userid) return res.redirect("/");
-  // let templateVars = 0;
-  // res.redirect("/stories", templateVars);
+
+  res.render("stories");
 });
 
 module.exports = router;
