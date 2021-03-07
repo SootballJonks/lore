@@ -9,5 +9,8 @@ const router = express.Router();
 router.get("/", (req, res) => {
   res.render("stories");
 });
+router.get("/login", (req, res) => {
+  console.log(req, res);
+});
 
 module.exports = router;

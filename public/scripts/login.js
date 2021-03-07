@@ -1,16 +1,27 @@
 const renderLogin = () => {
-  $("#login").empty();
+  $(".all-stories-container").empty();
 
-  $("#login").append(createlogin());
+  $(".all-stories-container").append(createlogin());
 };
 
 const createlogin = () => {
-  let $story = $(`<wired-card elevation="5">
-  <span>Name</span><wired-input>Enter Name</wired-input>
-  <span>Password</span><wired-input>Password</wired-input>
+  let $login = $(`<wired-card elevation="5">
+  <div class="email">
+  <span>Email</span><wired-input placeholder="enter your email"></wired-input>
+  </div>
+  <div class="password">
+  <span>Password</span><wired-input placeholder="enter your password"></wired-input>
+  </div>
+
+  <wired-button class="login-button" id="btn1">Login</wired-button>
+  <wired-button class="cancel-button" id="btn1">Cancel</wired-button>
+
 </wired-card>`);
 
-  return $story;
+  return $login;
 };
 
-$(document).ready($("#login-button").click(() => renderLogin()));
+$(document).ready(
+  $("#login-button").click(() => renderLogin()),
+  $("#cancel-button").click(() => renderLogin())
+);
