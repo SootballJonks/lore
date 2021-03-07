@@ -1,7 +1,7 @@
 const renderLogin = () => {
   $("#login").empty();
 
-  $("#login").append(createlogin);
+  $("#login").append(createlogin());
 };
 
 const createlogin = () => {
@@ -13,4 +13,4 @@ const createlogin = () => {
   return $story;
 };
 
-$(document).ready(renderLogin());
+$(document).ready($("#login-button").click(() => renderLogin()));
