@@ -1,9 +1,37 @@
 // See: https://sass-lang.com/
 
 body {
-  background-color: #EEE;
+  font-family: "Mali", cursive;
+  background-color: #eee;
 
   h1 {
     color: #244751;
+  }
+}
+//this is the container for all the stories
+.all-stories-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: max-content;
+    text-align: center;
+
+    .story {
+      //this is styling for individual story card
+      cursor: pointer;
+      transition: ease-in-out 0.3s;
+      &:hover {
+        background-color: white;
+      }
+      margin: 1rem;
+      .story-title {
+        font-weight: 600;
+      }
+    }
   }
 }
