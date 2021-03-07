@@ -5,9 +5,8 @@
 const express = require("express");
 const router = express.Router();
 
+//when user is visiting the main page. It will render the stories.ejs
 router.get("/", (req, res) => {
-  // if (!req.session.userid) return res.redirect("/");
-
   res.render("stories");
 });
 

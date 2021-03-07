@@ -8,6 +8,7 @@ body {
     color: #244751;
   }
 }
+//this is the container for all the stories
 .all-stories-container {
   display: flex;
   flex-direction: column;
@@ -21,6 +22,7 @@ body {
     text-align: center;
 
     .story {
+      //this is styling for individual story card
       cursor: pointer;
       transition: ease-in-out 0.3s;
       &:hover {

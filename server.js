@@ -49,6 +49,10 @@ const pages = require("./routes/pagesRoutes.js");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
+
+//The refactored rounte should not be taking database as an argument anymore since it's passed with the query
+//if you still have error please remove the parentheses like "storiesRoutes"
+
 app.use("/api/users", usersRoutes());
 app.use("/api/stories", storiesRoutes);
 app.use("/api/login", loginRoutes());
