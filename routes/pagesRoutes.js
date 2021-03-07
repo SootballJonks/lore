@@ -5,11 +5,10 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/stories", (req, res) => {
+router.get("/", (req, res) => {
   // if (!req.session.userid) return res.redirect("/");
-  console.log(req);
-  let templateVars = res;
-  res.redirect("/stories", templateVars);
+  // let templateVars = 0;
+  // res.redirect("/stories", templateVars);
 });
 
 module.exports = router;

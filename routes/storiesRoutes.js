@@ -7,7 +7,8 @@
 
 const express = require("express");
 const router = express.Router();
-
+const { getUserStories } = require("../lib/queries");
+console.log(getUserStories());
 module.exports = (db) => {
   router.get("/", (req, res) => {
     let query = `SELECT * FROM stories;`;
