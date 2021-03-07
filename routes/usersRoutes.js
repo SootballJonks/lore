@@ -8,30 +8,35 @@
 const express = require("express");
 const router = express.Router();
 
-module.exports = (db) => {
-  router.post("/", (req, res) => {
-    console.log(req.body);
+const { getUserStories, newStory } = require("../lib/queries");
 
-    const queryString = `
-      SELECT *
-      FROM stories
-      WHERE user_id = $1;
-    `;
-    const values = [req.body.user_id];
+//HELPER FUNCTION (this needs to be moved):
 
-    return db.query(queryString, values)
-      .then(data => {
-        const userStories = data.rows;
-        res.json({ userStories });
-      })
-      .catch(err => {
-        console.error('query error:', err.stack)
-      });
-  });
 
-  // router.get("/:userNAME", (req, res) => {
-  //   res.send('test');
-  // });
+//-------------
 
-  return router;
-};
+//GET USER-SPECIFIC STORIES
+router.get("/:userNAME", (req, res) => {
+  const username = req.params.userNAME;
+  getUserStories(username)
+    .then((stories) => {
+      res.json(stories);
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+});
+
+//POST NEW STORY
+router.post("/:userNAME", (req, res) => {
+  newStory(req.body)
+    .then((newStory) => {
+      res.json(newStory);
+      //We should make this redirect to the edit-story page...
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+})
+
+module.exports = router;
