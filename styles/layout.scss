@@ -44,7 +44,62 @@ body {
         font-size: 0.8rem;
       }
       footer {
+        font-weight: 600;
         margin: 1rem;
+      }
+    }
+  }
+}
+
+.single-story-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .single-story {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 30rem;
+    text-align: center;
+    .story {
+      //this is styling for individual story card
+
+      transition: ease-in-out 0.3s;
+      &:hover {
+        background-color: white;
+      }
+      margin: 1rem;
+      .story-title {
+        font-weight: 700;
+      }
+      header {
+        margin: 1rem;
+      }
+
+      p {
+        margin: 1rem;
+        text-align: left;
+      }
+      .story-read-more {
+        font-size: 0.8rem;
+      }
+      footer {
+        margin: 1rem;
+        font-weight: 600;
+      }
+
+      .piece-text-box {
+        margin: 1rem;
+      }
+      i {
+        color: rgb(240, 81, 81);
+      }
+      .piece {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 1em;
       }
     }
   }

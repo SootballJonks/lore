@@ -22,27 +22,4 @@ const createlogin = () => {
   return $loginForm;
 };
 
-//login function
-const logIn = (data) => {
-  console.log(data);
-  return $.ajax({
-    method: "POST",
-    url: "/api/login",
-    data
-  });
-}
-
-$(document).ready(
-  $("#login-button").click(() => renderLogin()),
-  $("#cancel-button").click(() => renderLogin()),
-
-  $('#btn1').on('submit', (event) => {
-    event.preventDefault();
-
-    const data = $(this).serialize();
-    logIn(data)
-      .then(json => {
-        console.log(json);
-      })
-  })
-);
+$(document).ready(() => {});
