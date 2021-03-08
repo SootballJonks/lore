@@ -5,6 +5,8 @@
     rel="stylesheet"
   />
   <link rel="stylesheet" type="text/css" href="/styles/layout.css" />
+  <script type="text/javascript" src="/scripts/stories.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
   <style>
     .navbar-custom .navbar-brand,
     .navbar-custom .navbar-text {
@@ -30,8 +32,8 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <form method="GET" action="/stories">
-          <a class="nav-link" href="#"
+        <form method="GET" action="/:userNAME">
+          <a class="nav-link" id="user-stories" href="#"
             >My Stories <span class="sr-only">(current)</span></a
           >
         </form>
@@ -39,11 +41,11 @@
     </ul>
 
     <button
-      id="login-button"
+      id="newStory-button"
       class="btn btn-outline-success my-2 my-sm-0 btn-outline-dark"
       type="submit"
     >
-      login
+      New Story
     </button>
   </div>
 </nav>

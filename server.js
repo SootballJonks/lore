@@ -54,10 +54,10 @@ const pages = require("./routes/pagesRoutes.js");
 //The refactored rounte should not be taking database as an argument anymore since it's passed with the query
 //if you still have error please remove the parentheses like "storiesRoutes"
 
-app.use("/api/users", usersRoutes);
+app.use("/users", usersRoutes);
 app.use("/api/stories", storiesRoutes);
 app.use("/api/pieces", piecesRoutes);
-app.use("/api/login", loginRoutes);
+app.use("/login", loginRoutes);
 app.use("/api/upvotes", upvotesRoutes());
 
 app.use("/", pages);

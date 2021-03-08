@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
   const username = req.session.username;
 
   if (!username) {
-    res.redirect("/api/login");
+    res.redirect("/login");
   }
   if (username) {
     res.render("index"); //index is our homepage. stories.ejs is now obsolete
