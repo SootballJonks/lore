@@ -99,8 +99,15 @@ const backButton = () => {
   });
 };
 
+const mystoryButton = () => {
+  $(document).on("click", "#user-stories", function () {
+    $(".single-story").empty();
+  });
+};
+
 $(document).ready(() => {
   renderSingleStory();
   loadStories(renderStories);
   backButton();
+  mystoryButton();
 });
