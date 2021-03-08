@@ -21,6 +21,4 @@ const createlogin = () => {
   return $login;
 };
 
-$(document).ready(() => {
-  $("#login-button").click(() => renderLogin());
-});
+$(document).ready(() => {});
