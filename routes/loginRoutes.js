@@ -11,6 +11,7 @@ router.get("/", (req, res) => {
 //Post route to log in with email (does not check password)
 router.post("/", (req, res) => {
   const email = req.body.email;
+  console.log(req);
   //const password = req.body.password;
   checkEmail(email).then((user) => {
     if (!user.username) {
@@ -21,6 +22,11 @@ router.post("/", (req, res) => {
       res.redirect("/");
     }
   });
+});
+
+router.post("/logout", (req, res) => {
+  req.session.userId = null;
+  res.send({});
 });
 
 module.exports = router;
