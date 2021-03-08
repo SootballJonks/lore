@@ -49,3 +49,43 @@ body {
     }
   }
 }
+
+.single-story-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .single-story {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 30rem;
+    text-align: center;
+    .story {
+      //this is styling for individual story card
+
+      transition: ease-in-out 0.3s;
+      &:hover {
+        background-color: white;
+      }
+      margin: 1rem;
+      .story-title {
+        font-weight: 700;
+      }
+      header {
+        margin: 1rem;
+      }
+
+      p {
+        margin: 1rem;
+        text-align: left;
+      }
+      .story-read-more {
+        font-size: 0.8rem;
+      }
+      footer {
+        margin: 1rem;
+      }
+    }
+  }
+}
