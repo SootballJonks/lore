@@ -1,28 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home Page</title>
+    <title>stories Page</title>
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
       integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mali:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   </head>
-
+  <!-- work in progress -->
   <body>
     <%- include('partials/header') %>
-    <h1>Welcome to Lore!</h1>
+    <div class="all-stories-container">
+      <main class="all-stories"></main>
+    </div>
   </body>
+
+  <!-- scripts-file  -->
+  <script type="text/javascript" src="/scripts/stories.js"></script>
   <script type="text/javascript" src="/scripts/login.js"></script>
   <script src="https://unpkg.com/wired-elements/lib/wired-elements-iife.js"></script>
+
   <script
     src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"

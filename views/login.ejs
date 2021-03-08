@@ -19,6 +19,13 @@
 
   <body>
     <%- include('partials/header') %>
+    <form action="/api/login" method ='POST' class='login-form '>
+      <label for="">Your email</label>
+      <input type="email" name ="email" class='input'>
+      <label for="">Your password</label>
+      <input type="password" name ='password' class='input'>
+    <input type="submit" class='submit' value='continue'>
+  </form>
   </body>
   <script src="https://unpkg.com/wired-elements/lib/wired-elements-iife.js"></script>
   <script
