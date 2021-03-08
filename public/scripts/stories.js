@@ -62,10 +62,9 @@ const createSingleStory = (story) => {
   <footer class="story-tags">
     ${story.tags}
     </div>
-
   </footer>
   <wired-card elevation="1" class="piece">Sample Piece  </wired-card>
-    <wired-button id="btn2 class="back-button">Back</wired-button>
+    <wired-button id="btn2" class="back-button">Back</wired-button>
   </wired-card>`);
   } else {
     $story = $(`<wired-card elevation="4" id="story-${story.id}" class="story">
@@ -84,12 +83,15 @@ const createSingleStory = (story) => {
   return $story;
 };
 
-const createStoryPiece = {};
+const backButton = () => {
+  $(document).on("click", ".back-button", function () {
+    $(".single-story-container").empty();
+    loadStories(renderStories);
+  });
+};
+
 $(document).ready(() => {
   renderSingleStory();
   loadStories(renderStories);
-  $(".back-button").on("click", () => {
-    $;
-    loadStories(renderStories);
-  });
+  backButton();
 });
