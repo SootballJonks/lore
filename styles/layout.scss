@@ -92,6 +92,15 @@ body {
       .piece-text-box {
         margin: 1rem;
       }
+      i {
+        color: rgb(240, 81, 81);
+      }
+      .piece {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 1em;
+      }
     }
   }
 }
