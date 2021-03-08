@@ -40,7 +40,6 @@ const renderSingleStory = () => {
 
     if (storyID) {
       $(".all-stories").empty();
-
       $.ajax("api/stories", { method: "get" })
         .then((res) => RenderSingleStory(res[storyID - 1]))
         .catch((err) => console.log(err));
@@ -92,6 +91,24 @@ const createSingleStory = (story) => {
   return $story;
 };
 
+const createNewStoryForm = () => {
+  let $newStory = $(`<wired-card elevation="4" id="new-story-form" class="new-story-form">
+  <header>
+    <span class="story-title">T.O.G</span>
+  </header>
+  <p class="story-text">After a year of slavery in the Salt Mines of Endovier, Celaena Sardothien was accustomed to being escorted everywhere in...</p>
+  <span class="story-read-more">Read More</span>
+  <footer class="story-tags">
+    fantasy,romance
+
+  </footer>
+  </wired-card>`);
+
+  return $newStory;
+};
+
+const renderNewStoryForm = () => {};
+
 const backButton = () => {
   $(document).on("click", ".back-button", function () {
     $(".single-story").empty();
@@ -101,6 +118,14 @@ const backButton = () => {
 
 const mystoryButton = () => {
   $(document).on("click", "#user-stories", function () {
+    console.log("it's clicked");
+    $(".single-story").empty();
+  });
+};
+
+const newStoryButton = () => {
+  $(document).on("click", "#newStory-button", function () {
+    $(".all-stories").empty();
     $(".single-story").empty();
   });
 };
@@ -110,4 +135,5 @@ $(document).ready(() => {
   loadStories(renderStories);
   backButton();
   mystoryButton();
+  newStoryButton();
 });
