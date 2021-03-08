@@ -5,7 +5,10 @@ body {
   background-color: #eee;
 
   h1 {
-    color: #244751;
+    font-family: "Mali", cursive;
+    font-weight: 700;
+    color: white;
+    background-color: rgb(48, 48, 48);
   }
 }
 //this is the container for all the stories
@@ -64,12 +67,13 @@ body {
     text-align: center;
     .story {
       //this is styling for individual story card
-
+      margin: 1rem;
+      padding: 2rem;
       transition: ease-in-out 0.3s;
       &:hover {
         background-color: white;
       }
-      margin: 1rem;
+
       .story-title {
         font-weight: 700;
       }
@@ -113,5 +117,28 @@ body {
         margin-bottom: 1rem;
       }
     }
+  }
+}
+
+.login-card-container {
+  margin-top: 15rem;
+  font-family: "Mali", cursive;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  .email-input {
+    margin-left: 2rem;
+  }
+
+  .password-input {
+    margin: 1rem;
   }
 }
