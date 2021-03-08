@@ -27,6 +27,7 @@
     "wired-icon-button": "^2.1.0"
   },
   "devDependencies": {
-    "nodemon": "^1.19.1"
+    "nodemon": "^1.19.1",
+    "wired-elements": "^2.1.2"
   }
 }

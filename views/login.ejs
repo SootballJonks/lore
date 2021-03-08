@@ -18,7 +18,16 @@
   </head>
 
   <body>
-    <%- include('partials/header') %>
+    <header>
+      <h1>Welcome to LORE!</h1>
+    </header>
+    <form action="/login" method ='POST' class='login-form'>
+      <label for="">Your email</label>
+      <input type="email" name ="email" class='input'>
+      <label for="">Your password</label>
+      <input type="password" name ='password' class='input'>
+    <input type="submit" class='submit' value='continue'>
+  </form>
   </body>
   <script src="https://unpkg.com/wired-elements/lib/wired-elements-iife.js"></script>
   <script

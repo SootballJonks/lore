@@ -37,7 +37,7 @@ const createStories = (story) => {
 const renderSingleStory = () => {
   $("main").on("click", () => {
     let storyID = $(event.target).parent()[0].id.slice(-1);
-
+    console.log(storyID);
     if (storyID) {
       $(".all-stories").empty();
       $.ajax("api/stories", { method: "get" })
@@ -53,36 +53,41 @@ const RenderSingleStory = (story) => {
 
 const createSingleStory = (story) => {
   if (story.active) {
-    $story = $(`<wired-card elevation="4" id="story-${story.id}" class="story">
-  <header>
-    <span class="story-title">${story.title}</span>
-  </header>
-  <p class="story-text">${story.text}</p>
+    $story = $(
+      `<wired-card elevation="4" id="story-${story.id}" class="story">
+        <header>
+          <span class="story-title">${story.title}</span>
+        </header>
+        <p class="story-text">${story.text}</p>
 
-  <footer class="story-tags">
-    ${story.tags}
-    </div>
-  </footer>
-  <wired-card elevation="2" id="piece" class="piece"><div class=piece-content>This is one of the piece</div><wired-icon-button class="red wired-rendered">
-  <i class="fas fa-heart"></i>
-    </wired-icon-button></wired-card>
-<div class=contribution>
-  <wired-textarea placeholder="Are you there Ashen One?" rows="6" class="wired-rendered piece-text-box"></wired-textarea>
-    <wired-button id="btn2" class="back-button">Back</wired-button>
-</div>
-  </wired-card>`);
+
+        <footer class="story-tags">
+          ${story.tags}
+          </div>
+        </footer>
+        <wired-card elevation="2" id="piece" class="piece"><div class=piece-content>This is one of the piece</div><wired-icon-button class="red wired-rendered">
+          <i class="fas fa-heart"></i>
+        </wired-icon-button></wired-card>
+
+        <wired-textarea placeholder="Are you there Ashen One?" rows="6" class="wired-rendered piece-text-box"></wired-textarea>
+        <wired-button id="btn2" class="back-button">Back</wired-button>
+
+      </wired-card>`
+    );
   } else {
-    $story = $(`<wired-card elevation="4" id="story-${story.id}" class="story">
-  <header>
-    <span class="story-title">${story.title}</span>
-  </header>
-  <p class="story-text">${story.text}</p>
+    $story = $(
+      `<wired-card elevation="4" id="story-${story.id}" class="story">
+        <header>
+          <span class="story-title">${story.title}</span>
+        </header>
+        <p class="story-text">${story.text}</p>
 
-  <footer class="story-tags">
-    ${story.tags}
-    </div>
-  </footer>
-  </wired-card>`);
+        <footer class="story-tags">
+          ${story.tags}
+          </div>
+        </footer>
+      </wired-card>`
+    );
   }
 
   return $story;

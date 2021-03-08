@@ -17,7 +17,7 @@ const { getUserStories, newStory } = require("../lib/queries");
 
 //GET USER-SPECIFIC STORIES
 router.get("/:userNAME", (req, res) => {
-  const username = req.params.userNAME;
+  const username = req.session.username;
   getUserStories(username)
     .then((stories) => {
       res.json(stories);

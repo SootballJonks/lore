@@ -1,23 +1,33 @@
 const express = require("express");
 const router = express.Router();
 
-module.exports = (db) => {
+const { checkEmail } = require("../lib/queries");
 
-  router.get("/", (req, res) => {
-    res.render('login');
-    
-
-//   router.get("/api/users/", (req, res) => {
-//     db.query(`SELECT * FROM users`)
-//       .then((data) => {
-//         const users = data.rows;
-//         res.send({ users });
-//       })
-//       .catch((err) => {
-//         res.status(500).json({ error: err.message });
-//       });
-  });
+//Currently set to render a login page?
+router.get("/", (req, res) => {
+  res.render('login');
+});
 
 
-  return router;
-};
+
+//Post route to log in with email (does not check password)
+router.post("/", (req, res) => {
+  const email = req.body.email;
+  //const password = req.body.password;
+  checkEmail(email)
+    .then((user) => {
+      if (!user.username) {
+        res.status(403).send(`User does not exist!`);
+      }
+      if (user.username) {
+        req.session.username = user.username;
+        res.redirect("/");
+      }
+    })
+});
+
+
+
+
+
+module.exports = router;
