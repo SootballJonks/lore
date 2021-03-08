@@ -60,6 +60,7 @@ const createSingleStory = (story) => {
         </header>
         <p class="story-text">${story.text}</p>
 
+
         <footer class="story-tags">
           ${story.tags}
           </div>
