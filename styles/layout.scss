@@ -1,9 +1,144 @@
 // See: https://sass-lang.com/
 
 body {
-  background-color: #EEE;
+  font-family: "Mali", cursive;
+  background-color: #eee;
 
   h1 {
-    color: #244751;
+    font-family: "Mali", cursive;
+    font-weight: 700;
+    color: white;
+    background-color: rgb(48, 48, 48);
+  }
+}
+//this is the container for all the stories
+.all-stories-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 30rem;
+    text-align: center;
+
+    .story {
+      //this is styling for individual story card
+      cursor: pointer;
+      transition: ease-in-out 0.3s;
+      &:hover {
+        background-color: white;
+      }
+      margin: 1rem;
+      .story-title {
+        font-weight: 700;
+      }
+      header {
+        margin: 1rem;
+      }
+
+      p {
+        margin: 1rem;
+        text-align: left;
+      }
+      .story-read-more {
+        font-size: 0.8rem;
+      }
+      footer {
+        font-weight: 600;
+        margin: 1rem;
+      }
+    }
+  }
+}
+
+.single-story-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .single-story {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 60rem;
+    text-align: center;
+    .story {
+      //this is styling for individual story card
+      margin: 1rem;
+      padding: 2rem;
+      transition: ease-in-out 0.3s;
+      &:hover {
+        background-color: white;
+      }
+
+      .story-title {
+        font-weight: 700;
+      }
+      header {
+        margin: 1rem;
+      }
+
+      p {
+        margin: 1rem;
+        text-align: left;
+      }
+      .story-read-more {
+        font-size: 0.8rem;
+      }
+      footer {
+        margin: 1rem;
+        font-weight: 600;
+      }
+
+      .piece-text-box {
+        margin: 1rem;
+      }
+      i {
+        color: rgb(240, 81, 81);
+      }
+      .piece {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 1rem;
+      }
+
+      .contribution {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .back-button {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+.login-card-container {
+  margin-top: 15rem;
+  font-family: "Mali", cursive;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  .email-input {
+    margin-left: 2rem;
+  }
+
+  .password-input {
+    margin: 1rem;
   }
 }

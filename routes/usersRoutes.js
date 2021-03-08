@@ -8,22 +8,39 @@
 const express = require("express");
 const router = express.Router();
 
-module.exports = (db) => {
-  router.get("/", (req, res) => {
-    db.query(`SELECT * FROM users;`)
-      .then((data) => {
-        const users = data.rows;
-        console.log(users)
-        res.json({ users });
-      })
-      .catch((err) => {
-        res.status(500).json({ error: err.message });
-      });
-  });
+const { getUserStories, newStory, getID } = require("../lib/queries");
 
-  // router.get("/:userNAME", (req, res) => {
-  //   res.send('test');
-  // });
+//HELPER FUNCTION (this needs to be moved):
 
-  return router;
-};
+
+//-------------
+
+//GET USER-SPECIFIC STORIES
+router.get("/:userNAME", (req, res) => {
+  const username = req.session.username;
+  getUserStories(username)
+    .then((stories) => {
+      res.json(stories);
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+});
+
+//POST NEW STORY
+router.post("/:userNAME", (req, res) => {
+  const username = req.session.username;
+  getID(username)
+    .then((id) => {
+      newStory(id, req.body)
+    })
+    .then((newStory) => {
+      res.json(newStory);
+      //We should make this redirect to the edit-story page...
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+})
+
+module.exports = router;

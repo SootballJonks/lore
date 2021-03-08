@@ -43,16 +43,23 @@ app.use(
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/usersRoutes.js");
 const storiesRoutes = require("./routes/storiesRoutes.js");
+const piecesRoutes = require("./routes/piecesRoutes.js");
 const loginRoutes = require("./routes/loginRoutes.js");
 const upvotesRoutes = require("./routes/upvotesRoutes.js");
 const pages = require("./routes/pagesRoutes.js");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/api/users", usersRoutes(db));
-app.use("/api/stories", storiesRoutes(db));
-app.use("/api/login", loginRoutes(db));
-app.use("/api/upvotes", upvotesRoutes(db));
+
+//The refactored rounte should not be taking database as an argument anymore since it's passed with the query
+//if you still have error please remove the parentheses like "storiesRoutes"
+
+app.use("/users", usersRoutes);
+app.use("/api/stories", storiesRoutes);
+app.use("/api/pieces", piecesRoutes);
+app.use("/login", loginRoutes);
+app.use("/api/upvotes", upvotesRoutes());
+
 app.use("/", pages);
 // Note: mount other resources here, using the same pattern above
 
@@ -61,14 +68,7 @@ app.use(express.static("public"));
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
-app.get("/", (req, res) => {
-  res.render("index");
-});
 
-app.get("/login/:id", (req, res) => {
-  req.session.user_id = req.params.id;
-  res.redirect("/");
-});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
