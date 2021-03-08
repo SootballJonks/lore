@@ -57,7 +57,7 @@ const pages = require("./routes/pagesRoutes.js");
 app.use("/api/users", usersRoutes);
 app.use("/api/stories", storiesRoutes);
 app.use("/api/pieces", piecesRoutes);
-app.use("/api/login", loginRoutes());
+app.use("/api/login", loginRoutes);
 app.use("/api/upvotes", upvotesRoutes());
 
 app.use("/", pages);
