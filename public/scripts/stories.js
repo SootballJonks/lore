@@ -37,9 +37,10 @@ const createStories = (story) => {
 const renderSingleStory = () => {
   $("main").on("click", () => {
     let storyID = $(event.target).parent()[0].id.slice(-1);
-    console.log(storyID);
+
     if (storyID) {
       $(".all-stories").empty();
+
       $.ajax("api/stories", { method: "get" })
         .then((res) => RenderSingleStory(res[storyID - 1]))
         .catch((err) => console.log(err));
@@ -89,6 +90,8 @@ const createSingleStory = (story) => {
       </wired-card>`
     );
   }
+
+  console.log($story);
 
   return $story;
 };

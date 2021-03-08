@@ -13,18 +13,17 @@
 let userStoriesOnly = () => {
   return $.ajax({
     method: "GET",
-    url: "/users/:userNAME"
-  })
+    url: "/users/:userNAME",
+  });
 };
 
 $(document).ready(() => {
-  $('#user-stories').on("click", (event) => {
+  $("#user-stories").on("click", (event) => {
     event.preventDefault();
 
-    userStoriesOnly()
-      .then((stories) => {
-        console.log(stories);
-        renderStories(stories);
-      })
-  })
+    userStoriesOnly().then((stories) => {
+      console.log(stories);
+      renderStories(stories);
+    });
+  });
 });
