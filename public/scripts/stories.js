@@ -92,22 +92,23 @@ const createSingleStory = (story) => {
 };
 
 const createNewStoryForm = () => {
-  let $newStory = $(`<wired-card elevation="4" id="new-story-form" class="new-story-form">
+  let $newStory = $(`<wired-card elevation="5" id="new-story-form" class="new-story-form">
   <header>
-    <span class="story-title">T.O.G</span>
+    <label> Story Title</label><wired-input class="story-title-input">T.O.G</wired-input>
   </header>
-  <p class="story-text">After a year of slavery in the Salt Mines of Endovier, Celaena Sardothien was accustomed to being escorted everywhere in...</p>
-  <span class="story-read-more">Read More</span>
-  <footer class="story-tags">
-    fantasy,romance
-
+  <wired-textarea placeholder="Thy Tale" rows="6" class="wired-rendered piece-text-box"></wired-textarea>
+  <footer class="story-tags-input">
+  <wired-input class="story-tags-input">T.O.G</wired-input>
+  <
   </footer>
   </wired-card>`);
 
   return $newStory;
 };
 
-const renderNewStoryForm = () => {};
+const renderNewStoryForm = () => {
+  $(".new-story").append(createNewStoryForm);
+};
 
 const backButton = () => {
   $(document).on("click", ".back-button", function () {
@@ -118,8 +119,8 @@ const backButton = () => {
 
 const mystoryButton = () => {
   $(document).on("click", "#user-stories", function () {
-    console.log("it's clicked");
     $(".single-story").empty();
+    $(".new-story").empty();
   });
 };
 
@@ -127,6 +128,7 @@ const newStoryButton = () => {
   $(document).on("click", "#newStory-button", function () {
     $(".all-stories").empty();
     $(".single-story").empty();
+    renderNewStoryForm();
   });
 };
 
