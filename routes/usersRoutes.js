@@ -8,7 +8,7 @@
 const express = require("express");
 const router = express.Router();
 
-const { getUserStories, newStory } = require("../lib/queries");
+const { getUserStories, newStory, getID } = require("../lib/queries");
 
 //HELPER FUNCTION (this needs to be moved):
 
@@ -29,7 +29,11 @@ router.get("/:userNAME", (req, res) => {
 
 //POST NEW STORY
 router.post("/:userNAME", (req, res) => {
-  newStory(req.body)
+  const username = req.session.username;
+  getID(username)
+    .then((id) => {
+      newStory(id, req.body)
+    })
     .then((newStory) => {
       res.json(newStory);
       //We should make this redirect to the edit-story page...
