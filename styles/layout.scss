@@ -5,6 +5,7 @@ body {
   background-color: #eee;
 
   h1 {
+    font-family: "Mali", cursive;
     color: #244751;
   }
 }
@@ -64,12 +65,13 @@ body {
     text-align: center;
     .story {
       //this is styling for individual story card
-
+      margin: 1rem;
+      padding: 2rem;
       transition: ease-in-out 0.3s;
       &:hover {
         background-color: white;
       }
-      margin: 1rem;
+
       .story-title {
         font-weight: 700;
       }
