@@ -18,7 +18,7 @@ router.post("/", (req, res) => {
     }
     if (user.username) {
       req.session.username = user.username;
-      res.redirect("/stories");
+      res.redirect("/");
     }
   });
 });
