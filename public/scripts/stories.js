@@ -94,19 +94,24 @@ const createSingleStory = (story) => {
 const createNewStoryForm = () => {
   let $newStory = $(`<wired-card elevation="5" id="new-story-form" class="new-story-form">
   <header>
-    <label> Story Title</label><wired-input class="story-title-input">T.O.G</wired-input>
+    <label for="story-title-input"> Story Title</label><wired-input class="story-title-input">T.O.G</wired-input>
   </header>
   <wired-textarea placeholder="Thy Tale" rows="6" class="wired-rendered piece-text-box"></wired-textarea>
   <footer class="story-tags-input">
-  <wired-input class="story-tags-input">T.O.G</wired-input>
-  <
+  <label for="story-tags-input"> Story Title</label><wired-input class="story-tags-input"></wired-input>
   </footer>
+  <form method="POST" action="/:userNAME">
+  <a class="nav-link" id="submit-new-story-button" href="#"
+    >submit <span class="sr-only">(current)</span></a
+  >
+  </form>
   </wired-card>`);
 
   return $newStory;
 };
 
 const renderNewStoryForm = () => {
+  $(".new-story").empty();
   $(".new-story").append(createNewStoryForm);
 };
 
@@ -129,6 +134,11 @@ const newStoryButton = () => {
     $(".all-stories").empty();
     $(".single-story").empty();
     renderNewStoryForm();
+  });
+};
+const submitNewStory = () => {
+  $(document).on("click", "#submit-new-story-button", function (event) {
+    event.preventDefault();
   });
 };
 
