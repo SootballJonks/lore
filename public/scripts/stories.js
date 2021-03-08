@@ -66,10 +66,10 @@ const createSingleStory = (story) => {
   <wired-card elevation="2" id="piece" class="piece"><div class=piece-content>This is one of the piece</div><wired-icon-button class="red wired-rendered">
   <i class="fas fa-heart"></i>
     </wired-icon-button></wired-card>
-
+<div class=contribution>
   <wired-textarea placeholder="Are you there Ashen One?" rows="6" class="wired-rendered piece-text-box"></wired-textarea>
     <wired-button id="btn2" class="back-button">Back</wired-button>
-
+</div>
   </wired-card>`);
   } else {
     $story = $(`<wired-card elevation="4" id="story-${story.id}" class="story">
