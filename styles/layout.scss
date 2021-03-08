@@ -6,7 +6,9 @@ body {
 
   h1 {
     font-family: "Mali", cursive;
-    color: #244751;
+    font-weight: 700;
+    color: white;
+    background-color: rgb(48, 48, 48);
   }
 }
 //this is the container for all the stories
@@ -119,17 +121,24 @@ body {
 }
 
 .login-card-container {
+  margin-top: 15rem;
+  font-family: "Mali", cursive;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  .login-card {
-    padding: 2em;
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
   }
   .email-input {
-    margin: 1em;
+    margin-left: 2rem;
   }
+
   .password-input {
-    margin: 1em;
+    margin: 1rem;
   }
 }

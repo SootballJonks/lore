@@ -23,22 +23,24 @@
   </head>
 
   <body>
-    <header>
-      <h1>Welcome to LORE!</h1>
-    </header>
     <div class="login-card-container">
-      <wired-card elevation="5" class="login-card">
-        <form action="/login" method="POST" class="login-form">
-          <div class="email-input">
-            <label for="">Your email</label>
-            <input type="email" name="email" class="input" />
-          </div>
-          <div class="email-input">
-            <label for="">Your password</label>
-            <input type="password" name="password" class="input" />
-          </div>
-          <input type="submit" class="submit" value="continue" />
-        </form>
+      <h1>Welcome to LORE!</h1>
+      <wired-card elevation="5">
+        <div class="login-card">
+          <form action="/login" method="POST" class="login-form">
+            <div class="email-input">
+              <label for="">Your email</label>
+              <input type="email" name="email" class="input" />
+            </div>
+            <div class="password-input">
+              <label for="">Your password</label>
+              <input type="password" name="password" class="input" />
+            </div>
+            <div class="login-button">
+              <input type="submit" class="submit" value="continue" />
+            </div>
+          </form>
+        </div>
       </wired-card>
     </div>
   </body>

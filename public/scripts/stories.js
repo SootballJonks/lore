@@ -89,8 +89,6 @@ const createSingleStory = (story) => {
     );
   }
 
-  console.log($story);
-
   return $story;
 };
 
