@@ -92,20 +92,20 @@ const createSingleStory = (story) => {
 };
 
 const createNewStoryForm = () => {
-  let $newStory = $(`<wired-card elevation="5" id="new-story-form" class="new-story-form">
+  let $newStory = $(`
+  <form id="submit-new-story" method="POST" action="/:userNAME">
+  <wired-card elevation="5" id="new-story-form" class="new-story-form">
   <header>
-    <label for="story-title-input"> Story Title</label><wired-input class="story-title-input">T.O.G</wired-input>
+    <label for="story-title-input"> Story Title</label><input id="story-title" class="story-title-input"></input>
   </header>
-  <wired-textarea placeholder="Thy Tale" rows="6" class="wired-rendered piece-text-box"></wired-textarea>
+  <textarea placeholder="Thy Tale" rows="6" class="wired-rendered piece-text-box"></textarea>
   <footer class="story-tags-input">
-  <label for="story-tags-input"> Story Title</label><wired-input class="story-tags-input"></wired-input>
+  <label for="story-tags-input"> Tags</label><input id="story-tags" class="story-tags-input"></input>
   </footer>
-  <form method="POST" action="/:userNAME">
-  <a class="nav-link" id="submit-new-story-button" href="#"
-    >submit <span class="sr-only">(current)</span></a
-  >
-  </form>
-  </wired-card>`);
+
+  <button type="submit">submit</button>
+  </wired-card>
+  </form>`);
 
   return $newStory;
 };
@@ -136,9 +136,18 @@ const newStoryButton = () => {
     renderNewStoryForm();
   });
 };
+
 const submitNewStory = () => {
-  $(document).on("click", "#submit-new-story-button", function (event) {
+  $(document).on("submit", "#submit-new-story", (event) => {
     event.preventDefault();
+    console.log($("#submit-new-story #story-title").val());
+    console.log($("#submit-new-story textarea").val());
+    console.log($("#submit-new-story textarea").val());
+    $.post("/api/stories", {})
+      .then((res) => console.log(res))
+      .catch((err) => {
+        console.log(err);
+      });
   });
 };
 
@@ -148,4 +157,5 @@ $(document).ready(() => {
   backButton();
   mystoryButton();
   newStoryButton();
+  submitNewStory();
 });
