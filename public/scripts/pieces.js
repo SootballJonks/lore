@@ -1,8 +1,13 @@
 const createExistingPieces = (pieces) => {
   $pieces = $(
-    `<wired-card elevation="2" id="piece-${pieces.id}" class="piece"><div class=piece-content>${pieces.text}</div><wired-icon-button class="red wired-rendered">
+    `<wired-card elevation="2" id="piece-${pieces.id}" class="piece">
+    <div class=piece-content>${pieces.text}</div>
+    <footer>
+    <wired-icon-button class="red wired-rendered">
     <i class="fas fa-heart"></i>
-  </wired-icon-button></wired-card>`
+    </wired-icon-button>
+    </footer>
+    </wired-card>`
   );
 
   return $pieces;
