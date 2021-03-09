@@ -9,8 +9,9 @@ const createNewStoryForm = () => {
   <footer class="story-tags-input">
   <label for="story-tags-input"> Tags</label><input type="tags" name="tags" id="story-tags" class="story-tags-input"></input>
   </footer>
-
+  <div class=new-story-submit-button>
   <button type="submit">submit</button>
+  </div>
   </wired-card>
   </form>`);
 
@@ -32,12 +33,13 @@ const newStoryButton = () => {
 const submitNewStory = () => {
   $(document).on("submit", "#submit-new-story", (event) => {
     event.preventDefault();
-
     const data = $("#submit-new-story").serialize();
     console.log(data);
-    createNewStory(data.body).catch((err) => {
-      console.log(err);
-    });
+    createNewStory(data)
+      .then((response) => console.log(response.body))
+      .catch((err) => {
+        console.log(err);
+      });
   });
 };
 

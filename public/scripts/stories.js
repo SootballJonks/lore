@@ -18,7 +18,9 @@ const renderStories = (stories) => {
 const createStories = (story) => {
   let snippet = "";
   for (let i = 0; i < 120; i++) {
-    snippet += story.text[i];
+    if (story.text[i]) {
+      snippet += story.text[i];
+    }
   }
   let $story = $(`<wired-card elevation="4" id="story-${story.id}" class="story">
   <header>
@@ -44,7 +46,6 @@ const renderSingleStory = () => {
       $.ajax("api/stories", { method: "GET" })
         .then((res) => RenderSingleStory(res[storyID - 1]))
         .catch((err) => console.log(err));
-
     }
   });
 };
@@ -97,97 +98,10 @@ const createSingleStory = (story) => {
   return $story;
 };
 
-//SUBMIT PIECE TO STORY
-const submitPiece = () => {
-  $(document).on("click", '#submit-piece-btn', (event) => {
-    event.preventDefault();
-
-    let username = sessionUsername();
-    let  storyID = $($story).find(".storyID").attr('name');
-    let  text = $($story).find("wired-textarea").val();
-    console.log("username inside submitPiece: ", username);
-    console.log("StoryID inside submitPiece: ", storyID);
-    console.log("text inside submitPiece: ", text);
-
-  //   $.ajax({
-  //     method: 'post',
-  //     url: '/api/pieces',
-  //     data: { username: username, storyID: storyID, text: text }
-  //   })
-  //     .then((res) => {
-  //       console.log(res)
-  //     })
-  })
-}
-
-
-
-//LOAD CONTRIBUTIONS FROM DATABASE (3-step process)
-const createExistingPieces = (pieces) => {
-    $pieces = $(
-      `<wired-card elevation="2" id="piece-${pieces.id}" class="piece"><div class=piece-content>${pieces.text}</div><wired-icon-button class="red wired-rendered">
-      <i class="fas fa-heart"></i>
-    </wired-icon-button></wired-card>`
-    )
-
-  return $pieces;
-}
-
-const renderPieces = () => {
-  $("main").on("click", () => {
-    let storyID = $(event.target).parent()[0].id.slice(-1);
-
-    if (storyID) {
-      $(".all-stories").empty();
-
-      $.ajax(`api/pieces/${storyID}`, { method: "get" })
-        .then((res) => {
-          console.log(res);
-          return res.forEach((piece) => {
-            RenderPieces(piece)
-          })
-        })
-        .catch((err) => console.log(err));
-
-    }
-  });
-}
-
-const RenderPieces = (pieces) => {
-  $(".pieces-spot").append(createExistingPieces(pieces));
-}
-
-//--------------------------------------
-
-const backButton = () => {
-  $(document).on("click", ".back-button", function () {
-    $(".single-story").empty();
-    loadStories(renderStories);
-  });
-};
-
-const mystoryButton = () => {
-  $(document).on("click", "#user-stories", function () {
-    $(".single-story").empty();
-    $(".new-story").empty();
-  });
-};
-const allStoriesButton = () => {
-  $(document).on("click", "#all-user-stories", function () {
-    $(".single-story").empty();
-    $(".new-story").empty();
-    loadStories(renderStories);
-  });
-};
 
 $(document).ready(() => {
   renderSingleStory();
-  renderPieces();
   loadStories(renderStories);
-  backButton();
-  mystoryButton();
-  submitPiece();
-  newStoryButton();
   submitNewStory();
   allStoriesButton();
 });
