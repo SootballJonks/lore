@@ -44,6 +44,7 @@ const renderSingleStory = () => {
       $.ajax("api/stories", { method: "get" })
         .then((res) => RenderSingleStory(res[storyID - 1]))
         .catch((err) => console.log(err));
+
     }
   });
 };

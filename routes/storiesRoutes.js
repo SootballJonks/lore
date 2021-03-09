@@ -23,17 +23,7 @@ router.get("/", (req, res) => {
     });
 });
 
-//GET PIECES FOR SPECIFIC STORY
-router.get("/:userNAME/:storyID", (req, res) => {
 
-  getAllPieces(req.params.storyID)
-  .then((pieces) => {
-    res.json(pieces);
-  })
-  .catch((err) => {
-    res.status(500).json({ error: err.message });
-  });
-});
 
 //POST SEARCH FOR SPECIFIC STORIES (*stretch*)
 router.get("/search", (req, res) => {

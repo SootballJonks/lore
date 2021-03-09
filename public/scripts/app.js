@@ -22,7 +22,6 @@ $(document).ready(() => {
     event.preventDefault();
 
     userStoriesOnly().then((stories) => {
-      console.log(stories);
       renderStories(stories);
     });
   });

@@ -6,7 +6,6 @@ const router = express.Router();
 
 //If logged in, it will render the homepage. If not, redirects to login. Only users can access the website.
 router.get("/", (req, res) => {
-  console.log("req session: ", req.session.username)
   const username = req.session.username;
 
   if (!username) {
