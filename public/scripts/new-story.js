@@ -1,5 +1,5 @@
-const createNewStoryForm = () => {
-  let $newStory = $(`
+$(() => {
+  const $newStoryForm = $(`
   <form id="submit-new-story" method="POST" action="/:userNAME">
   <wired-card elevation="5" id="new-story-form" class="new-story-form">
   <header>
@@ -13,6 +13,10 @@ const createNewStoryForm = () => {
   <button type="submit">submit</button>
   </wired-card>
   </form>`);
+});
 
-  return $newStory;
-};
+window.$newStoryForm = $newStoryForm;
+
+$newStoryForm.on("submit", function (event) {
+  event.preventDefault();
+});
