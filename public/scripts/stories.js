@@ -112,6 +112,5 @@ const storyIDSlicer = (storyIDAttr) => {
 $(document).ready(() => {
   renderSingleStory();
   loadStories(renderStories);
-  submitNewStory();
   allStoriesButton();
 });
