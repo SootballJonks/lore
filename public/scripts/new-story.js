@@ -34,7 +34,7 @@ const submitNewStory = () => {
     event.preventDefault();
 
     const data = $("#submit-new-story").serialize();
-
+    console.log(data);
     createNewStory(data.body).catch((err) => {
       console.log(err);
     });
