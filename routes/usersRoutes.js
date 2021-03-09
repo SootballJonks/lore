@@ -29,11 +29,9 @@ router.get("/:userNAME", (req, res) => {
 //POST NEW STORY (change route and move elsewhere)
 router.post("/:userNAME", (req, res) => {
   const username = req.session.username;
-  console.log(username);
-  console.log("request body: ", req.body);
   getID(username)
     .then((id) => {
-      return newStory(1, req.body);
+      return newStory(id, req.body);
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
@@ -42,9 +40,9 @@ router.post("/:userNAME", (req, res) => {
 
 //GET SESSION USERNAME
 
-router.get('/', (req, res) => {
+router.get("/", (req, res) => {
   const username = req.session.username;
   res.send(username);
-})
+});
 
 module.exports = router;

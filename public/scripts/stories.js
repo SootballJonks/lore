@@ -38,9 +38,10 @@ const createStories = (story) => {
 };
 
 const renderSingleStory = () => {
-  $("main").on("click", () => {
-    let storyID = $(event.target).parent()[0].id.slice(-1);
-
+  $("main").on("click", (event) => {
+    //get the attribute Story ID and select parent
+    let storyIDAttr = $(event.target).parent()[0].id;
+    let storyID = storyIDSlicer(storyIDAttr);
     if (storyID) {
       $(".all-stories").empty();
       $.ajax("api/stories", { method: "GET" })
@@ -98,6 +99,15 @@ const createSingleStory = (story) => {
   return $story;
 };
 
+const storyIDSlicer = (storyIDAttr) => {
+  let storyID = "";
+  for (let i = 0; i < storyIDAttr.length; i++) {
+    if (storyIDAttr.charCodeAt(i) > 47 && storyIDAttr.charCodeAt(i) < 58) {
+      storyID += storyIDAttr[i];
+    }
+  }
+  return storyID;
+};
 
 $(document).ready(() => {
   renderSingleStory();
