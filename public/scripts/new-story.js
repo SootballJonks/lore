@@ -21,3 +21,27 @@ const renderNewStoryForm = () => {
   $(".new-story").empty();
   $(".new-story").append(createNewStoryForm);
 };
+const newStoryButton = () => {
+  $(document).on("click", "#newStory-button", function () {
+    $(".all-stories").empty();
+    $(".single-story").empty();
+    renderNewStoryForm();
+  });
+};
+
+const submitNewStory = () => {
+  $(document).on("submit", "#submit-new-story", (event) => {
+    event.preventDefault();
+
+    const data = $("#submit-new-story").serialize();
+
+    createNewStory(data).then((response) => {
+      return response.body;
+    });
+  });
+};
+
+$(document).ready(() => {
+  newStoryButton();
+  submitNewStory();
+});
