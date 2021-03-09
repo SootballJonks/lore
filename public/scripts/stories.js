@@ -68,13 +68,15 @@ const createSingleStory = (story) => {
         <p class="story-text">${story.text}</p>
         <div class="pieces-spot">
         </div>
-        <form id="submit-piece" method="POST" action="/api/pieces">
+        <form id="submit-piece">
+          <span class="storyID" name="${story.id}"></span>
           <div class="contribution">
           <wired-textarea placeholder="Are you there Ashen One?" rows="6" class="wired-rendered piece-text-box"></wired-textarea>
           <button id="submit-piece-btn" type="submit">submit</button>
-          <wired-button id="btn2" class="back-button">Back</wired-button>
-          </div>
         </form>
+
+          <wired-button id="btn2" class="back-button">Back</wired-button>
+        </div>
       </wired-card>`
     );
   } else {
@@ -96,7 +98,6 @@ const createSingleStory = (story) => {
   return $story;
 };
 
-//SUBMIT PIECE TO STORY
 
 $(document).ready(() => {
   renderSingleStory();
