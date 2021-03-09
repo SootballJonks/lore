@@ -5,8 +5,12 @@ const { addNewPiece, getAllPieces, addPieceToStory, getID } = require("../lib/qu
 
 //SUBMIT A PIECE TO STORY AS PENDING
 router.post("/", (req, res) => {
-  console.log("POST Request: ", req.body);
-  addNewPiece(req.body)
+
+  const username = req.session.username;
+  getID(username)
+    .then((id) => {
+      return addNewPiece(id, req.body);
+    })
     .then((piece) => {
       res.json(piece);
     })
