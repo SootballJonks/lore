@@ -13,4 +13,10 @@ function searchStories(params) {
   });
 }
 
-
+// const submitNewStory = function (data) {
+//   return $.ajax({
+//     method: "POST",
+//     url: "/api/stories",
+//     data,
+//   });
+// };

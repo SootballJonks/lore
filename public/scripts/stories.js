@@ -1,6 +1,7 @@
 //Load all the stories from
+
 const loadStories = (action) => {
-  $.ajax("api/stories", { method: "get" })
+  $.ajax("api/stories", { method: "GET" })
     .then((res) => action(res))
     .catch((err) => console.log(err));
 };
@@ -40,7 +41,7 @@ const renderSingleStory = () => {
 
     if (storyID) {
       $(".all-stories").empty();
-      $.ajax("api/stories", { method: "get" })
+      $.ajax("api/stories", { method: "GET" })
         .then((res) => RenderSingleStory(res[storyID - 1]))
         .catch((err) => console.log(err));
     }
@@ -140,11 +141,20 @@ const newStoryButton = () => {
 const submitNewStory = () => {
   $(document).on("submit", "#submit-new-story", (event) => {
     event.preventDefault();
-    console.log($("#submit-new-story #story-title").val());
-    console.log($("#submit-new-story textarea").val());
-    console.log($("#submit-new-story textarea").val());
-    $.post("/api/stories", {})
-      .then((res) => console.log(res))
+    $storyTitle = $("#submit-new-story #story-title").val();
+    $storyContent = $("#submit-new-story textarea").val();
+    $storyTag = $("#story-tags").val();
+
+    let data = {
+      title: $storyTitle,
+      text: $storyContent,
+      tags: $storyTag,
+    };
+
+    $.ajax({ url: "api/stories", method: "POST", data: data })
+      .then((res) => {
+        console.log(res);
+      })
       .catch((err) => {
         console.log(err);
       });
