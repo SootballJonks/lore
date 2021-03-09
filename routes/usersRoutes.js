@@ -29,7 +29,7 @@ router.get("/:userNAME", (req, res) => {
 //POST NEW STORY
 router.post("/:userNAME", (req, res) => {
   const username = req.session.username;
-  console.log(username);
+
   getID(username)
     .then((id) => {
       newStory(id, req.body);
@@ -41,9 +41,6 @@ router.post("/:userNAME", (req, res) => {
     .catch((err) => {
       res.status(500).json({ error: err.message });
     });
-
-  console.log(req);
-  console.log(res);
 });
 
 module.exports = router;

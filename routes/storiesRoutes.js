@@ -9,6 +9,7 @@ const express = require("express");
 const router = express.Router();
 
 const {
+  newStory,
   getAllStories,
   getAllPieces,
   searchStories,
@@ -23,6 +24,9 @@ router.get("/", (req, res) => {
     .catch((err) => {
       res.status(500).json({ error: err.message });
     });
+});
+router.post("/", (req, res) => {
+  console.log(res);
 });
 
 //GET PIECES FOR SPECIFIC STORY
