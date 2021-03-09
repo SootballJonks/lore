@@ -28,7 +28,7 @@ app.use(
   })
 );
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(
   "/styles",
   sass({
@@ -68,7 +68,6 @@ app.use(express.static("public"));
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
-
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

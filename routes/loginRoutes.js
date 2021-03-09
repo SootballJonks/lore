@@ -11,17 +11,17 @@ router.get("/", (req, res) => {
 //Post route to log in with email (does not check password)
 router.post("/", (req, res) => {
   const email = req.body.email;
-  console.log(req);
   //const password = req.body.password;
-  checkEmail(email).then((user) => {
-    if (!user.username) {
-      res.status(403).send(`User does not exist!`);
-    }
-    if (user.username) {
-      req.session.username = user.username;
-      res.redirect("/");
-    }
-  });
+  checkEmail(email)
+    .then((user) => {
+      if (!user.username) {
+        res.status(403).send(`User does not exist!`);
+      }
+      if (user.username) {
+        req.session.username = user.username;
+        res.redirect("/");
+      }
+    });
 });
 
 router.post("/logout", (req, res) => {

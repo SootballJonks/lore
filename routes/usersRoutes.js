@@ -12,7 +12,6 @@ const { getUserStories, newStory, getID } = require("../lib/queries");
 
 //HELPER FUNCTION (this needs to be moved):
 
-
 //-------------
 
 //GET USER-SPECIFIC STORIES
@@ -27,20 +26,25 @@ router.get("/:userNAME", (req, res) => {
     });
 });
 
-//POST NEW STORY
+//POST NEW STORY (change route and move elsewhere)
 router.post("/:userNAME", (req, res) => {
   const username = req.session.username;
+  console.log(username);
+  console.log("request body: ", req.body);
   getID(username)
     .then((id) => {
-      newStory(id, req.body)
-    })
-    .then((newStory) => {
-      res.json(newStory);
-      //We should make this redirect to the edit-story page...
+      return newStory(id, req.body);
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
     });
+});
+
+//GET SESSION USERNAME
+
+router.get('/', (req, res) => {
+  const username = req.session.username;
+  res.send(username);
 })
 
 module.exports = router;

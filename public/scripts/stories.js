@@ -1,6 +1,7 @@
 //Load all the stories from
+
 const loadStories = (action) => {
-  $.ajax("api/stories", { method: "get" })
+  $.ajax("api/stories", { method: "GET" })
     .then((res) => action(res))
     .catch((err) => console.log(err));
 };
@@ -17,7 +18,9 @@ const renderStories = (stories) => {
 const createStories = (story) => {
   let snippet = "";
   for (let i = 0; i < 120; i++) {
-    snippet += story.text[i];
+    if (story.text[i]) {
+      snippet += story.text[i];
+    }
   }
   let $story = $(`<wired-card elevation="4" id="story-${story.id}" class="story">
   <header>
@@ -40,8 +43,7 @@ const renderSingleStory = () => {
 
     if (storyID) {
       $(".all-stories").empty();
-
-      $.ajax("api/stories", { method: "get" })
+      $.ajax("api/stories", { method: "GET" })
         .then((res) => RenderSingleStory(res[storyID - 1]))
         .catch((err) => console.log(err));
     }
@@ -59,17 +61,21 @@ const createSingleStory = (story) => {
         <header>
           <span class="story-title">${story.title}</span>
         </header>
-        <p class="story-text">${story.text}</p>
         <footer class="story-tags">
-          ${story.tags}
-          </div>
-        </footer>
-        <wired-card elevation="2" id="piece" class="piece"><div class=piece-content>This is one of the piece</div><wired-icon-button class="red wired-rendered">
-          <i class="fas fa-heart"></i>
-        </wired-icon-button></wired-card>
-        <div class="contribution">
-        <wired-textarea placeholder="Are you there Ashen One?" rows="6" class="wired-rendered piece-text-box"></wired-textarea>
-        <wired-button id="btn2" class="back-button">Back</wired-button>
+        ${story.tags}
+        </div>
+      </footer>
+        <p class="story-text">${story.text}</p>
+        <div class="pieces-spot">
+        </div>
+        <form id="submit-piece">
+          <span class="storyID" name="${story.id}"></span>
+          <div class="contribution">
+          <wired-textarea placeholder="Are you there Ashen One?" rows="6" class="wired-rendered piece-text-box"></wired-textarea>
+          <button id="submit-piece-btn" type="submit">submit</button>
+        </form>
+
+          <wired-button id="btn2" class="back-button">Back</wired-button>
         </div>
       </wired-card>`
     );
@@ -92,22 +98,9 @@ const createSingleStory = (story) => {
   return $story;
 };
 
-const backButton = () => {
-  $(document).on("click", ".back-button", function () {
-    $(".single-story").empty();
-    loadStories(renderStories);
-  });
-};
-
-const mystoryButton = () => {
-  $(document).on("click", "#user-stories", function () {
-    $(".single-story").empty();
-  });
-};
 
 $(document).ready(() => {
   renderSingleStory();
   loadStories(renderStories);
-  backButton();
-  mystoryButton();
+  allStoriesButton();
 });

@@ -10,7 +10,7 @@
 //   });
 // });
 
-let userStoriesOnly = () => {
+const userStoriesOnly = () => {
   return $.ajax({
     method: "GET",
     url: "/users/:userNAME",
@@ -22,7 +22,6 @@ $(document).ready(() => {
     event.preventDefault();
 
     userStoriesOnly().then((stories) => {
-      console.log(stories);
       renderStories(stories);
     });
   });
