@@ -26,7 +26,7 @@ router.get("/:userNAME", (req, res) => {
     });
 });
 
-//POST NEW STORY
+//POST NEW STORY (change route and move elsewhere)
 router.post("/:userNAME", (req, res) => {
   const username = req.session.username;
   console.log("request body: ", req.body);
@@ -42,5 +42,12 @@ router.post("/:userNAME", (req, res) => {
       res.status(500).json({ error: err.message });
     });
 });
+
+//GET SESSION USERNAME
+
+router.get('/', (req, res) => {
+  const username = req.session.username;
+  res.send(username);
+})
 
 module.exports = router;

@@ -67,13 +67,15 @@ const createSingleStory = (story) => {
         <p class="story-text">${story.text}</p>
         <div class="pieces-spot">
         </div>
-        <form id="submit-piece" method="POST" action="/api/pieces">
+        <form id="submit-piece">
+          <span class="storyID" name="${story.id}"></span>
           <div class="contribution">
           <wired-textarea placeholder="Are you there Ashen One?" rows="6" class="wired-rendered piece-text-box"></wired-textarea>
           <button id="submit-piece-btn" type="submit">submit</button>
-          <wired-button id="btn2" class="back-button">Back</wired-button>
-          </div>
         </form>
+
+          <wired-button id="btn2" class="back-button">Back</wired-button>
+        </div>
       </wired-card>`
     );
   } else {
@@ -97,16 +99,24 @@ const createSingleStory = (story) => {
 
 //SUBMIT PIECE TO STORY
 const submitPiece = () => {
-  $('#submit-piece-btn').on("click", (event) => {
+  $(document).on("click", '#submit-piece-btn', (event) => {
     event.preventDefault();
-    console.log("Submitting piece to story...")
-    $.ajax('/api/pieces', {
-      method: 'post',
-      data
-    })
-      .then((res) => {
-        console.log(res)
-      })
+
+    let username = sessionUsername();
+    let  storyID = $($story).find(".storyID").attr('name');
+    let  text = $($story).find("wired-textarea").val();
+    console.log("username inside submitPiece: ", username);
+    console.log("StoryID inside submitPiece: ", storyID);
+    console.log("text inside submitPiece: ", text);
+
+  //   $.ajax({
+  //     method: 'post',
+  //     url: '/api/pieces',
+  //     data: { username: username, storyID: storyID, text: text }
+  //   })
+  //     .then((res) => {
+  //       console.log(res)
+  //     })
   })
 }
 
