@@ -1,6 +1,7 @@
 //Load all the stories from
+
 const loadStories = (action) => {
-  $.ajax("api/stories", { method: "get" })
+  $.ajax("api/stories", { method: "GET" })
     .then((res) => action(res))
     .catch((err) => console.log(err));
 };
@@ -40,8 +41,7 @@ const renderSingleStory = () => {
 
     if (storyID) {
       $(".all-stories").empty();
-
-      $.ajax("api/stories", { method: "get" })
+      $.ajax("api/stories", { method: "GET" })
         .then((res) => RenderSingleStory(res[storyID - 1]))
         .catch((err) => console.log(err));
 
@@ -159,6 +159,14 @@ const backButton = () => {
 const mystoryButton = () => {
   $(document).on("click", "#user-stories", function () {
     $(".single-story").empty();
+    $(".new-story").empty();
+  });
+};
+const allStoriesButton = () => {
+  $(document).on("click", "#all-user-stories", function () {
+    $(".single-story").empty();
+    $(".new-story").empty();
+    loadStories(renderStories);
   });
 };
 
@@ -169,4 +177,7 @@ $(document).ready(() => {
   backButton();
   mystoryButton();
   submitPiece();
+  newStoryButton();
+  submitNewStory();
+  allStoriesButton();
 });

@@ -8,9 +8,11 @@
 const express = require("express");
 const router = express.Router();
 
-const { getAllStories, searchStories } = require("../lib/queries");
-
-
+const {
+  getAllStories,
+  getAllPieces,
+  searchStories,
+} = require("../lib/queries");
 
 //GET All STORIES
 router.get("/", (req, res) => {
@@ -23,7 +25,16 @@ router.get("/", (req, res) => {
     });
 });
 
-
+//GET PIECES FOR SPECIFIC STORY
+router.get("/:userNAME/:storyID", (req, res) => {
+  getAllPieces(req.params.storyID)
+    .then((pieces) => {
+      res.json(pieces);
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+});
 
 //POST SEARCH FOR SPECIFIC STORIES (*stretch*)
 router.get("/search", (req, res) => {
@@ -32,7 +43,7 @@ router.get("/search", (req, res) => {
       res.json(stories);
     })
     .catch((err) => {
-        res.status(500).json({ error: err.message });
+      res.status(500).json({ error: err.message });
     });
 });
 

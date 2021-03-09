@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const { addNewPiece, getAllPieces, addPieceToStory } = require("../lib/queries");
+const { addNewPiece, getAllPieces, addPieceToStory, getID } = require("../lib/queries");
 
 //SUBMIT A PIECE TO STORY AS PENDING
 router.post("/", (req, res) => {

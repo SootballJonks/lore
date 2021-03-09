@@ -12,7 +12,6 @@ const { getUserStories, newStory, getID } = require("../lib/queries");
 
 //HELPER FUNCTION (this needs to be moved):
 
-
 //-------------
 
 //GET USER-SPECIFIC STORIES
@@ -30,9 +29,10 @@ router.get("/:userNAME", (req, res) => {
 //POST NEW STORY
 router.post("/:userNAME", (req, res) => {
   const username = req.session.username;
+  console.log("request body: ", req.body);
   getID(username)
     .then((id) => {
-      newStory(id, req.body)
+      newStory(id, req.body);
     })
     .then((newStory) => {
       res.json(newStory);
@@ -41,6 +41,6 @@ router.post("/:userNAME", (req, res) => {
     .catch((err) => {
       res.status(500).json({ error: err.message });
     });
-})
+});
 
 module.exports = router;

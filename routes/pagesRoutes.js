@@ -1,6 +1,5 @@
 //This is pages routes. It will do all the GET and POST methods to direct and redirect
 
-const { request } = require("express");
 const express = require("express");
 const router = express.Router();
 
@@ -15,6 +14,5 @@ router.get("/", (req, res) => {
     res.render("index"); //index is our homepage. stories.ejs is now obsolete
   }
 });
-
 
 module.exports = router;
