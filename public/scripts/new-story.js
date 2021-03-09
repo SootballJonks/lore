@@ -1,6 +1,6 @@
-$(() => {
-  const $newStoryForm = $(`
-  <form id="submit-new-story" method="POST" action="/:userNAME">
+const createNewStoryForm = () => {
+  let $newStory = $(`
+  <form id="submit-new-story" class="sumbit-new-story method="POST" >
   <wired-card elevation="5" id="new-story-form" class="new-story-form">
   <header>
     <label for="story-title-input"> Story Title</label><input type="title" name="title" id="story-title" class="story-title-input"></input>
@@ -13,10 +13,11 @@ $(() => {
   <button type="submit">submit</button>
   </wired-card>
   </form>`);
-});
 
-window.$newStoryForm = $newStoryForm;
+  return $newStory;
+};
 
-$newStoryForm.on("submit", function (event) {
-  event.preventDefault();
-});
+const renderNewStoryForm = () => {
+  $(".new-story").empty();
+  $(".new-story").append(createNewStoryForm);
+};

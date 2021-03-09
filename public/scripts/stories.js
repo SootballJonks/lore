@@ -94,7 +94,7 @@ const createSingleStory = (story) => {
 
 const createNewStoryForm = () => {
   let $newStory = $(`
-  <form id="submit-new-story" method="POST" action="/:userNAME">
+  <form id="submit-new-story" class="sumbit-new-story method="POST" >
   <wired-card elevation="5" id="new-story-form" class="new-story-form">
   <header>
     <label for="story-title-input"> Story Title</label><input type="title" name="title" id="story-title" class="story-title-input"></input>
@@ -140,11 +140,13 @@ const newStoryButton = () => {
 
 const submitNewStory = () => {
   $(document).on("submit", "#submit-new-story", (event) => {
-    console.log("debugger");
-    event;
-    $storyTitle = $("#submit-new-story #story-title").val();
-    $storyContent = $("#submit-new-story textarea").val();
-    $storyTag = $("#story-tags").val();
+    event.preventDefault();
+
+    const data = $("#submit-new-story").serialize();
+
+    createNewStory(data).then((response) => {
+      console.log(response);
+    });
   });
 };
 
