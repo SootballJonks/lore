@@ -10,7 +10,7 @@
 //   });
 // });
 
-let userStoriesOnly = () => {
+const userStoriesOnly = () => {
   return $.ajax({
     method: "GET",
     url: "/users/:userNAME",
