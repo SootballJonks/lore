@@ -8,7 +8,7 @@
 const express = require("express");
 const router = express.Router();
 
-const { getAllStories, getAllPieces, searchStories } = require("../lib/queries");
+const { getAllStories, searchStories } = require("../lib/queries");
 
 
 

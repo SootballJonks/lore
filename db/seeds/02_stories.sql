@@ -20,5 +20,17 @@ VALUES
     'Time passed rather slowly for the princes sequestered high above the Grand Archives, at the top of Lothric Castle. Ever since they both agreed to let the fire die, having locked themselves away in the younger brother’s bedchamber, Lorian found himself in a state of dormancy he was unaccustomed to. Lorian had bared his brother’s curse to help ease their suffering, and in turn, he had gone from being a skilled and revered knight to being one unable to walk or speak. And, while he was reconciled to his fate & acquired disabilities, there were certainly times where he yearned to spar on the training grounds again, or laugh with comrades in the barracks.
 
     Just how many hours, days, months—perhaps even years—have now passed with him watching the dust swirl in the fleeting sunlight, as he rests beside Lothric? And just how many more until the fire finally fades? Is time even progressing as they lay in meditative silence? Lorian strived to push such thoughts out of his mind, for the sake of his own sanity.',
-    ARRAY ['fanfiction', 'darksouls']
+    ARRAY ['fanfiction', 'darksouls', 'twinprinces', 'lothric']
+  );
+
+INSERT INTO
+  stories (user_id, title, text, tags)
+VALUES
+  (
+    2,
+    'Gargoyle Knight Eygon',
+    'You head toward the nearby light beyond this dank dungeon, unlocking the final barred door to your freedom. Closing your eyes as you step outside, you inhale a long, wistful breath of fresh air, before opening your eyes again only to immediately choke back a horrified shriek. Because right ahead of you, sitting at the edge of the nearby cliff, is a giant man in a beastial, horned mask, and he’s looking directly at you.
+
+    But as you cling to your chest like a startled old crone suffering a heart attack, you slowly realize that the man hasn’t moved an inch, and must in fact be an actual stone gargoyle, as his beastly helm might suggest. And it makes sense, really, for surely no one is actually strong enough to walk about clad in all that heavy, stone-like armor, while also carrying that massive great hammer resting perfectly still across its shoulder. Not to mention the heavy looking shield set beside the stone beast, the shape of it so large that you wonder if you’d even be able to drag it along with you should you feel so inclined to take it.',
+    ARRAY ['eygon', 'fanfiction', 'darksouls']
   );
