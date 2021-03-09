@@ -95,45 +95,10 @@ const createSingleStory = (story) => {
 };
 
 //SUBMIT PIECE TO STORY
-const submitPiece = () => {
-  $("#submit-piece-btn").on("click", (event) => {
-    event.preventDefault();
-    console.log("Submitting piece to story...");
-    $.ajax("/api/pieces", {
-      method: "post",
-      data,
-    }).then((res) => {
-      console.log(res);
-    });
-  });
-};
-const backButton = () => {
-  $(document).on("click", ".back-button", function () {
-    $(".single-story").empty();
-    loadStories(renderStories);
-  });
-};
-
-const mystoryButton = () => {
-  $(document).on("click", "#user-stories", function () {
-    $(".single-story").empty();
-    $(".new-story").empty();
-  });
-};
-const allStoriesButton = () => {
-  $(document).on("click", "#all-user-stories", function () {
-    $(".single-story").empty();
-    $(".new-story").empty();
-    loadStories(renderStories);
-  });
-};
 
 $(document).ready(() => {
   renderSingleStory();
   loadStories(renderStories);
-  backButton();
-  mystoryButton();
-  newStoryButton();
   submitNewStory();
   allStoriesButton();
 });

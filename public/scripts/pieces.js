@@ -31,6 +31,19 @@ const RenderPieces = (pieces) => {
   $(".pieces-spot").append(createExistingPieces(pieces));
 };
 
+const submitPiece = () => {
+  $("#submit-piece-btn").on("click", (event) => {
+    event.preventDefault();
+    console.log("Submitting piece to story...");
+    $.ajax("/api/pieces", {
+      method: "post",
+      data,
+    }).then((res) => {
+      console.log(res);
+    });
+  });
+};
+
 $(document).ready(() => {
   submitPiece();
   renderPieces();
