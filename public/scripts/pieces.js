@@ -14,7 +14,7 @@ const createExistingPieces = (pieces) => {
 };
 
 const renderPieces = () => {
-  $("main").on("click", () => {
+  $("main").on("click", (event) => {
     let storyIDAttr = $(event.target).parent()[0].id;
     let storyID = storyIDSlicer(storyIDAttr);
 
