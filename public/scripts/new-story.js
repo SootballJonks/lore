@@ -9,8 +9,9 @@ const createNewStoryForm = () => {
   <footer class="story-tags-input">
   <label for="story-tags-input"> Tags</label><input type="tags" name="tags" id="story-tags" class="story-tags-input"></input>
   </footer>
-
+  <div class=new-story-submit-button>
   <button type="submit">submit</button>
+  </div>
   </wired-card>
   </form>`);
 
