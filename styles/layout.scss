@@ -64,6 +64,7 @@ button {
   &:focus {
     outline: none;
   }
+  background-color: transparent;
 }
 
 .single-story-container {
@@ -71,6 +72,9 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  .piece {
+    max-width: 30rem;
+  }
   .single-story {
     display: flex;
     flex-direction: column;
