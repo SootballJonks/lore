@@ -105,6 +105,13 @@ const mystoryButton = () => {
     $(".new-story").empty();
   });
 };
+const allStoriesButton = () => {
+  $(document).on("click", "#all-user-stories", function () {
+    $(".single-story").empty();
+    $(".new-story").empty();
+    loadStories(renderStories);
+  });
+};
 
 $(document).ready(() => {
   renderSingleStory();
@@ -113,4 +120,5 @@ $(document).ready(() => {
   mystoryButton();
   newStoryButton();
   submitNewStory();
+  allStoriesButton();
 });
