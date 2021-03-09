@@ -37,27 +37,22 @@ const RenderPieces = (pieces) => {
   $(".pieces-spot").append(createExistingPieces(pieces));
 };
 
+//-------------
+
 
 //SUBMIT PIECES TO THE STORY AS PENDING
 const submitPiece = () => {
   $(document).on("click", '#submit-piece-btn', (event) => {
     event.preventDefault();
 
-    let username = sessionUsername();
     let  storyID = $($story).find(".storyID").attr('name');
     let  text = $($story).find("wired-textarea").val();
-    console.log("username inside submitPiece: ", username);
-    console.log("StoryID inside submitPiece: ", storyID);
-    console.log("text inside submitPiece: ", text);
 
-  //   $.ajax({
-  //     method: 'post',
-  //     url: '/api/pieces',
-  //     data: { username: username, storyID: storyID, text: text }
-  //   })
-  //     .then((res) => {
-  //       console.log(res)
-  //     })
+    $.ajax({
+      method: 'post',
+      url: '/api/pieces',
+      data: { storyID: storyID, text: text }
+    })
   })
 };
 

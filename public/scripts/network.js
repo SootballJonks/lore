@@ -32,6 +32,7 @@ const sessionUsername = () => {
     url: "/users"
   })
     .then(res => {
+      console.log("res: ", res);
       return res;
     })
 }
