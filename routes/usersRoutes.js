@@ -29,7 +29,7 @@ router.get("/:userNAME", (req, res) => {
 //POST NEW STORY
 router.post("/:userNAME", (req, res) => {
   const username = req.session.username;
-
+  console.log("request body: ", req.body);
   getID(username)
     .then((id) => {
       newStory(id, req.body);

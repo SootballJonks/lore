@@ -16,7 +16,7 @@ function searchStories(params) {
 const createNewStory = function (data) {
   return $.ajax({
     method: "POST",
-    url: "/api/stories",
+    url: "/users/:userNAME",
     data,
   });
 };

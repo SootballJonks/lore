@@ -44,6 +44,7 @@ const renderSingleStory = () => {
       $.ajax("api/stories", { method: "GET" })
         .then((res) => RenderSingleStory(res[storyID - 1]))
         .catch((err) => console.log(err));
+
     }
   });
 };
@@ -59,18 +60,20 @@ const createSingleStory = (story) => {
         <header>
           <span class="story-title">${story.title}</span>
         </header>
-        <p class="story-text">${story.text}</p>
         <footer class="story-tags">
-          ${story.tags}
-          </div>
-        </footer>
-        <wired-card elevation="2" id="piece" class="piece"><div class=piece-content>This is one of the piece</div><wired-icon-button class="red wired-rendered">
-          <i class="fas fa-heart"></i>
-        </wired-icon-button></wired-card>
-        <div class="contribution">
-        <wired-textarea placeholder="Are you there Ashen One?" rows="6" class="wired-rendered piece-text-box"></wired-textarea>
-        <wired-button id="btn2" class="back-button">Back</wired-button>
+        ${story.tags}
         </div>
+      </footer>
+        <p class="story-text">${story.text}</p>
+        <div class="pieces-spot">
+        </div>
+        <form id="submit-piece" method="POST" action="/api/pieces">
+          <div class="contribution">
+          <wired-textarea placeholder="Are you there Ashen One?" rows="6" class="wired-rendered piece-text-box"></wired-textarea>
+          <button id="submit-piece-btn" type="submit">submit</button>
+          <wired-button id="btn2" class="back-button">Back</wired-button>
+          </div>
+        </form>
       </wired-card>`
     );
   } else {
@@ -91,6 +94,60 @@ const createSingleStory = (story) => {
 
   return $story;
 };
+
+//SUBMIT PIECE TO STORY
+const submitPiece = () => {
+  $('#submit-piece-btn').on("click", (event) => {
+    event.preventDefault();
+    console.log("Submitting piece to story...")
+    $.ajax('/api/pieces', {
+      method: 'post',
+      data
+    })
+      .then((res) => {
+        console.log(res)
+      })
+  })
+}
+
+
+
+//LOAD CONTRIBUTIONS FROM DATABASE (3-step process)
+const createExistingPieces = (pieces) => {
+    $pieces = $(
+      `<wired-card elevation="2" id="piece-${pieces.id}" class="piece"><div class=piece-content>${pieces.text}</div><wired-icon-button class="red wired-rendered">
+      <i class="fas fa-heart"></i>
+    </wired-icon-button></wired-card>`
+    )
+
+  return $pieces;
+}
+
+const renderPieces = () => {
+  $("main").on("click", () => {
+    let storyID = $(event.target).parent()[0].id.slice(-1);
+
+    if (storyID) {
+      $(".all-stories").empty();
+
+      $.ajax(`api/pieces/${storyID}`, { method: "get" })
+        .then((res) => {
+          console.log(res);
+          return res.forEach((piece) => {
+            RenderPieces(piece)
+          })
+        })
+        .catch((err) => console.log(err));
+
+    }
+  });
+}
+
+const RenderPieces = (pieces) => {
+  $(".pieces-spot").append(createExistingPieces(pieces));
+}
+
+//--------------------------------------
 
 const backButton = () => {
   $(document).on("click", ".back-button", function () {
@@ -115,9 +172,11 @@ const allStoriesButton = () => {
 
 $(document).ready(() => {
   renderSingleStory();
+  renderPieces();
   loadStories(renderStories);
   backButton();
   mystoryButton();
+  submitPiece();
   newStoryButton();
   submitNewStory();
   allStoriesButton();
