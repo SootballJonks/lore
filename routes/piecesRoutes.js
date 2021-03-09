@@ -5,6 +5,8 @@ const { addNewPiece, getAllPieces, addPieceToStory } = require("../lib/queries")
 
 //SUBMIT A PIECE TO STORY AS PENDING
 router.post("/", (req, res) => {
+  console.log("whole request: ", req.body)
+  console.log("req. session: ", req.sesssion)
   addNewPiece(req.body)
     .then((piece) => {
       res.json(piece);

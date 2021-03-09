@@ -67,10 +67,13 @@ const createSingleStory = (story) => {
         <p class="story-text">${story.text}</p>
         <div class="pieces-spot">
         </div>
-        <div class="contribution">
-        <wired-textarea placeholder="Are you there Ashen One?" rows="6" class="wired-rendered piece-text-box"></wired-textarea>
-        <wired-button id="btn2" class="back-button">Back</wired-button>
-        </div>
+        <form id="submit-piece" method="POST" action="/api/pieces">
+          <div class="contribution">
+          <wired-textarea placeholder="Are you there Ashen One?" rows="6" class="wired-rendered piece-text-box"></wired-textarea>
+          <button id="submit-piece-btn" type="submit">submit</button>
+          <wired-button id="btn2" class="back-button">Back</wired-button>
+          </div>
+        </form>
       </wired-card>`
     );
   } else {
@@ -91,6 +94,23 @@ const createSingleStory = (story) => {
 
   return $story;
 };
+
+//SUBMIT PIECE TO STORY
+const submitPiece = () => {
+  $('#submit-piece-btn').on("click", (event) => {
+    event.preventDefault();
+    console.log("Submitting piece to story...")
+    $.ajax('/api/pieces', {
+      method: 'post',
+      data
+    })
+      .then((res) => {
+        console.log(res)
+      })
+  })
+}
+
+
 
 //LOAD CONTRIBUTIONS FROM DATABASE (3-step process)
 const createExistingPieces = (pieces) => {
@@ -148,4 +168,5 @@ $(document).ready(() => {
   loadStories(renderStories);
   backButton();
   mystoryButton();
+  submitPiece();
 });
