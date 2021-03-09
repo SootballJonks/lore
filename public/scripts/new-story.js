@@ -35,9 +35,11 @@ const submitNewStory = () => {
 
     const data = $("#submit-new-story").serialize();
     console.log(data);
-    createNewStory(data.body).catch((err) => {
-      console.log(err);
-    });
+    createNewStory(data)
+      .then((response) => console.log(response.body))
+      .catch((err) => {
+        console.log(err);
+      });
   });
 };
 
