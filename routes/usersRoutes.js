@@ -29,14 +29,11 @@ router.get("/:userNAME", (req, res) => {
 //POST NEW STORY
 router.post("/:userNAME", (req, res) => {
   const username = req.session.username;
+  console.log(username);
   console.log("request body: ", req.body);
   getID(username)
     .then((id) => {
-      newStory(id, req.body);
-    })
-    .then((newStory) => {
-      res.json(newStory);
-      //We should make this redirect to the edit-story page...
+      return newStory(1, req.body);
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });

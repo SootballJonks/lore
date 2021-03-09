@@ -33,7 +33,6 @@ const newStoryButton = () => {
 const submitNewStory = () => {
   $(document).on("submit", "#submit-new-story", (event) => {
     event.preventDefault();
-
     const data = $("#submit-new-story").serialize();
     console.log(data);
     createNewStory(data)

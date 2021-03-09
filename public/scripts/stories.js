@@ -18,7 +18,9 @@ const renderStories = (stories) => {
 const createStories = (story) => {
   let snippet = "";
   for (let i = 0; i < 120; i++) {
-    snippet += story.text[i];
+    if (story.text[i]) {
+      snippet += story.text[i];
+    }
   }
   let $story = $(`<wired-card elevation="4" id="story-${story.id}" class="story">
   <header>
