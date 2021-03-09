@@ -33,7 +33,7 @@ router.post("/:userNAME", (req, res) => {
   console.log("request body: ", req.body);
   getID(username)
     .then((id) => {
-      return newStory(1, req.body);
+      return newStory(id, req.body);
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
