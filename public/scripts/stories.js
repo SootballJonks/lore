@@ -102,6 +102,5 @@ const createSingleStory = (story) => {
 $(document).ready(() => {
   renderSingleStory();
   loadStories(renderStories);
-  submitNewStory();
   allStoriesButton();
 });
