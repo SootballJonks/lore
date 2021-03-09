@@ -65,9 +65,8 @@ const createSingleStory = (story) => {
           ${story.tags}
           </div>
         </footer>
-        <wired-card elevation="2" id="piece" class="piece"><div class=piece-content>This is one of the piece</div><wired-icon-button class="red wired-rendered">
-          <i class="fas fa-heart"></i>
-        </wired-icon-button></wired-card>
+        <div class="pieces-spot">
+        </div>
         <div class="contribution">
         <wired-textarea placeholder="Are you there Ashen One?" rows="6" class="wired-rendered piece-text-box"></wired-textarea>
         <wired-button id="btn2" class="back-button">Back</wired-button>
@@ -93,6 +92,43 @@ const createSingleStory = (story) => {
   return $story;
 };
 
+//LOAD CONTRIBUTIONS FROM DATABASE (3-step process)
+const createExistingPieces = (pieces) => {
+    $pieces = $(
+      `<wired-card elevation="2" id="piece-${pieces.id}" class="piece"><div class=piece-content>${pieces.text}</div><wired-icon-button class="red wired-rendered">
+      <i class="fas fa-heart"></i>
+    </wired-icon-button></wired-card>`
+    )
+
+  return $pieces;
+}
+
+const renderPieces = () => {
+  $("main").on("click", () => {
+    let storyID = $(event.target).parent()[0].id.slice(-1);
+
+    if (storyID) {
+      $(".all-stories").empty();
+
+      $.ajax(`api/pieces/${storyID}`, { method: "get" })
+        .then((res) => {
+          console.log(res);
+          return res.forEach((piece) => {
+            RenderPieces(piece)
+          })
+        })
+        .catch((err) => console.log(err));
+
+    }
+  });
+}
+
+const RenderPieces = (pieces) => {
+  $(".pieces-spot").append(createExistingPieces(pieces));
+}
+
+//--------------------------------------
+
 const backButton = () => {
   $(document).on("click", ".back-button", function () {
     $(".single-story").empty();
@@ -108,6 +144,7 @@ const mystoryButton = () => {
 
 $(document).ready(() => {
   renderSingleStory();
+  renderPieces();
   loadStories(renderStories);
   backButton();
   mystoryButton();
