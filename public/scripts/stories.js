@@ -45,13 +45,13 @@ const renderSingleStory = () => {
     if (storyID) {
       $(".all-stories").empty();
       $.ajax("api/stories", { method: "GET" })
-        .then((res) => RenderSingleStory(res[storyID - 1]))
+        .then((res) => appendSingleStory(res[storyID - 1]))
         .catch((err) => console.log(err));
     }
   });
 };
 
-const RenderSingleStory = (story) => {
+const appendSingleStory = (story) => {
   $(".single-story").append(createSingleStory(story));
 };
 
@@ -62,9 +62,12 @@ const createSingleStory = (story) => {
         <header>
           <span class="story-title">${story.title}</span>
         </header>
+        <div class="complete-button-container">
+        <button type=submit id=complete-button>Complete</button>
+        </div>
         <footer class="story-tags">
         ${story.tags}
-        </div>
+        </>
       </footer>
         <p class="story-text">${story.text}</p>
         <div class="pieces-spot">

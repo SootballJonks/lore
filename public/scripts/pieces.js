@@ -21,7 +21,6 @@ const renderPieces = () => {
 
     if (storyID) {
       $(".all-stories").empty();
-
       $.ajax(`api/pieces/${storyID}`, { method: "get" })
         .then((res) => {
           return res.forEach((piece) => {
@@ -49,6 +48,8 @@ const submitPiece = () => {
       method: "post",
       url: "/api/pieces",
       data: { storyID: storyID, text: text },
+    }).then((res) => {
+      RenderPieces(res);
     });
   });
 };

@@ -68,6 +68,7 @@ button {
     outline: none;
   }
   background-color: transparent;
+  margin: 1rem;
 }
 
 .single-story-container {
@@ -155,6 +156,11 @@ button {
 
       .back-button {
         margin-bottom: 1rem;
+      }
+
+      .complete-button-container {
+        display: flex;
+        justify-content: flex-end;
       }
     }
   }
