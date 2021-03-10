@@ -37,6 +37,7 @@ nav {
       width: 25rem;
       cursor: pointer;
       transition: ease-in-out 0.3s;
+      background-color: #eee;
       &:hover {
         background-color: white;
       }
@@ -82,6 +83,7 @@ wired-button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   .piece {
     max-width: 30rem;
   }
@@ -91,6 +93,7 @@ wired-button {
     justify-content: center;
     max-width: 60rem;
     text-align: center;
+    background-color: #eee;
     .story {
       //this is styling for individual story card
       margin: 1rem;
@@ -205,6 +208,7 @@ wired-button {
   .new-story-form {
     display: flex;
     padding: 1rem;
+    background-color: #eee;
   }
 
   submit-new-story {
@@ -212,7 +216,7 @@ wired-button {
     justify-content: center;
   }
   header {
-    margin: 1rem;
+    margin: 2rem;
   }
   textarea {
     font-family: "Mali", cursive;
@@ -234,4 +238,14 @@ wired-button {
     display: flex;
     justify-content: center;
   }
+  label {
+    margin-right: 0.8rem;
+  }
+}
+
+.ball {
+  position: absolute;
+  border-radius: 100%;
+  opacity: 0.7;
+  z-index: -1;
 }
