@@ -28,4 +28,12 @@ const textUnderLine = () => {
   });
 };
 
+const warning = () => {
+  Swal.fire({
+    icon: "question",
+    text: "Vows of Silence?",
+    confirmButtonColor: "#343a40",
+  });
+};
+
 $(document).ready(() => {});

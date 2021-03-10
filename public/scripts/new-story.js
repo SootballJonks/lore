@@ -26,7 +26,7 @@ const renderNewStoryForm = () => {
 const submitNewStory = () => {
   $(document).on("submit", "#submit-new-story", (event) => {
     if (!textValidation(getTextLength)) {
-      console.log("dfsfsd");
+      warning();
       return;
     }
     event.preventDefault();
