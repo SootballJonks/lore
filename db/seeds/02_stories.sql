@@ -34,3 +34,14 @@ VALUES
     But as you cling to your chest like a startled old crone suffering a heart attack, you slowly realize that the man hasn’t moved an inch, and must in fact be an actual stone gargoyle, as his beastly helm might suggest. And it makes sense, really, for surely no one is actually strong enough to walk about clad in all that heavy, stone-like armor, while also carrying that massive great hammer resting perfectly still across its shoulder. Not to mention the heavy looking shield set beside the stone beast, the shape of it so large that you wonder if you’d even be able to drag it along with you should you feel so inclined to take it.',
     ARRAY ['eygon', 'fanfiction', 'darksouls']
   );
+
+  INSERT INTO
+  stories (user_id, title, text, tags, active)
+VALUES
+  (
+    1,
+    'TEST COMPLETED STORY',
+    'This is a completed story. It might not look it, due to its size, but rest assured this story is indeed completed. May the flames guide thee, unkindled one.',
+    ARRAY ['darksouls', 'test'],
+    false
+  );

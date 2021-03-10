@@ -37,10 +37,8 @@ router.get("/:storyID", (req, res) => {
 // http://localhost:8080/api/pieces/:storyID
 
 router.post("/:storyID", (req, res) => {
-  const storyID = req.params.storyID;
-  const pieceID = req.body.pieceID;
 
-  addPieceToStory(storyID, pieceID)
+  addPieceToStory(req.body)
     .then((appendedStory) => {
       res.json(appendedStory);
     })
