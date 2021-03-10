@@ -16,6 +16,10 @@ nav {
   li {
     display: flex;
   }
+  .navbar-brand {
+    font-weight: 700;
+    font-size: 2rem;
+  }
 }
 //this is the container for all the stories
 .all-stories-container {
