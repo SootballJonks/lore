@@ -16,22 +16,21 @@ function searchStories(params) {
 */
 
 const createNewStory = function (data) {
-  return $.ajax({
+  $.ajax({
     method: "POST",
     url: "/users/:userNAME",
     data,
-  });
+  }).then((data) => console.log(data));
 };
-
 
 //Get session username
 
 const sessionUsername = () => {
   $.ajax({
     method: "GET",
-    url: "/users"
-  })
-    .then(res => {
-      return res;
-    })
-}
+    url: "/users",
+  }).then((res) => {
+    console.log("res: ", res);
+    return res;
+  });
+};

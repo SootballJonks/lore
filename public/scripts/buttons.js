@@ -19,6 +19,14 @@ const backButton = () => {
   });
 };
 
+const newStoryButton = () => {
+  $(document).on("click", "#newStory-button", function () {
+    $(".all-stories").empty();
+    $(".single-story").empty();
+    renderNewStoryForm();
+  });
+};
+
 $(document).ready(() => {
   backButton();
   mystoryButton();

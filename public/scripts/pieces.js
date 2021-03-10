@@ -1,3 +1,4 @@
+//LOAD CONTRIBUTIONS FROM DATABASE (3-step process)
 const createExistingPieces = (pieces) => {
   $pieces = $(
     `<wired-card elevation="2" id="piece-${pieces.id}" class="piece">
@@ -23,7 +24,6 @@ const renderPieces = () => {
 
       $.ajax(`api/pieces/${storyID}`, { method: "get" })
         .then((res) => {
-          console.log(res);
           return res.forEach((piece) => {
             RenderPieces(piece);
           });
@@ -37,15 +37,18 @@ const RenderPieces = (pieces) => {
   $(".pieces-spot").append(createExistingPieces(pieces));
 };
 
+//-------------
+
+//SUBMIT PIECES TO THE STORY AS PENDING
 const submitPiece = () => {
-  $("#submit-piece-btn").on("click", (event) => {
+  $(document).on("click", "#submit-piece-btn", (event) => {
     event.preventDefault();
-    console.log("Submitting piece to story...");
-    $.ajax("/api/pieces", {
+    let storyID = $($story).find(".storyID").attr("name");
+    let text = $($story).find("wired-textarea").val();
+    $.ajax({
       method: "post",
-      data,
-    }).then((res) => {
-      console.log(res);
+      url: "/api/pieces",
+      data: { storyID: storyID, text: text },
     });
   });
 };

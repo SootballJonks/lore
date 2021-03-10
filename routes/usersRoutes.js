@@ -31,7 +31,7 @@ router.post("/:userNAME", (req, res) => {
   const username = req.session.username;
   getID(username)
     .then((id) => {
-      newStory(id, req.body);
+      return newStory(id, req.body);
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
