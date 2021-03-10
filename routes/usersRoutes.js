@@ -19,6 +19,7 @@ router.get("/:userNAME", (req, res) => {
   const username = req.session.username;
   getUserStories(username)
     .then((stories) => {
+      console.log(stories);
       res.json(stories);
     })
     .catch((err) => {
