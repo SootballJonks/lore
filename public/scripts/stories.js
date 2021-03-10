@@ -42,6 +42,7 @@ const renderSingleStory = () => {
     //get the attribute Story ID and select parent
     let storyIDAttr = $(event.target).parent()[0].id;
     let storyID = storyIDSlicer(storyIDAttr);
+    console.log(storyID);
     if (storyID) {
       $(".all-stories").empty();
       $.ajax("api/stories", { method: "GET" })
