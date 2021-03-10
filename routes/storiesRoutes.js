@@ -26,6 +26,8 @@ router.get("/", (req, res) => {
 });
 
 //GET PIECES FOR SPECIFIC STORY
+
+
 router.get("/:userNAME/:storyID", (req, res) => {
   getAllPieces(req.params.storyID)
     .then((pieces) => {
