@@ -20,7 +20,7 @@ const createNewStoryForm = () => {
 
 const renderNewStoryForm = () => {
   $(".new-story").empty();
-  $(".new-story").append(createNewStoryForm);
+  $(".new-story").append(createNewStoryForm).hide().fadeIn(400);
 };
 
 const submitNewStory = () => {
