@@ -64,9 +64,12 @@ const renderSingleStory = () => {
 
     if (storyID) {
       $(".all-stories").empty();
-      $.ajax("api/stories", { method: "GET" })
-        .then((res) => appendSingleStory(res[storyID - 1]))
-        .catch((err) => console.log(err));
+      $.ajax("api/stories", {
+        method: "GET",
+        success: (res) => {
+          appendSingleStory(res[storyID - 1]);
+        },
+      }).catch((err) => console.log(err));
     }
   });
 };
@@ -84,7 +87,7 @@ const createSingleStory = (story) => {
         </header>
         <div class="complete-button-container">
         <form id="complete-story">
-        <wired-button type=submit id=complete-button>Complete</wired-button>
+        <wired-button id=complete-button>Complete</wired-button>
         </form>
         </div>
         <footer class="story-tags">
@@ -127,5 +130,4 @@ const createSingleStory = (story) => {
 $(document).ready(() => {
   renderSingleStory();
   loadStories(renderStories);
-  allStoriesButton();
 });

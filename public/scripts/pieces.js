@@ -1,20 +1,47 @@
 //LOAD CONTRIBUTIONS FROM DATABASE (3-step process)
-const createExistingPieces = (pieces) => {
-  $pieces = $(
-    `<wired-card elevation="2" id="piece-${pieces.id}" class="piece">
-    <div class=piece-content>${pieces.text}</div>
-    <footer>
-      <wired-icon-button id="upvote-btn">
-        <i class="fas fa-heart"></i>
-      </wired-icon-button>
-      <wired-icon-button id="approve-btn" data-pieces-id="${pieces.id}">
-        <i class="fas fa-check"></i>
-      </wired-icon-button>
-    </footer>
-    </wired-card>`
-  );
+const createExistingPieces = (storyID, pieces) => {
+  //TRUE/FALSE if current user is the owner of story
+  $.ajax({
+    method: "POST",
+    url: "/users",
+    data: { storyID },
+    success: function (res) {
+      console.log("res: ", res); //there is a value returning here
+      if (!res) {
+        $pieces = $(
+          `<wired-card elevation="2" id="piece-${pieces.id}" class="piece">
+          <div class=piece-content>${pieces.text}</div>
+          <footer>
+            <wired-icon-button id="upvote-btn">
+              <i class="fas fa-heart"></i>
+            </wired-icon-button>
+          </footer>
+          </wired-card>`
+        );
+        $(".pieces-spot").append($pieces).hide().fadeIn(400);
+        return $pieces;
+      }
 
-  return $pieces;
+      $pieces = $(
+        `<wired-card elevation="2" id="piece-${pieces.id}" class="piece">
+        <div class=piece-content>${pieces.text}</div>
+        <footer>
+          <wired-icon-button id="upvote-btn">
+            <i class="fas fa-heart"></i>
+          </wired-icon-button>
+          <wired-icon-button id="approve-btn" data-pieces-id="${pieces.id}">
+            <i class="fas fa-check"></i>
+          </wired-icon-button>
+          <wired-icon-button id="delete-btn" data-pieces-id="${pieces.id}">
+          <i class="fas fa-trash-alt"></i>
+        </wired-icon-button>
+        </footer>
+        </wired-card>`
+      );
+      $(".pieces-spot").append($pieces).hide().fadeIn(400);
+      return $pieces;
+    },
+  });
 };
 
 const renderPieces = () => {
@@ -24,20 +51,21 @@ const renderPieces = () => {
 
     if (storyID) {
       $(".all-stories").empty();
-      $.ajax(`api/pieces/${storyID}`, { method: "get" })
-        .then((res) => {
+      $.ajax(`api/pieces/${storyID}`, {
+        method: "get",
+        success: function (res) {
           return res.forEach((piece) => {
-            addPieces(piece);
+            createExistingPieces(storyID, piece);
           });
-        })
-        .catch((err) => console.log(err));
+        },
+      });
     }
   });
 };
 
-const addPieces = (pieces) => {
-  $(".pieces-spot").append(createExistingPieces(pieces).hide().fadeIn(400));
-};
+// const RenderPieces = (storyID, piece) => {
+//   $(".pieces-spot").append(createExistingPieces(storyID, piece).hide().fadeIn(400));
+// };
 
 //SUBMIT PIECES TO THE STORY AS PENDING
 const submitPiece = () => {
@@ -57,7 +85,7 @@ const submitPiece = () => {
       url: "/api/pieces",
       data: { storyID: storyID, text: text },
     }).then((res) => {
-      addPieces(res);
+      createExistingPieces(storyID, res);
     });
   });
 };

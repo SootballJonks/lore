@@ -27,22 +27,16 @@ const newStoryButton = () => {
   });
 };
 
-const completeStoryButton = () => {
+const completeButton = () => {
   $(document).on("click", "#complete-button", function (event) {
+    // let storyID = $($story).find(".storyID").attr("name");
     event.preventDefault();
-    let storyID = $($story).find(".storyID").attr("name");
-    console.log(storyID);
+    let storyID = 2;
     $.ajax({
-      method: "POST",
+      method: "post",
       url: "/users/complete",
-      data: { storyID },
+      data: { storyID: storyID },
     });
-    // .then((res) => {
-    //   console.log(res);
-    // })
-    // .catch((err) => {
-    //   console.log(err);
-    // });
   });
 };
 
@@ -50,5 +44,6 @@ $(document).ready(() => {
   backButton();
   mystoryButton();
   newStoryButton();
-  completeStoryButton();
+  completeButton();
+  allStoriesButton();
 });
