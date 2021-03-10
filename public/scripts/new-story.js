@@ -25,6 +25,10 @@ const renderNewStoryForm = () => {
 
 const submitNewStory = () => {
   $(document).on("submit", "#submit-new-story", (event) => {
+    if (!textValidation(getTextLength)) {
+      console.log("dfsfsd");
+      return;
+    }
     event.preventDefault();
     const data = $("#submit-new-story").serialize();
     createNewStory(data);

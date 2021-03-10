@@ -22,9 +22,10 @@ const storyIDSlicer = (storyIDAttr) => {
   }
   return storyID;
 };
+const textUnderLine = () => {
+  $(document).on("hover", ".story-read-more", () => {
+    $(".story-read-more").css("text-decoration", "underline");
+  });
+};
 
-$(document).ready(() => {
-  if (!textValidation(getTextLength)) {
-    console.log("Enter somthing");
-  }
-});
+$(document).ready(() => {});

@@ -27,7 +27,7 @@ const createStories = (story) => {
     <span class="story-title">${story.title}</span>
   </header>
   <p class="story-text">${snippet}...</p>
-  <span class="story-read-more">Read More</span>
+  <a href="#" class="story-read-more">Read More</a>
   <footer class="story-tags">
     ${story.tags}
     </div>

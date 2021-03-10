@@ -57,7 +57,16 @@ nav {
         text-align: left;
       }
       .story-read-more {
+        font-weight: 600;
+        color: black;
         font-size: 0.8rem;
+        transition: 0.3s;
+        padding: 0.3rem;
+        &:hover {
+          text-decoration: none;
+          color: white;
+          background-color: black;
+        }
       }
       footer {
         font-weight: 600;
@@ -80,6 +89,12 @@ wired-button {
     outline: none;
   }
   margin: 0.3rem;
+}
+
+wired-textarea {
+  textarea {
+    font-family: "Mali", cursive;
+  }
 }
 
 .single-story-container {
@@ -117,8 +132,10 @@ wired-button {
         margin: 1rem;
         text-align: left;
       }
+
       .story-read-more {
         font-size: 0.8rem;
+        color: black;
       }
       footer {
         margin: 1rem;
