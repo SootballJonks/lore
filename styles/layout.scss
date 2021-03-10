@@ -180,6 +180,17 @@ wired-textarea {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        textarea {
+          font-family: "Mali", cursive;
+          display: flex;
+          resize: none;
+          outline: none;
+          background-color: #f5f5f5;
+          border-bottom: 2px solid black;
+          width: 38rem;
+          margin: 2rem;
+        }
       }
 
       .back-button {

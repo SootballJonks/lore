@@ -4,13 +4,14 @@ Got nothing to say?<i class="fas fa-exclamation-triangle fa-xs"></i>
 </h2>`);
 
 const getTextLength = () => {
-  const textLength = $("textarea").val();
+  const textLength = $($story).find("wired-textarea").val().length;
   return textLength;
 };
 const textValidation = (str) => {
   if (str.length === 0) {
     return false;
   }
+  return true;
 };
 
 const storyIDSlicer = (storyIDAttr) => {
