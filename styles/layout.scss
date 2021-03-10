@@ -162,6 +162,9 @@ button {
         display: flex;
         justify-content: flex-end;
       }
+      textarea {
+        font-family: "Mali", cursive;
+      }
     }
   }
 }
@@ -206,6 +209,7 @@ button {
     margin: 1rem;
   }
   textarea {
+    font-family: "Mali", cursive;
     display: flex;
     resize: none;
     outline: none;
