@@ -42,7 +42,7 @@ router.post("/:storyID", (req, res) => {
 
   addPieceToStory(req.body)
     .then((appendedStory) => {
-      res.json(appendedStory);
+      console.log("appended story?: ", appendedStory);
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
