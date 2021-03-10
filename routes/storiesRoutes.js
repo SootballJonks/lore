@@ -49,4 +49,8 @@ router.get("/search", (req, res) => {
     });
 });
 
+
+// "/api/stories/complete"
+router.post("/complete")
+
 module.exports = router;

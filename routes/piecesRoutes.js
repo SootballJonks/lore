@@ -41,7 +41,8 @@ router.get("/:storyID", (req, res) => {
 // http://localhost:8080/api/pieces/:storyID
 
 router.post("/:storyID", (req, res) => {
- console.log(req.body);
+  const username = req.session.username;
+
   addPieceToStory(req.body)
     .then((appendedStory) => {
       console.log("appended story?: ", appendedStory);

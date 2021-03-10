@@ -27,8 +27,21 @@ const newStoryButton = () => {
   });
 };
 
+const completeButton = () => {
+  $(document).on("click", "#complete-button", function () {
+    let storyID = $($story).find(".storyID").attr('name');
+
+    $.ajax({
+      method: "post",
+      url: "/users/complete",
+      data: { storyID: storyID },
+    });
+  });
+};
+
 $(document).ready(() => {
   backButton();
   mystoryButton();
   newStoryButton();
+  completeButton();
 });
