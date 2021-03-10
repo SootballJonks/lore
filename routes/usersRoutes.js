@@ -29,8 +29,6 @@ router.get("/:userNAME", (req, res) => {
 //POST NEW STORY (change route and move elsewhere)
 router.post("/:userNAME", (req, res) => {
   const username = req.session.username;
-  console.log(username);
-  console.log("request body: ", req.body);
   getID(username)
     .then((id) => {
       return newStory(id, req.body);
@@ -42,9 +40,9 @@ router.post("/:userNAME", (req, res) => {
 
 //GET SESSION USERNAME
 
-router.get('/', (req, res) => {
+router.get("/", (req, res) => {
   const username = req.session.username;
   res.send(username);
-})
+});
 
 module.exports = router;

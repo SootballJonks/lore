@@ -20,18 +20,21 @@ nav {
 //this is the container for all the stories
 .all-stories-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+
   main {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-width: 30rem;
+    flex-direction: row;
+    flex-wrap: wrap;
     text-align: center;
+    justify-content: center;
 
     .story {
       //this is styling for individual story card
+      width: 25rem;
       cursor: pointer;
       transition: ease-in-out 0.3s;
       &:hover {
@@ -65,6 +68,7 @@ button {
     outline: none;
   }
   background-color: transparent;
+  margin: 1rem;
 }
 
 .single-story-container {
@@ -152,6 +156,11 @@ button {
 
       .back-button {
         margin-bottom: 1rem;
+      }
+
+      .complete-button-container {
+        display: flex;
+        justify-content: flex-end;
       }
     }
   }

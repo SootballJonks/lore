@@ -38,19 +38,20 @@ const createStories = (story) => {
 };
 
 const renderSingleStory = () => {
-  $("main").on("click", () => {
-    let storyID = $(event.target).parent()[0].id.slice(-1);
-
+  $("main").on("click", (event) => {
+    //get the attribute Story ID and select parent
+    let storyIDAttr = $(event.target).parent()[0].id;
+    let storyID = storyIDSlicer(storyIDAttr);
     if (storyID) {
       $(".all-stories").empty();
       $.ajax("api/stories", { method: "GET" })
-        .then((res) => RenderSingleStory(res[storyID - 1]))
+        .then((res) => appendSingleStory(res[storyID - 1]))
         .catch((err) => console.log(err));
     }
   });
 };
 
-const RenderSingleStory = (story) => {
+const appendSingleStory = (story) => {
   $(".single-story").append(createSingleStory(story));
 };
 
@@ -61,9 +62,12 @@ const createSingleStory = (story) => {
         <header>
           <span class="story-title">${story.title}</span>
         </header>
+        <div class="complete-button-container">
+        <button type=submit id=complete-button>Complete</button>
+        </div>
         <footer class="story-tags">
         ${story.tags}
-        </div>
+        </>
       </footer>
         <p class="story-text">${story.text}</p>
         <div class="pieces-spot">
@@ -98,6 +102,15 @@ const createSingleStory = (story) => {
   return $story;
 };
 
+const storyIDSlicer = (storyIDAttr) => {
+  let storyID = "";
+  for (let i = 0; i < storyIDAttr.length; i++) {
+    if (storyIDAttr.charCodeAt(i) > 47 && storyIDAttr.charCodeAt(i) < 58) {
+      storyID += storyIDAttr[i];
+    }
+  }
+  return storyID;
+};
 
 $(document).ready(() => {
   renderSingleStory();

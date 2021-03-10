@@ -18,15 +18,14 @@ const createExistingPieces = (pieces) => {
 };
 
 const renderPieces = () => {
-  $("main").on("click", () => {
-    let storyID = $(event.target).parent()[0].id.slice(-1);
+  $("main").on("click", (event) => {
+    let storyIDAttr = $(event.target).parent()[0].id;
+    let storyID = storyIDSlicer(storyIDAttr);
 
     if (storyID) {
       $(".all-stories").empty();
-
       $.ajax(`api/pieces/${storyID}`, { method: "get" })
         .then((res) => {
-          console.log(res);
           return res.forEach((piece) => {
             RenderPieces(piece);
           });
@@ -37,25 +36,26 @@ const renderPieces = () => {
 };
 
 const RenderPieces = (pieces) => {
-  $(".pieces-spot").append(createExistingPieces(pieces));
+  $(".pieces-spot").append(createExistingPieces(pieces).hide().fadeIn(400));
 };
-
 
 
 //SUBMIT PIECES TO THE STORY AS PENDING
 const submitPiece = () => {
-  $(document).on("click", '#submit-piece-btn', (event) => {
+  $(document).on("click", "#submit-piece-btn", (event) => {
     event.preventDefault();
 
     let storyID = $($story).find(".storyID").attr('name');
     let text = $($story).find("wired-textarea").val();
 
     $.ajax({
-      method: 'post',
-      url: '/api/pieces',
-      data: { storyID: storyID, text: text }
-    })
-  })
+      method: "post",
+      url: "/api/pieces",
+      data: { storyID: storyID, text: text },
+    }).then((res) => {
+      RenderPieces(res);
+    });
+  });
 };
 
 
