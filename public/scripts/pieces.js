@@ -33,7 +33,7 @@ const renderPieces = () => {
 };
 
 const RenderPieces = (pieces) => {
-  $(".pieces-spot").append(createExistingPieces(pieces));
+  $(".pieces-spot").append(createExistingPieces(pieces).hide().fadeIn(400));
 };
 
 //-------------
