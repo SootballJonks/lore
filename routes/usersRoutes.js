@@ -45,4 +45,11 @@ router.get("/", (req, res) => {
   res.send(username);
 });
 
+//COMPLETE STORY
+
+router.post("/complete", (req, res) => {
+  console.log(req, res);
+  res.send("heyyy!");
+});
+
 module.exports = router;

@@ -83,7 +83,9 @@ const createSingleStory = (story) => {
           <span class="story-title">${story.title}</span>
         </header>
         <div class="complete-button-container">
+        <form id="complete-story">
         <wired-button type=submit id=complete-button>Complete</wired-button>
+        </form>
         </div>
         <footer class="story-tags">
         ${story.tags}

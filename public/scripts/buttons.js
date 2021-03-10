@@ -28,8 +28,21 @@ const newStoryButton = () => {
 };
 
 const completeStoryButton = () => {
-  $(document).on("click", "#complete-button", function () {
-    console.log("clicked");
+  $(document).on("click", "#complete-button", function (event) {
+    event.preventDefault();
+    let storyID = $($story).find(".storyID").attr("name");
+    console.log(storyID);
+    $.ajax({
+      method: "POST",
+      url: "/users/complete",
+      data: { storyID },
+    });
+    // .then((res) => {
+    //   console.log(res);
+    // })
+    // .catch((err) => {
+    //   console.log(err);
+    // });
   });
 };
 

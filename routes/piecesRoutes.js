@@ -41,7 +41,7 @@ router.get("/:storyID", (req, res) => {
 // http://localhost:8080/api/pieces/:storyID
 
 router.post("/:storyID", (req, res) => {
- console.log(req.body);
+  console.log(req.body);
   addPieceToStory(req.body)
     .then((appendedStory) => {
       console.log("appended story?: ", appendedStory);
@@ -50,4 +50,9 @@ router.post("/:storyID", (req, res) => {
       res.status(500).json({ error: err.message });
     });
 });
+
+router.post("/", (req, res) => {
+  console.log(req, res);
+});
+
 module.exports = router;
