@@ -30,7 +30,7 @@ const textUnderLine = () => {
 
 const warning = () => {
   Swal.fire({
-    icon: "question",
+    title: "?",
     text: "Vows of Silence?",
     confirmButtonColor: "#343a40",
   });

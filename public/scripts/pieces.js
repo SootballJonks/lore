@@ -54,8 +54,6 @@ const submitPiece = () => {
       method: "post",
       url: "/api/pieces",
       data: { storyID: storyID, text: text },
-    }).then((res) => {
-      addPieces(res);
     });
   });
 };
@@ -72,7 +70,18 @@ const approvePiece = () => {
       method: "post",
       url: "/api/pieces/:storyID",
       data: { storyID: storyID, pieceID: pieceID },
+    }).then((res) => {
+      console.log(res);
     });
+
+    if (storyID) {
+      $(".all-stories").empty();
+      $(".single-story").empty();
+      $.ajax("api/stories", { method: "GET" })
+        .then((res) => appendSingleStory(res[storyID - 1]))
+        .catch((err) => console.log(err));
+    }
+    renderPieces();
   });
 };
 

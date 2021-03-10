@@ -16,16 +16,21 @@ const renderStories = (stories) => {
 
 //create the story elements to append in the stories.ejs
 const createStories = (story) => {
+  let $story = "";
   let snippet = "";
   for (let i = 0; i < 120; i++) {
     if (story.text[i]) {
       snippet += story.text[i];
+    } else {
+      snippet += " ";
     }
   }
-  let $story = $(`<wired-card elevation="4" id="story-${story.id}" class="story">
+  if (story.active) {
+    $story = $(`<wired-card elevation="4" id="story-${story.id}" class="story">
   <header>
     <span class="story-title">${story.title}</span>
   </header>
+  <span class="story-status">Pending</span>
   <p class="story-text">${snippet}...</p>
   <a href="#" class="story-read-more">Read More</a>
   <footer class="story-tags">
@@ -33,6 +38,20 @@ const createStories = (story) => {
     </div>
   </footer>
   </wired-card>`);
+  } else {
+    $story = $(`<wired-card elevation="4" id="story-${story.id}" class="story">
+    <header>
+      <span class="story-title">${story.title}</span>
+    </header>
+    <span class="story-status">Completed</span>
+    <p class="story-text">${snippet}...</p>
+    <a href="#" class="story-read-more">Read More</a>
+    <footer class="story-tags">
+      ${story.tags}
+      </div>
+    </footer>
+    </wired-card>`);
+  }
 
   return $story;
 };
@@ -42,7 +61,7 @@ const renderSingleStory = () => {
     //get the attribute Story ID and select parent
     let storyIDAttr = $(event.target).parent()[0].id;
     let storyID = storyIDSlicer(storyIDAttr);
-    console.log(storyID);
+
     if (storyID) {
       $(".all-stories").empty();
       $.ajax("api/stories", { method: "GET" })
