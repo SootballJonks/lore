@@ -76,7 +76,7 @@ const createSingleStory = (story) => {
           <span class="storyID" name="${story.id}"></span>
           <div class="contribution">
           <wired-textarea placeholder="Are you there Ashen One?" rows="6" class="wired-rendered piece-text-box"></wired-textarea>
-          <button id="submit-piece-btn" type="submit">submit</button>
+          <wired-button id="submit-piece-btn" type="submit">submit</wired-button>
         </form>
 
           <wired-button id="btn2" class="back-button">Back</wired-button>
@@ -100,16 +100,6 @@ const createSingleStory = (story) => {
   }
 
   return $story;
-};
-
-const storyIDSlicer = (storyIDAttr) => {
-  let storyID = "";
-  for (let i = 0; i < storyIDAttr.length; i++) {
-    if (storyIDAttr.charCodeAt(i) > 47 && storyIDAttr.charCodeAt(i) < 58) {
-      storyID += storyIDAttr[i];
-    }
-  }
-  return storyID;
 };
 
 $(document).ready(() => {
