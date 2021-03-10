@@ -11,6 +11,8 @@ const {
 //SUBMIT A PIECE TO STORY AS PENDING
 router.post("/", (req, res) => {
   const username = req.session.username;
+
+  console.log("This is the body for piece: ", req.body);
   getID(username)
     .then((id) => {
       return addNewPiece(id, req.body);
