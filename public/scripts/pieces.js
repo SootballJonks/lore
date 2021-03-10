@@ -70,14 +70,18 @@ const renderPieces = () => {
 //   $(".pieces-spot").append(createExistingPieces(storyID, piece).hide().fadeIn(400));
 // };
 
-
 //SUBMIT PIECES TO THE STORY AS PENDING
 const submitPiece = () => {
   $(document).on("click", "#submit-piece-btn", (event) => {
     event.preventDefault();
 
-    let storyID = $($story).find(".storyID").attr('name');
+    let storyID = $($story).find(".storyID").attr("name");
     let text = $($story).find("wired-textarea").val();
+
+    if (!textValidation(text)) {
+      warning();
+      return;
+    }
 
     $.ajax({
       method: "post",
@@ -89,25 +93,23 @@ const submitPiece = () => {
   });
 };
 
-
 //APPROVE PIECE AND ADD TO BOTTOM OF STORY
 const approvePiece = () => {
   $(document).on("click", "#approve-btn", function (event) {
     event.preventDefault();
 
-    let storyID = $($story).find(".storyID").attr('name');
+    let storyID = $($story).find(".storyID").attr("name");
     let pieceID = $(this).attr("data-pieces-id");
 
     $.ajax({
       method: "post",
       url: "/api/pieces/:storyID",
-      data: { storyID: storyID, pieceID: pieceID }
-    })
-  })
-
-}
-
-
+      data: { storyID: storyID, pieceID: pieceID },
+    }).then((res) => {
+      console.log(res);
+    });
+  });
+};
 
 $(document).ready(() => {
   submitPiece();

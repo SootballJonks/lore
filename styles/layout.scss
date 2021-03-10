@@ -16,6 +16,10 @@ nav {
   li {
     display: flex;
   }
+  .navbar-brand {
+    font-weight: 700;
+    font-size: 2rem;
+  }
 }
 //this is the container for all the stories
 .all-stories-container {
@@ -53,7 +57,16 @@ nav {
         text-align: left;
       }
       .story-read-more {
+        font-weight: 600;
+        color: black;
         font-size: 0.8rem;
+        transition: 0.3s;
+        padding: 0.3rem;
+        &:hover {
+          text-decoration: none;
+          color: white;
+          background-color: black;
+        }
       }
       footer {
         font-weight: 600;
@@ -69,6 +82,19 @@ button {
   }
   background-color: transparent;
   margin: 1rem;
+}
+
+wired-button {
+  &:focus {
+    outline: none;
+  }
+  margin: 0.3rem;
+}
+
+wired-textarea {
+  textarea {
+    font-family: "Mali", cursive;
+  }
 }
 
 .single-story-container {
@@ -106,8 +132,10 @@ button {
         margin: 1rem;
         text-align: left;
       }
+
       .story-read-more {
         font-size: 0.8rem;
+        color: black;
       }
       footer {
         margin: 1rem;
@@ -152,6 +180,17 @@ button {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        textarea {
+          font-family: "Mali", cursive;
+          display: flex;
+          resize: none;
+          outline: none;
+          background-color: #f5f5f5;
+          border-bottom: 2px solid black;
+          width: 38rem;
+          margin: 2rem;
+        }
       }
 
       .back-button {
@@ -161,6 +200,9 @@ button {
       .complete-button-container {
         display: flex;
         justify-content: flex-end;
+      }
+      textarea {
+        font-family: "Mali", cursive;
       }
     }
   }
@@ -203,9 +245,10 @@ button {
     justify-content: center;
   }
   header {
-    margin: 1rem;
+    margin: 2rem;
   }
   textarea {
+    font-family: "Mali", cursive;
     display: flex;
     resize: none;
     outline: none;
@@ -218,10 +261,17 @@ button {
   footer {
     display: flex;
     justify-content: flex-end;
-    margin: 1rem;
+    margin: 2rem;
   }
   .new-story-submit-button {
     display: flex;
     justify-content: center;
   }
+  label {
+    margin-right: 0.6rem;
+  }
+}
+
+.swal2-styled .swal2-confirm {
+  background-color: black;
 }

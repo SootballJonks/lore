@@ -26,6 +26,11 @@ const renderNewStoryForm = () => {
 const submitNewStory = () => {
   $(document).on("submit", "#submit-new-story", (event) => {
     event.preventDefault();
+    let text = $("textarea").val();
+    if (!textValidation(text)) {
+      warning();
+      return;
+    }
     const data = $("#submit-new-story").serialize();
     createNewStory(data);
     window.location = "/";
