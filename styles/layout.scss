@@ -217,7 +217,7 @@ wired-button {
     justify-content: center;
   }
   header {
-    margin: 1rem;
+    margin: 2rem;
   }
   textarea {
     font-family: "Mali", cursive;
@@ -233,10 +233,13 @@ wired-button {
   footer {
     display: flex;
     justify-content: flex-end;
-    margin: 1rem;
+    margin: 2rem;
   }
   .new-story-submit-button {
     display: flex;
     justify-content: center;
+  }
+  label {
+    margin-right: 0.6rem;
   }
 }
