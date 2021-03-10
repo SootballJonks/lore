@@ -71,6 +71,12 @@ button {
   margin: 1rem;
 }
 
+wired-button {
+  &:focus {
+    outline: none;
+  }
+}
+
 .single-story-container {
   display: flex;
   flex-direction: column;
