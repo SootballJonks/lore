@@ -39,7 +39,7 @@ router.get("/:storyID", (req, res) => {
 // http://localhost:8080/api/pieces/:storyID
 
 router.post("/:storyID", (req, res) => {
-
+ console.log(req.body);
   addPieceToStory(req.body)
     .then((appendedStory) => {
       console.log("appended story?: ", appendedStory);
