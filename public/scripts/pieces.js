@@ -24,7 +24,7 @@ const renderPieces = () => {
       $.ajax(`api/pieces/${storyID}`, { method: "get" })
         .then((res) => {
           return res.forEach((piece) => {
-            RenderPieces(piece);
+            addPieces(piece);
           });
         })
         .catch((err) => console.log(err));
@@ -32,7 +32,7 @@ const renderPieces = () => {
   });
 };
 
-const RenderPieces = (pieces) => {
+const addPieces = (pieces) => {
   $(".pieces-spot").append(createExistingPieces(pieces).hide().fadeIn(400));
 };
 
@@ -49,7 +49,7 @@ const submitPiece = () => {
       url: "/api/pieces",
       data: { storyID: storyID, text: text },
     }).then((res) => {
-      RenderPieces(res);
+      addPieces(res);
     });
   });
 };
