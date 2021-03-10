@@ -27,8 +27,15 @@ const newStoryButton = () => {
   });
 };
 
+const completeStoryButton = () => {
+  $(document).on("click", "#complete-button", function () {
+    console.log("clicked");
+  });
+};
+
 $(document).ready(() => {
   backButton();
   mystoryButton();
   newStoryButton();
+  completeStoryButton();
 });

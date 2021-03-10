@@ -43,10 +43,10 @@ const addPieces = (pieces) => {
 const submitPiece = () => {
   $(document).on("click", "#submit-piece-btn", (event) => {
     event.preventDefault();
-    if (!textValidation(getTextLength)) {
-      warning();
-      return;
-    }
+    // if (!textValidation(getTextLength)) {
+    //   warning();
+    //   return;
+    // }
     let storyID = $($story).find(".storyID").attr("name");
     let text = $($story).find("wired-textarea").val();
 
@@ -54,6 +54,8 @@ const submitPiece = () => {
       method: "post",
       url: "/api/pieces",
       data: { storyID: storyID, text: text },
+    }).then((res) => {
+      addPieces(res);
     });
   });
 };
@@ -73,15 +75,6 @@ const approvePiece = () => {
     }).then((res) => {
       console.log(res);
     });
-
-    if (storyID) {
-      $(".all-stories").empty();
-      $(".single-story").empty();
-      $.ajax("api/stories", { method: "GET" })
-        .then((res) => appendSingleStory(res[storyID - 1]))
-        .catch((err) => console.log(err));
-    }
-    renderPieces();
   });
 };
 
