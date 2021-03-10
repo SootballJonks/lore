@@ -10,7 +10,7 @@ const createNewStoryForm = () => {
   <label for="story-tags-input"> Tags</label><input type="tags" name="tags" id="story-tags" class="story-tags-input"></input>
   </footer>
   <div class=new-story-submit-button>
-  <button type="submit">submit</button>
+  <button id="submit" type="submit">submit</button>
   </div>
   </wired-card>
   </form>`);
@@ -20,30 +20,18 @@ const createNewStoryForm = () => {
 
 const renderNewStoryForm = () => {
   $(".new-story").empty();
-  $(".new-story").append(createNewStoryForm);
-};
-const newStoryButton = () => {
-  $(document).on("click", "#newStory-button", function () {
-    $(".all-stories").empty();
-    $(".single-story").empty();
-    renderNewStoryForm();
-  });
+  $(".new-story").append(createNewStoryForm).hide().fadeIn(400);
 };
 
 const submitNewStory = () => {
   $(document).on("submit", "#submit-new-story", (event) => {
     event.preventDefault();
     const data = $("#submit-new-story").serialize();
-    console.log(data);
-    createNewStory(data)
-      .then((response) => console.log(response.body))
-      .catch((err) => {
-        console.log(err);
-      });
+    createNewStory(data);
+    window.location = "/";
   });
 };
 
 $(document).ready(() => {
-  newStoryButton();
   submitNewStory();
 });
