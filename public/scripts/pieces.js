@@ -46,7 +46,7 @@ const submitPiece = () => {
 
     let storyID = $($story).find(".storyID").attr("name");
     let text = $($story).find("wired-textarea").val();
-    console.log(textValidation(text));
+
     if (!textValidation(text)) {
       warning();
       return;
