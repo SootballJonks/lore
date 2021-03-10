@@ -2,7 +2,7 @@
 
 body {
   font-family: "Mali", cursive;
-  background-color: #eee;
+  background-color: rgb(236, 235, 235);
 
   h1 {
     font-family: "Mali", cursive;
@@ -37,9 +37,9 @@ nav {
       width: 25rem;
       cursor: pointer;
       transition: ease-in-out 0.3s;
-      background-color: #eee;
+      background-color: white;
       &:hover {
-        background-color: white;
+        background-color: #eee;
       }
       margin: 1rem;
       .story-title {
@@ -93,14 +93,15 @@ wired-button {
     justify-content: center;
     max-width: 60rem;
     text-align: center;
-    background-color: #eee;
+
     .story {
       //this is styling for individual story card
       margin: 1rem;
       padding: 2rem;
       transition: ease-in-out 0.3s;
+      background-color: white;
       &:hover {
-        background-color: white;
+        background-color: #eee;
       }
 
       .story-title {
@@ -185,6 +186,9 @@ wired-button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  .login-card {
+    background-color: white;
+  }
   form {
     display: flex;
     flex-direction: column;
@@ -208,7 +212,7 @@ wired-button {
   .new-story-form {
     display: flex;
     padding: 1rem;
-    background-color: #eee;
+    background-color: white;
   }
 
   submit-new-story {
@@ -223,7 +227,7 @@ wired-button {
     display: flex;
     resize: none;
     outline: none;
-    background-color: #f5f5f5;
+    background-color: white;
     border-bottom: 2px solid black;
     width: 39rem;
     height: 39rem;
