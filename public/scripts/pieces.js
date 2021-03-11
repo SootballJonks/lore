@@ -63,30 +63,6 @@ const renderPieces = () => {
 };
 
 
-//SUBMIT PIECES TO THE STORY AS PENDING
-const submitPiece = () => {
-  $(document).on("click", "#submit-piece-btn", (event) => {
-    event.preventDefault();
-
-    let storyID = $($story).find(".storyID").attr("name");
-    let text = $($story).find("wired-textarea").val();
-
-    if (!textValidation(text)) {
-      warning();
-      return;
-    }
-    $(".piece-text-box").val("");
-    $.ajax({
-      method: "post",
-      url: "/api/pieces",
-      data: { storyID: storyID, text: text },
-    }).then((res) => {
-      createExistingPieces(storyID, res);
-    });
-  });
-};
-
 $(document).ready(() => {
-  submitPiece();
   renderPieces();
 });

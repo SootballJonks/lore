@@ -30,7 +30,6 @@ const sessionUsername = () => {
     method: "GET",
     url: "/users",
   }).then((res) => {
-    console.log("res: ", res);
     return res;
   });
 };

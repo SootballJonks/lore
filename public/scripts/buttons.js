@@ -1,3 +1,7 @@
+/*This file contains the jQuery functions for various buttons across the webapp.
+*/
+
+
 const mystoryButton = () => {
   $(document).on("click", "#user-stories", function () {
     $(".single-story").empty();
@@ -112,6 +116,28 @@ const logoutButton = () => {
   })
 }
 
+const submitPieceButton = () => {
+  $(document).on("click", "#submit-piece-btn", (event) => {
+    event.preventDefault();
+
+    let storyID = $($story).find(".storyID").attr("name");
+    let text = $($story).find("wired-textarea").val();
+
+    if (!textValidation(text)) {
+      warning();
+      return;
+    }
+    $(".piece-text-box").val("");
+    $.ajax({
+      method: "post",
+      url: "/api/pieces",
+      data: { storyID: storyID, text: text },
+    }).then((res) => {
+      createExistingPieces(storyID, res);
+    });
+  });
+};
+
 
 $(document).ready(() => {
   backButton();
@@ -123,4 +149,5 @@ $(document).ready(() => {
   deletePieceButton();
   allStoriesButton();
   logoutButton();
+  submitPieceButton();
 });
