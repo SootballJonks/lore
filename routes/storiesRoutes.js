@@ -27,7 +27,6 @@ router.get("/", (req, res) => {
 
 //GET PIECES FOR SPECIFIC STORY
 
-
 router.get("/:userNAME/:storyID", (req, res) => {
   getAllPieces(req.params.storyID)
     .then((pieces) => {
@@ -48,5 +47,7 @@ router.get("/search", (req, res) => {
       res.status(500).json({ error: err.message });
     });
 });
+
+//this is for complete button
 
 module.exports = router;
