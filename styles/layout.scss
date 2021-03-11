@@ -85,8 +85,14 @@ button {
 }
 
 wired-button {
+  transition: 0.3s;
   &:focus {
     outline: none;
+  }
+
+  &:hover {
+    background-color: black;
+    color: white;
   }
   margin: 0.3rem;
 }
@@ -296,8 +302,8 @@ wired-textarea {
   mix-blend-mode: multiply;
 }
 .is-approved {
-  color: #0a9928;
-  border: 0.6rem solid #0a9928;
+  color: #03771c;
+  border: 0.3rem solid #03771c;
   -webkit-mask-position: 13rem 6rem;
   transform: rotate(-14deg);
   border-radius: 0;

@@ -110,11 +110,18 @@ button:focus {
 }
 
 wired-button {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   margin: 0.3rem;
 }
 
 wired-button:focus {
   outline: none;
+}
+
+wired-button:hover {
+  background-color: black;
+  color: white;
 }
 
 wired-textarea textarea {
@@ -433,8 +440,8 @@ wired-textarea textarea {
 }
 
 .is-approved {
-  color: #0a9928;
-  border: 0.6rem solid #0a9928;
+  color: #03771c;
+  border: 0.3rem solid #03771c;
   -webkit-mask-position: 13rem 6rem;
   -webkit-transform: rotate(-14deg);
           transform: rotate(-14deg);
