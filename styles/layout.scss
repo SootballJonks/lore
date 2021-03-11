@@ -23,6 +23,9 @@ nav {
   .nav-stories {
     display: flex;
   }
+  .btn {
+    margin: 0.7rem;
+  }
 }
 //this is the container for all the stories
 .all-stories-container {
@@ -344,4 +347,8 @@ wired-textarea {
   border-radius: 100%;
   opacity: 0.7;
   z-index: -1;
+}
+
+#approve-btn {
+  margin-left: 6rem;
 }

@@ -1,13 +1,13 @@
 /*This file contains the jQuery functions for various buttons across the webapp.
-*/
-
-
+ */
+//click to see users' stories
 const mystoryButton = () => {
   $(document).on("click", "#user-stories", function () {
     $(".single-story").empty();
     $(".new-story").empty();
   });
 };
+//click to see all the available stories
 const allStoriesButton = () => {
   $(document).on("click", "#all-user-stories", function () {
     $(".single-story").empty();
@@ -15,7 +15,7 @@ const allStoriesButton = () => {
     loadStories(renderStories);
   });
 };
-
+//go back to the all stories page
 const backButton = () => {
   $(document).on("click", ".back-button", function () {
     $(".single-story").empty();
@@ -56,7 +56,6 @@ const upvoteButton = () => {
       url: "/api/upvotes",
       data: { pieceID },
     }).then((res) => {
-      console.log(pieceID);
       renderAddedUpvotes(pieceID);
     });
   });
@@ -89,7 +88,7 @@ const approvePieceButton = () => {
       url: "/api/pieces/:storyID",
       data: { storyID: storyID, pieceID: pieceID },
     }).then((res) => {
-       //get the text content of the piece area. .html() preserves </br>
+      //get the text content of the piece area. .html() preserves </br>
       let pieceText = $(`#piece-${pieceID}`).find(".piece-content").html();
       //delete the piece with fadeoutandremove function
       $(`#piece-${pieceID}`).fadeOutAndRemove("fast");
@@ -106,13 +105,13 @@ const logoutButton = () => {
     $.ajax({
       method: "post",
       url: "/login/logout",
-      success: function(data) {
+      success: function (data) {
         console.log(data);
         window.location.reload();
-      }
-    })
-  })
-}
+      },
+    });
+  });
+};
 
 const submitPieceButton = () => {
   $(document).on("click", "#submit-piece-btn", (event) => {
@@ -135,7 +134,6 @@ const submitPieceButton = () => {
     });
   });
 };
-
 
 $(document).ready(() => {
   backButton();
