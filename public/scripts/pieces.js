@@ -11,11 +11,16 @@ const createExistingPieces = (storyID, pieces) => {
           `<wired-card elevation="2" id="piece-${pieces.id}" class="piece">
           <div class=piece-content>${pieces.text}</div>
           <footer>
-            <wired-icon-button id="upvote-btn" data-pieces-id="${pieces.id}">
-              <div class="upvotes-counts-${pieces.id}">
+            <button id="upvote-btn" data-pieces-id="${pieces.id}">
+              <div class="upvotes">
+              <div class="upvotes-icon">
               <i class="fas fa-heart"></i>
               </div>
-            </wired-icon-button>
+              </button>
+              <div class="upvotes-counts-${pieces.id}">
+              </div>
+              </div>
+
           </footer>
           </wired-card>`
         );
@@ -27,12 +32,12 @@ const createExistingPieces = (storyID, pieces) => {
         `<wired-card elevation="2" id="piece-${pieces.id}" class="piece">
         <div class=piece-content>${pieces.text}</div>
         <footer>
-          <wired-icon-button id="approve-btn" data-pieces-id="${pieces.id}">
+          <button id="approve-btn" data-pieces-id="${pieces.id}">
             <i class="fas fa-check"></i>
-          </wired-icon-button>
-          <wired-icon-button id="delete-btn" data-pieces-id="${pieces.id}">
+          </button>
+          <button id="delete-btn" data-pieces-id="${pieces.id}">
           <i class="fas fa-trash-alt"></i>
-        </wired-icon-button>
+        </button>
         </footer>
         </wired-card>`
       );
