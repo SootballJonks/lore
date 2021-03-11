@@ -52,8 +52,8 @@ const confirmDelete = ($piece) => {
     showDenyButton: true,
     confirmButtonText: `Yes`,
     denyButtonText: `No`,
-    confirmButtonColor: "#03771c",
-    cancelButtonColor: "#cf3939",
+    confirmButtonColor: "#303030",
+    denyButtonColor: "#303030",
   }).then((result) => {
     if (result.isConfirmed) {
       $piece.remove();
