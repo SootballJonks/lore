@@ -87,7 +87,7 @@ const submitPiece = () => {
 };
 
 //APPROVE PIECE AND ADD TO BOTTOM OF STORY
-const approvePiece = () => {
+const approvePieceButton = () => {
   $(document).on("click", "#approve-btn", function (event) {
     event.preventDefault();
 
@@ -99,7 +99,22 @@ const approvePiece = () => {
       url: "/api/pieces/:storyID",
       data: { storyID: storyID, pieceID: pieceID },
     }).then((res) => {
-      console.log(res);
+      appendNewPieceInStory(storyID);
+    });
+  });
+};
+
+const appendNewPieceInStory = (storyID) => {
+  $.ajax("api/stories", { method: "GET" }).then((response) => {
+    $(".single-story").empty();
+    appendSingleStory(response[storyID - 1]);
+    $.ajax(`api/pieces/${storyID}`, {
+      method: "get",
+      success: function (finalresponse) {
+        return finalresponse.forEach((piece) => {
+          createExistingPieces(storyID, piece);
+        });
+      },
     });
   });
 };
@@ -107,5 +122,5 @@ const approvePiece = () => {
 $(document).ready(() => {
   submitPiece();
   renderPieces();
-  approvePiece();
+  approvePieceButton();
 });

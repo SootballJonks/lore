@@ -42,10 +42,9 @@ router.get("/:storyID", (req, res) => {
 // http://localhost:8080/api/pieces/:storyID
 
 router.post("/:storyID", (req, res) => {
-
   addPieceToStory(req.body)
-    .then(() => {
-      console.log("Story appended!");
+    .then((data) => {
+      res.send(data);
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
@@ -54,7 +53,6 @@ router.post("/:storyID", (req, res) => {
 
 //DELETE A PIECE
 router.post("/:storyID/delete", (req, res) => {
-
   deletePiece(req.body)
     .then(() => {
       console.log("Piece Deleted!");
@@ -62,8 +60,6 @@ router.post("/:storyID/delete", (req, res) => {
     .catch((err) => {
       res.status(500).json({ error: err.message });
     });
-
 });
-
 
 module.exports = router;

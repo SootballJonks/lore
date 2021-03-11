@@ -88,7 +88,9 @@ $(document).ready(() => {
   newStoryButton();
   completeButton();
   upvoteButton();
+
   deletePieceButton();
+
   allStoriesButton();
   loginWarning();
 });
