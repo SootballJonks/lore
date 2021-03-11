@@ -43,10 +43,26 @@ const completeButton = () => {
   });
 };
 
+const upvoteButton = () => {
+  $(document).on("click", "#upvote-btn", function (event) {
+    event.preventDefault();
+
+    let pieceID = $(this).attr("data-pieces-id");
+
+    $.ajax({
+      method: "post",
+      url: "/api/upvotes",
+      data: { pieceID: pieceID },
+    }).then((res) => {
+      console.log(res);
+    });
+  });
+};
+
 $(document).ready(() => {
   backButton();
   mystoryButton();
   newStoryButton();
   completeButton();
-  allStoriesButton();
+  upvoteButton();
 });
