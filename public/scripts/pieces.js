@@ -39,7 +39,7 @@ const createExistingPieces = (storyID, pieces) => {
     },
   });
 };
-
+//RENDER ALL THE PIECES TO A STORY WHEN USER CLICK THE STORY CARD
 const renderPieces = () => {
   $("main").on("click", (event) => {
     let storyIDAttr = $(event.target).parent()[0].id;
@@ -58,10 +58,6 @@ const renderPieces = () => {
     }
   });
 };
-
-// const RenderPieces = (storyID, piece) => {
-//   $(".pieces-spot").append(createExistingPieces(storyID, piece).hide().fadeIn(400));
-// };
 
 //SUBMIT PIECES TO THE STORY AS PENDING
 const submitPiece = () => {

@@ -55,7 +55,7 @@ const createStories = (story) => {
 
   return $story;
 };
-
+//Render the story that user has clicked
 const renderSingleStory = () => {
   $("main").on("click", (event) => {
     //get the attribute Story ID and select parent
@@ -72,13 +72,14 @@ const renderSingleStory = () => {
     }
   });
 };
-
+//appen story to the single story div
 const appendSingleStory = (story) => {
   $(".single-story").append(createSingleStory(story));
 };
-
+//create the story element
 const createSingleStory = (story) => {
   if (story.active) {
+    //if the story is active use this template
     $story = $(
       `<wired-card elevation="4" id="story-${story.id}" class="story">
         <header>
@@ -86,7 +87,7 @@ const createSingleStory = (story) => {
         </header>
         <div class="complete-button-container">
         <form id="complete-story">
-        <wired-button type=submit id=complete-button>Complete</wired-button>
+        <wired-button type=submit id=complete-button>Click to Complete this Story</wired-button>
         </form>
         </div>
         <footer class="story-tags">
@@ -109,6 +110,7 @@ const createSingleStory = (story) => {
     );
   } else {
     $story = $(
+      //if the story is not active use this template
       `<wired-card elevation="4" id="story-${story.id}" class="story">
         <header>
           <span class="story-title">${story.title}</span>
