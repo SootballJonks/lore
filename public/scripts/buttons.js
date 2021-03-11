@@ -87,12 +87,12 @@ const approvePieceButton = () => {
       url: "/api/pieces/:storyID",
       data: { storyID: storyID, pieceID: pieceID },
     }).then((res) => {
-      let pieceText = $(`#piece-${pieceID}`).text(); //get the text content of the piece area
-      let array1 = pieceText.split('\n');
-      console.log("Text to be rendered: ", pieceText);
-      console.log("array that hopefully splits on new line: ", array1);
-      $(`#piece-${pieceID}`).fadeOutAndRemove("fast"); //delete the piece with fadeoutandremove function
-      $(`#story-${storyID} p`).append(`<br /><br />${pieceText}`); //append the text to the bottom of the story content
+       //get the text content of the piece area. .html() preserves </br>
+      let pieceText = $(`#piece-${pieceID}`).find(".piece-content").html();
+      //delete the piece with fadeoutandremove function
+      $(`#piece-${pieceID}`).fadeOutAndRemove("fast");
+      //append the text to the bottom of the story content
+      $(`#story-${storyID} p`).append(`<br /><br />${pieceText}`);
     });
   });
 };
