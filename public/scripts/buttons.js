@@ -31,7 +31,7 @@ const completeButton = () => {
   $(document).on("click", "#complete-button", function (event) {
     let storyID = $($story).find(".storyID").attr("name");
     event.preventDefault();
-
+    console.log(storyID);
     $.ajax({
       method: "post",
       url: "/users/complete",
@@ -58,7 +58,14 @@ const upvoteButton = () => {
     });
   });
 };
-
+const loginWarning = () => {
+  $(document).on("click", "#login-button", function (event) {
+    // event.preventDefault();
+    $.ajax("/login", { method: "GET" }).then((res) => {
+      console.log(res);
+    });
+  });
+};
 $(document).ready(() => {
   backButton();
   mystoryButton();
@@ -66,4 +73,5 @@ $(document).ready(() => {
   completeButton();
   upvoteButton();
   allStoriesButton();
+  loginWarning();
 });

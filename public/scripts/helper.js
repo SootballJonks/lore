@@ -32,5 +32,11 @@ const warning = () => {
     confirmButtonColor: "#343a40",
   });
 };
+const warningLogin = () => {
+  Swal.fire({
+    text: "Please Enter your email or password",
+    confirmButtonColor: "#343a40",
+  });
+};
 
 $(document).ready(() => {});
