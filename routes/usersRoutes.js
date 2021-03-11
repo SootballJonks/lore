@@ -20,7 +20,7 @@ const {
 
 //-------------
 router.post("/complete", (req, res) => {
-  console.log(req, res);
+  let storyID = req.body.storyID;
 });
 
 //GET USER-SPECIFIC STORIES

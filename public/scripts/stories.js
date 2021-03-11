@@ -66,10 +66,9 @@ const renderSingleStory = () => {
       $(".all-stories").empty();
       $.ajax("api/stories", {
         method: "GET",
-        success: (res) => {
-          appendSingleStory(res[storyID - 1]);
-        },
-      }).catch((err) => console.log(err));
+      })
+        .then((res) => appendSingleStory(res[storyID - 1]))
+        .catch((err) => console.log(err));
     }
   });
 };
@@ -87,7 +86,7 @@ const createSingleStory = (story) => {
         </header>
         <div class="complete-button-container">
         <form id="complete-story">
-        <wired-button id=complete-button>Complete</wired-button>
+        <wired-button type=submit id=complete-button>Complete</wired-button>
         </form>
         </div>
         <footer class="story-tags">
