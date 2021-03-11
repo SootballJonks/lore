@@ -41,17 +41,24 @@ VALUES
     'Gargoyle Knight Eygon',
     'You head toward the nearby light beyond this dank dungeon, unlocking the final barred door to your freedom. Closing your eyes as you step outside, you inhale a long, wistful breath of fresh air, before opening your eyes again only to immediately choke back a horrified shriek. Because right ahead of you, sitting at the edge of the nearby cliff, is a giant man in a beastial, horned mask, and he’s looking directly at you.
     </br></br>
-    But as you cling to your chest like a startled old crone suffering a heart attack, you slowly realize that the man hasn’t moved an inch, and must in fact be an actual stone gargoyle, as his beastly helm might suggest. And it makes sense, really, for surely no one is actually strong enough to walk about clad in all that heavy, stone-like armor, while also carrying that massive great hammer resting perfectly still across its shoulder. Not to mention the heavy looking shield set beside the stone beast, the shape of it so large that you wonder if you’d even be able to drag it along with you should you feel so inclined to take it.',
+    But as you cling to your chest like a startled old crone suffering a heart attack, you slowly realize that the man hasn’t moved an inch, and must in fact be an actual stone gargoyle, as his beastly helm might suggest. And it makes sense, really, for surely no one is actually strong enough to walk about clad in all that heavy, stone-like armor, while also carrying that massive great hammer resting perfectly still across its shoulder. Not to mention the heavy looking shield set beside the stone beast, the shape of it so large that you wonder if you’d even be able to drag it along with you should you feel so inclined to take it.
+    </br></br>
+    Running a hand back through your hair again, you can’t help but laugh at how easily startled you''d been by a damned stone sculpture, and you approach the thing as it silently watches you all the while.
+    </br></br>
+    Standing before its mighty visage, you slap a congenial hand on the muzzle of the stone beast. “You scared me half to death, my fiendish stone friend.”
+    </br></br>
+    “Did I now?”',
     ARRAY ['eygon', 'fanfiction', 'darksouls']
   );
 
-  INSERT INTO
+INSERT INTO
   stories (user_id, title, text, tags, active)
 VALUES
   (
     1,
     'TEST COMPLETED STORY',
     'This is a completed story. It might not look it, due to its size, but rest assured this story is indeed completed. May the flames guide thee, unkindled one.',
-    ARRAY ['darksouls', 'test'],
+    ARRAY ['test'],
     false
   );
+
