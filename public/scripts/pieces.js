@@ -14,7 +14,7 @@ const createExistingPieces = (storyID, pieces) => {
           `<wired-card elevation="2" id="piece-${pieces.id}" class="piece">
           <div class=piece-content>${pieces.text}</div>
           <footer>
-            <wired-icon-button id="upvote-btn">
+            <wired-icon-button id="upvote-btn" data-pieces-id="${pieces.id}">
               <i class="fas fa-heart"></i>
             </wired-icon-button>
           </footer>
@@ -28,9 +28,6 @@ const createExistingPieces = (storyID, pieces) => {
         `<wired-card elevation="2" id="piece-${pieces.id}" class="piece">
         <div class=piece-content>${pieces.text}</div>
         <footer>
-          <wired-icon-button id="upvote-btn">
-            <i class="fas fa-heart"></i>
-          </wired-icon-button>
           <wired-icon-button id="approve-btn" data-pieces-id="${pieces.id}">
             <i class="fas fa-check"></i>
           </wired-icon-button>

@@ -58,7 +58,7 @@ app.use("/users", usersRoutes);
 app.use("/api/stories", storiesRoutes);
 app.use("/api/pieces", piecesRoutes);
 app.use("/login", loginRoutes);
-app.use("/api/upvotes", upvotesRoutes());
+app.use("/api/upvotes", upvotesRoutes);
 
 app.use("/", pages);
 // Note: mount other resources here, using the same pattern above
