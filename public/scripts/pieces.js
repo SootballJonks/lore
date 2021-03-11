@@ -75,7 +75,7 @@ const submitPiece = () => {
       warning();
       return;
     }
-
+    $(".piece-text-box").val("");
     $.ajax({
       method: "post",
       url: "/api/pieces",

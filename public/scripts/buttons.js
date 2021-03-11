@@ -87,7 +87,10 @@ const approvePieceButton = () => {
       url: "/api/pieces/:storyID",
       data: { storyID: storyID, pieceID: pieceID },
     }).then((res) => {
-      updateNewPieceInStory(storyID);
+      let pieceText = $(`#piece-${pieceID}`).text();
+      console.log(`#storyID-${storyID} p`);
+      $(`#story-${storyID} p`).append(`<br /><br />${pieceText}`);
+      $(`#piece-${pieceID}`).fadeOutAndRemove("fast");
     });
   });
 };
@@ -100,5 +103,4 @@ $(document).ready(() => {
   approvePieceButton();
   deletePieceButton();
   allStoriesButton();
-  loginWarning();
 });
