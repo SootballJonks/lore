@@ -13,7 +13,6 @@ const {
 router.post("/", (req, res) => {
   const username = req.session.username;
 
-  console.log("This is the body for piece: ", req.body);
   getID(username)
     .then((id) => {
       return addNewPiece(id, req.body);
@@ -38,9 +37,6 @@ router.get("/:storyID", (req, res) => {
 });
 
 //APPROVE PENDING PIECE AND MERGE INTO STORY
-
-// http://localhost:8080/api/pieces/:storyID
-
 router.post("/:storyID", (req, res) => {
   addPieceToStory(req.body)
     .then((data) => {

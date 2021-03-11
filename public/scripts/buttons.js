@@ -1,3 +1,7 @@
+/*This file contains the jQuery functions for various buttons across the webapp.
+*/
+
+
 const mystoryButton = () => {
   $(document).on("click", "#user-stories", function () {
     $(".single-story").empty();
@@ -85,12 +89,53 @@ const approvePieceButton = () => {
       url: "/api/pieces/:storyID",
       data: { storyID: storyID, pieceID: pieceID },
     }).then((res) => {
-      let pieceText = $(`#piece-${pieceID}`).text(); //get the text content of the piece area
-      $(`#piece-${pieceID}`).fadeOutAndRemove("fast"); //delete the piece with fadeoutandremove function
-      $(`#story-${storyID} p`).append(`<br /><br />${pieceText}`); //append the text to the bottom of the story content
+       //get the text content of the piece area. .html() preserves </br>
+      let pieceText = $(`#piece-${pieceID}`).find(".piece-content").html();
+      //delete the piece with fadeoutandremove function
+      $(`#piece-${pieceID}`).fadeOutAndRemove("fast");
+      //append the text to the bottom of the story content
+      $(`#story-${storyID} p`).append(`<br /><br />${pieceText}`);
     });
   });
 };
+
+const logoutButton = () => {
+  $(document).on("click", "#logout-button", function (event) {
+    event.preventDefault();
+
+    $.ajax({
+      method: "post",
+      url: "/login/logout",
+      success: function(data) {
+        console.log(data);
+        window.location.reload();
+      }
+    })
+  })
+}
+
+const submitPieceButton = () => {
+  $(document).on("click", "#submit-piece-btn", (event) => {
+    event.preventDefault();
+
+    let storyID = $($story).find(".storyID").attr("name");
+    let text = $($story).find("wired-textarea").val();
+
+    if (!textValidation(text)) {
+      warning();
+      return;
+    }
+    $(".piece-text-box").val("");
+    $.ajax({
+      method: "post",
+      url: "/api/pieces",
+      data: { storyID: storyID, text: text },
+    }).then((res) => {
+      createExistingPieces(storyID, res);
+    });
+  });
+};
+
 
 $(document).ready(() => {
   backButton();
@@ -101,4 +146,6 @@ $(document).ready(() => {
   approvePieceButton();
   deletePieceButton();
   allStoriesButton();
+  logoutButton();
+  submitPieceButton();
 });
