@@ -8,11 +8,23 @@
 const express = require("express");
 const router = express.Router();
 
-const { getUserStories, newStory, getID, isUserTheOwner, storyComplete } = require("../lib/queries");
+const {
+  getUserStories,
+  newStory,
+  getID,
+  isUserTheOwner,
+  storyComplete,
+} = require("../lib/queries");
 
 //HELPER FUNCTION (this needs to be moved):
 
 //-------------
+router.post("/complete", (req, res) => {
+  let storyID = req.body;
+  storyComplete(storyID).then((response) => {
+    res.send(response);
+  });
+});
 
 //GET USER-SPECIFIC STORIES
 router.get("/:userNAME", (req, res) => {
@@ -38,33 +50,14 @@ router.post("/:userNAME", (req, res) => {
     });
 });
 
-// //GET SESSION USERNAME
-// router.get("/", (req, res) => {
-//   const username = req.session.username;
-//   res.send(username);
-// });
-
-
 //GET TRUE/FALSE IF USER IS OWNER OF STORY
 router.post("/", (req, res) => {
   const username = req.session.username;
   const storyID = req.body;
 
-  isUserTheOwner(username, storyID)
-    .then((data) => {
-      res.send(data)
-    })
-})
-
-//COMPLETE STORY
-router.post("/complete", (req, res) => {
-  console.log(req);
-
-  storyComplete(req.body)
-    .then((data) => {
-      res.send(data)
-    })
-})
-
+  isUserTheOwner(username, storyID).then((data) => {
+    res.send(data);
+  });
+});
 
 module.exports = router;

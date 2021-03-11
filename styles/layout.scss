@@ -20,6 +20,9 @@ nav {
     font-weight: 700;
     font-size: 2rem;
   }
+  .nav-stories {
+    display: flex;
+  }
 }
 //this is the container for all the stories
 .all-stories-container {
@@ -85,8 +88,14 @@ button {
 }
 
 wired-button {
+  transition: 0.3s;
   &:focus {
     outline: none;
+  }
+
+  &:hover {
+    background-color: black;
+    color: white;
   }
   margin: 0.3rem;
 }
@@ -204,6 +213,10 @@ wired-textarea {
       textarea {
         font-family: "Mali", cursive;
       }
+      .complete-story-status {
+        display: flex;
+        justify-content: flex-end;
+      }
     }
   }
 }
@@ -274,4 +287,32 @@ wired-textarea {
 
 .swal2-styled .swal2-confirm {
   background-color: black;
+}
+
+.stamp {
+  transform: rotate(12deg);
+  color: #555;
+  font-size: 0.7rem;
+  font-weight: 700;
+  border: 0.25rem solid #555;
+  display: inline-block;
+
+  text-transform: uppercase;
+  border-radius: 1rem;
+  font-family: "Courier";
+  -webkit-mask-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/8399/grunge.png");
+  -webkit-mask-size: 944px 604px;
+  mix-blend-mode: multiply;
+}
+.is-approved {
+  color: #03771c;
+  border: 0.3rem solid #03771c;
+  -webkit-mask-position: 13rem 6rem;
+  transform: rotate(-14deg);
+  border-radius: 0;
+}
+
+.story-pending {
+  color: rgb(207, 57, 57);
+  border: 0.3rem solid rgb(207, 57, 57);
 }

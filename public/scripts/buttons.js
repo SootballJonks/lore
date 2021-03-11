@@ -28,13 +28,17 @@ const newStoryButton = () => {
 };
 
 const completeButton = () => {
-  $(document).on("click", "#complete-button", function () {
-    let storyID = $($story).find(".storyID").attr('name');
+  $(document).on("click", "#complete-button", function (event) {
+    let storyID = $($story).find(".storyID").attr("name");
+    event.preventDefault();
 
     $.ajax({
       method: "post",
       url: "/users/complete",
-      data: { storyID: storyID },
+      data: { storyID },
+    }).then((res) => {
+      $(".single-story").empty();
+      appendSingleStory(res);
     });
   });
 };
@@ -68,8 +72,8 @@ const deletePieceButton = () => {
     }).then((res) => {
       console.log(res);
     });
-  })
-}
+  });
+};
 
 $(document).ready(() => {
   backButton();
@@ -77,5 +81,9 @@ $(document).ready(() => {
   newStoryButton();
   completeButton();
   upvoteButton();
+
   deletePieceButton();
+
+  allStoriesButton();
+
 });
