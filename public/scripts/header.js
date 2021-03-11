@@ -1,19 +1,7 @@
-<head>
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" type="text/css" href="/styles/layout.css" />
-  <style>
-    .navbar-custom .navbar-brand,
-    .navbar-custom .navbar-text {
-      color: white;
-    }
-  </style>
-</head>
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+//generate the navigator
+const headerGenerator = () => {
+  $header = $(`
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/">LORE</a>
   <button
     class="navbar-toggler"
@@ -30,14 +18,14 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <form method="GET" action="/:userNAME">
+        <form method="GET" action="/:userNAME" class="nav-stories">
           <a class="nav-link" id="user-stories" href="#"
             >My Stories <span class="sr-only">(current)</span></a
           >
+          <a class="nav-link" id="all-user-stories" href="#"
+            >All Stories <span class="sr-only">(current)</span></a
+          >
         </form>
-        <a class="nav-link" id="all-user-stories" href="#"
-          >All Stories <span class="sr-only">(current)</span></a
-        >
       </li>
     </ul>
 
@@ -48,5 +36,21 @@
     >
       New Story
     </button>
+
+    <button
+      id="logout-button"
+      class="btn btn-outline-success my-2 my-sm-0 btn-outline-danger"
+      type="submit"
+    >
+      Log Out
+    </button>
   </div>
-</nav>
+  </nav>
+  `);
+
+  $("body").prepend($header);
+};
+
+$(document).ready(() => {
+  headerGenerator();
+});

@@ -6,11 +6,13 @@ const {
   getAllPieces,
   addPieceToStory,
   getID,
+  deletePiece,
 } = require("../lib/queries");
 
 //SUBMIT A PIECE TO STORY AS PENDING
 router.post("/", (req, res) => {
   const username = req.session.username;
+
   getID(username)
     .then((id) => {
       return addNewPiece(id, req.body);
@@ -35,17 +37,25 @@ router.get("/:storyID", (req, res) => {
 });
 
 //APPROVE PENDING PIECE AND MERGE INTO STORY
-
-// http://localhost:8080/api/pieces/:storyID
-
 router.post("/:storyID", (req, res) => {
- console.log(req.body);
   addPieceToStory(req.body)
-    .then((appendedStory) => {
-      console.log("appended story?: ", appendedStory);
+    .then((data) => {
+      res.send(data);
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
     });
 });
+
+//DELETE A PIECE
+router.post("/:storyID/delete", (req, res) => {
+  deletePiece(req.body)
+    .then((response) => {
+      res.send(response);
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+});
+
 module.exports = router;
