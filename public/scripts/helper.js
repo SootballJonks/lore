@@ -61,3 +61,14 @@ const confirmDelete = ($piece) => {
     }
   });
 };
+
+const upvotesAdder = (pieceID) => {
+  let $currentCounts = $(`.upvotes-counts-${pieceID}`).text();
+  let $newCounts = $currentCounts * 1 + 1;
+  $(`.upvotes-counts-${pieceID}`).text($newCounts);
+  return;
+};
+
+const disableButton = ($buttonID) => {
+  $buttonID.attr("disabled", true);
+};

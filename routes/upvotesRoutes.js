@@ -23,9 +23,9 @@ router.post("/", (req, res) => {
 
   getID(username).then((data) => {
     addUpvote(data, pieceID);
-    getAllUpvotes(pieceID)
+    getAllUpvotes()
       .then((data) => {
-        res.send(data.count);
+        res.send(data);
       })
       .catch((err) => {
         console.log("Already upvoted!");

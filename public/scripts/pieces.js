@@ -17,7 +17,7 @@ const createExistingPieces = (storyID, pieces) => {
               <i class="fas fa-heart"></i>
               </div>
               </button>
-              <div class="upvotes-counts-${pieces.id}">
+              <div class="upvotes-counts-${pieces.id} upvotes-counts-container">
               </div>
               </div>
 

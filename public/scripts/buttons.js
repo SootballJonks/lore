@@ -46,15 +46,14 @@ const completeButton = () => {
 const upvoteButton = () => {
   $(document).on("click", "#upvote-btn", function (event) {
     event.preventDefault();
-
     let pieceID = $(this).attr("data-pieces-id");
-
     $.ajax({
       method: "POST",
       url: "/api/upvotes",
       data: { pieceID },
     }).then((res) => {
-      console.log(res); //res will currently either be a number, or the string "already upvoted". Can remove this string by removing the .catch() in the router.
+      console.log(pieceID);
+      renderAddedUpvotes(pieceID);
     });
   });
 };
@@ -92,6 +91,7 @@ const approvePieceButton = () => {
     });
   });
 };
+
 $(document).ready(() => {
   backButton();
   mystoryButton();
