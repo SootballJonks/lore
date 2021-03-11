@@ -21,6 +21,12 @@ nav .navbar-brand {
   font-size: 2rem;
 }
 
+nav .nav-stories {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .all-stories-container {
   display: -webkit-box;
   display: -ms-flexbox;
