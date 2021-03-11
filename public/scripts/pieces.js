@@ -7,6 +7,7 @@ const createExistingPieces = (storyID, pieces) => {
     data: { storyID },
     success: function (res) {
       if (!res) {
+        //If the user is NOT the owner of the story render this one...
         $pieces = $(
           `<wired-card elevation="2" id="piece-${pieces.id}" class="piece">
           <div class=piece-content>${pieces.text}</div>
@@ -27,7 +28,7 @@ const createExistingPieces = (storyID, pieces) => {
         $(".pieces-spot").append($pieces).hide().fadeIn(400);
         return $pieces;
       }
-
+      //If the user IS the owner of the story, render this one...
       $pieces = $(
         `<wired-card elevation="2" id="piece-${pieces.id}" class="piece">
         <div class=piece-content>${pieces.text}</div>
@@ -46,6 +47,8 @@ const createExistingPieces = (storyID, pieces) => {
     },
   });
 };
+
+
 //RENDER ALL THE PIECES TO A STORY WHEN USER CLICK THE STORY CARD
 const renderPieces = () => {
   $("main").on("click", (event) => {
@@ -67,30 +70,7 @@ const renderPieces = () => {
   });
 };
 
-//SUBMIT PIECES TO THE STORY AS PENDING
-const submitPiece = () => {
-  $(document).on("click", "#submit-piece-btn", (event) => {
-    event.preventDefault();
-
-    let storyID = $($story).find(".storyID").attr("name");
-    let text = $($story).find("wired-textarea").val();
-
-    if (!textValidation(text)) {
-      warning();
-      return;
-    }
-    $(".piece-text-box").val("");
-    $.ajax({
-      method: "post",
-      url: "/api/pieces",
-      data: { storyID: storyID, text: text },
-    }).then((res) => {
-      createExistingPieces(storyID, res);
-    });
-  });
-};
 
 $(document).ready(() => {
-  submitPiece();
   renderPieces();
 });
