@@ -88,7 +88,7 @@ const submitPiece = () => {
 
 //APPROVE PIECE AND ADD TO BOTTOM OF STORY
 
-const appendNewPieceInStory = (storyID) => {
+const updateNewPieceInStory = (storyID) => {
   $.ajax("api/stories", { method: "GET" }).then((response) => {
     $(".single-story").empty();
     appendSingleStory(response[storyID - 1]);

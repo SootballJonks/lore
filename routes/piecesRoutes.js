@@ -54,8 +54,8 @@ router.post("/:storyID", (req, res) => {
 //DELETE A PIECE
 router.post("/:storyID/delete", (req, res) => {
   deletePiece(req.body)
-    .then(() => {
-      console.log("Piece Deleted!");
+    .then((response) => {
+      res.send(response);
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });

@@ -62,18 +62,20 @@ const upvoteButton = () => {
 const deletePieceButton = () => {
   $(document).on("click", "#delete-btn", function (event) {
     event.preventDefault();
-
+    let storyID = $($story).find(".storyID").attr("name");
     let pieceID = $(this).attr("data-pieces-id");
-
+    console.log(storyID);
     $.ajax({
       method: "post",
       url: "/api/pieces/:storyID/delete",
       data: { pieceID: pieceID },
     }).then((res) => {
-      console.log(res);
+      console.log(`#piece-${pieceID}`);
+      $(`#piece-${pieceID}`).remove();
     });
   });
 };
+
 const loginWarning = () => {
   $(document).on("click", "#login-button", function (event) {
     // event.preventDefault();
@@ -94,7 +96,7 @@ const approvePieceButton = () => {
       url: "/api/pieces/:storyID",
       data: { storyID: storyID, pieceID: pieceID },
     }).then((res) => {
-      appendNewPieceInStory(storyID);
+      updateNewPieceInStory(storyID);
     });
   });
 };
