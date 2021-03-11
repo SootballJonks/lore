@@ -93,6 +93,23 @@ const approvePieceButton = () => {
     });
   });
 };
+
+const logoutButton = () => {
+  $(document).on("click", "#logout-button", function (event) {
+    event.preventDefault();
+
+    $.ajax({
+      method: "post",
+      url: "/login/logout",
+      success: function(data) {
+        console.log(data);
+        window.location.reload();
+      }
+    })
+  })
+}
+
+
 $(document).ready(() => {
   backButton();
   mystoryButton();
@@ -102,4 +119,5 @@ $(document).ready(() => {
   approvePieceButton();
   deletePieceButton();
   allStoriesButton();
+  logoutButton();
 });

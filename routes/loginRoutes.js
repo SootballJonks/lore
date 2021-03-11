@@ -25,8 +25,8 @@ router.post("/", (req, res) => {
 });
 
 router.post("/logout", (req, res) => {
-  req.session.username = null;
-  res.send({});
+  delete req.session.username;
+  res.send("Logged out!");
 });
 
 module.exports = router;

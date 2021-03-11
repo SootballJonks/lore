@@ -36,6 +36,14 @@ const headerGenerator = () => {
     >
       New Story
     </button>
+
+    <button
+      id="logout-button"
+      class="btn btn-outline-success my-2 my-sm-0 btn-outline-danger"
+      type="submit"
+    >
+      Log Out
+    </button>
   </div>
   </nav>
   `);
