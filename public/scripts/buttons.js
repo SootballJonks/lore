@@ -87,10 +87,9 @@ const approvePieceButton = () => {
       url: "/api/pieces/:storyID",
       data: { storyID: storyID, pieceID: pieceID },
     }).then((res) => {
-      let pieceText = $(`#piece-${pieceID}`).text();
-      console.log(`#storyID-${storyID} p`);
-      $(`#story-${storyID} p`).append(`<br /><br />${pieceText}`);
-      $(`#piece-${pieceID}`).fadeOutAndRemove("fast");
+      let pieceText = $(`#piece-${pieceID}`).text(); //get the text content of the piece area
+      $(`#piece-${pieceID}`).fadeOutAndRemove("fast"); //delete the piece with fadeoutandremove function
+      $(`#story-${storyID} p`).append(`<br /><br />${pieceText}`); //append the text to the bottom of the story content
     });
   });
 };

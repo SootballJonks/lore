@@ -87,7 +87,7 @@ const createSingleStory = (story) => {
         </header>
         <div class="complete-button-container">
         <form id="complete-story">
-        <wired-button type=submit id=complete-button>Click to Complete this Story</wired-button>
+        <wired-button type=submit id=complete-button>Complete Story</wired-button>
         </form>
         </div>
         <footer class="story-tags">
