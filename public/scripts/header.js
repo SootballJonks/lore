@@ -1,19 +1,6 @@
-<head>
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" type="text/css" href="/styles/layout.css" />
-  <style>
-    .navbar-custom .navbar-brand,
-    .navbar-custom .navbar-text {
-      color: white;
-    }
-  </style>
-</head>
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+const headerGenerator = () => {
+  $header = $(`
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/">LORE</a>
   <button
     class="navbar-toggler"
@@ -49,4 +36,12 @@
       New Story
     </button>
   </div>
-</nav>
+  </nav>
+  `);
+
+  $("body").prepend($header);
+};
+
+$(document).ready(() => {
+  headerGenerator();
+});
