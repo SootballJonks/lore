@@ -82,23 +82,6 @@ const submitPiece = () => {
   });
 };
 
-//APPROVE PIECE AND ADD TO BOTTOM OF STORY
-
-const updateNewPieceInStory = (storyID) => {
-  $.ajax("api/stories", { method: "GET" }).then((response) => {
-    $(".single-story").empty();
-    appendSingleStory(response[storyID - 1]);
-    $.ajax(`api/pieces/${storyID}`, {
-      method: "get",
-      success: function (finalresponse) {
-        return finalresponse.forEach((piece) => {
-          createExistingPieces(storyID, piece);
-        });
-      },
-    });
-  });
-};
-
 $(document).ready(() => {
   submitPiece();
   renderPieces();
