@@ -6,6 +6,7 @@ const {
   getAllPieces,
   addPieceToStory,
   getID,
+  deletePiece,
 } = require("../lib/queries");
 
 //SUBMIT A PIECE TO STORY AS PENDING
@@ -43,8 +44,8 @@ router.get("/:storyID", (req, res) => {
 router.post("/:storyID", (req, res) => {
 
   addPieceToStory(req.body)
-    .then((appendedStory) => {
-      console.log("appended story?: ", appendedStory);
+    .then(() => {
+      console.log("Story appended!");
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
@@ -54,7 +55,13 @@ router.post("/:storyID", (req, res) => {
 //DELETE A PIECE
 router.post("/:storyID/delete", (req, res) => {
 
-
+  deletePiece(req.body)
+    .then(() => {
+      console.log("Piece Deleted!");
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
 
 });
 

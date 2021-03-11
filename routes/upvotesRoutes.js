@@ -30,7 +30,7 @@ router.post("/", (req, res) => {
           res.json(data2.rowCount);
         })
         .catch((err) => {
-          res.send("Already upvoted!");
+          console.log("Already upvoted!");
         });
     })
 
