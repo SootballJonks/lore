@@ -13,7 +13,7 @@ VALUES
 INSERT INTO
  pieces (user_id, story_id, text)
 VALUES
-  (2, 1, 'hahaha my keyboard tastes like oranges');
+  (3, 1, 'hahaha my keyboard tastes like oranges');
 
   INSERT INTO
  pieces (user_id, story_id, text)
@@ -23,7 +23,7 @@ VALUES
   INSERT INTO
  pieces (user_id, story_id, text)
 VALUES
-  (2, 1, 'Celaena high-fived her escort and escaped the salt mines, and went on to live happily ever after.');
+  (4, 1, 'Celaena high-fived her escort and escaped the salt mines, and went on to live happily ever after.');
 
   INSERT INTO
  pieces (user_id, story_id, text)
