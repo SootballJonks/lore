@@ -1,15 +1,11 @@
-const $errorNoContent = $(`<h2 id="warning-too-long">
-<i class="fas fa-exclamation-triangle fa-xs"></i>
-Got nothing to say?<i class="fas fa-exclamation-triangle fa-xs"></i>
-</h2>`);
-
+//check if user has entered anything in the textarea
 const textValidation = (str) => {
   if (str.length === 0) {
     return false;
   }
   return true;
 };
-
+//get the storyID of the current selected story
 const storyIDSlicer = (storyIDAttr) => {
   let storyID = "";
   for (let i = 0; i < storyIDAttr.length; i++) {
@@ -19,12 +15,7 @@ const storyIDSlicer = (storyIDAttr) => {
   }
   return storyID;
 };
-const textUnderLine = () => {
-  $(document).on("hover", ".story-read-more", () => {
-    $(".story-read-more").css("text-decoration", "underline");
-  });
-};
-
+//if there is no content when user click submit, show warning
 const warning = () => {
   Swal.fire({
     title: "?",
@@ -32,18 +23,20 @@ const warning = () => {
     confirmButtonColor: "#343a40",
   });
 };
+//work in progress, check if user has entered email or password
 const warningLogin = () => {
   Swal.fire({
     text: "Please Enter your email or password",
     confirmButtonColor: "#343a40",
   });
 };
-
+//custom jquery lib to add fadeout remove effect
 jQuery.fn.fadeOutAndRemove = function (speed) {
   $(this).fadeOut(speed, function () {
     $(this).remove();
   });
 };
+//show warning if user is deleting the piece, confirm to delete and no to cancel
 const confirmDelete = ($piece) => {
   Swal.fire({
     title: "Are you sure you want to delete?",
@@ -59,5 +52,3 @@ const confirmDelete = ($piece) => {
     }
   });
 };
-
-$(document).ready(() => {});
