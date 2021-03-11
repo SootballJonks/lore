@@ -1,14 +1,11 @@
 //LOAD CONTRIBUTIONS FROM DATABASE (3-step process)
 const createExistingPieces = (storyID, pieces) => {
-
   //TRUE/FALSE if current user is the owner of story
   $.ajax({
     method: "POST",
     url: "/users",
     data: { storyID },
-    success: function(res) {
-
-      console.log("res: ", res); //there is a value returning here
+    success: function (res) {
       if (!res) {
         $pieces = $(
           `<wired-card elevation="2" id="piece-${pieces.id}" class="piece">
@@ -39,9 +36,8 @@ const createExistingPieces = (storyID, pieces) => {
       );
       $(".pieces-spot").append($pieces).hide().fadeIn(400);
       return $pieces;
-
-    }
-  })
+    },
+  });
 };
 
 const renderPieces = () => {
@@ -53,12 +49,12 @@ const renderPieces = () => {
       $(".all-stories").empty();
       $.ajax(`api/pieces/${storyID}`, {
         method: "get",
-        success: function(res) {
+        success: function (res) {
           return res.forEach((piece) => {
             createExistingPieces(storyID, piece);
           });
-        }
-      })
+        },
+      });
     }
   });
 };

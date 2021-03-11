@@ -48,8 +48,6 @@ router.get("/search", (req, res) => {
     });
 });
 
-
-// "/api/stories/complete"
-router.post("/complete")
+//this is for complete button
 
 module.exports = router;

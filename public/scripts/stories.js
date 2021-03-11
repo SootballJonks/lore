@@ -30,7 +30,7 @@ const createStories = (story) => {
   <header>
     <span class="story-title">${story.title}</span>
   </header>
-  <span class="story-status">Pending</span>
+  <span class="stamp is-approved story-pending">pending</span>
   <p class="story-text">${snippet}...</p>
   <a href="#" class="story-read-more">Read More</a>
   <footer class="story-tags">
@@ -43,7 +43,7 @@ const createStories = (story) => {
     <header>
       <span class="story-title">${story.title}</span>
     </header>
-    <span class="story-status">Completed</span>
+    <span class="stamp is-approved">completed</span>
     <p class="story-text">${snippet}...</p>
     <a href="#" class="story-read-more">Read More</a>
     <footer class="story-tags">
@@ -64,7 +64,9 @@ const renderSingleStory = () => {
 
     if (storyID) {
       $(".all-stories").empty();
-      $.ajax("api/stories", { method: "GET" })
+      $.ajax("api/stories", {
+        method: "GET",
+      })
         .then((res) => appendSingleStory(res[storyID - 1]))
         .catch((err) => console.log(err));
     }
@@ -83,7 +85,9 @@ const createSingleStory = (story) => {
           <span class="story-title">${story.title}</span>
         </header>
         <div class="complete-button-container">
+        <form id="complete-story">
         <wired-button type=submit id=complete-button>Complete</wired-button>
+        </form>
         </div>
         <footer class="story-tags">
         ${story.tags}
@@ -109,6 +113,9 @@ const createSingleStory = (story) => {
         <header>
           <span class="story-title">${story.title}</span>
         </header>
+        <div class="complete-story-status">
+        <span class="stamp is-approved">Completed</span>
+        </div>
         <p class="story-text">${story.text}</p>
 
         <footer class="story-tags">
@@ -125,5 +132,4 @@ const createSingleStory = (story) => {
 $(document).ready(() => {
   renderSingleStory();
   loadStories(renderStories);
-  allStoriesButton();
 });
