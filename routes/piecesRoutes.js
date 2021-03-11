@@ -6,6 +6,7 @@ const {
   getAllPieces,
   addPieceToStory,
   getID,
+  deletePiece,
 } = require("../lib/queries");
 
 //SUBMIT A PIECE TO STORY AS PENDING
@@ -41,19 +42,28 @@ router.get("/:storyID", (req, res) => {
 // http://localhost:8080/api/pieces/:storyID
 
 router.post("/:storyID", (req, res) => {
-  const username = req.session.username;
 
   addPieceToStory(req.body)
-    .then((appendedStory) => {
-      res.json(appendedStory.text);
+    .then(() => {
+      console.log("Story appended!");
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
     });
 });
 
-router.post("/", (req, res) => {
-  console.log(req, res);
+//DELETE A PIECE
+router.post("/:storyID/delete", (req, res) => {
+
+  deletePiece(req.body)
+    .then(() => {
+      console.log("Piece Deleted!");
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+
 });
+
 
 module.exports = router;
