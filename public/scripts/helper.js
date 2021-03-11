@@ -15,6 +15,15 @@ const storyIDSlicer = (storyIDAttr) => {
   }
   return storyID;
 };
+const pieceIDSlicer = (storyIDAttr) => {
+  let storyID = "";
+  for (let i = 0; i < storyIDAttr.length; i++) {
+    if (storyIDAttr.charCodeAt(i) > 47 && storyIDAttr.charCodeAt(i) < 58) {
+      storyID += storyIDAttr[i];
+    }
+  }
+  return storyID;
+};
 //if there is no content when user click submit, show warning
 const warning = () => {
   Swal.fire({
@@ -43,12 +52,23 @@ const confirmDelete = ($piece) => {
     showDenyButton: true,
     confirmButtonText: `Yes`,
     denyButtonText: `No`,
-    confirmButtonColor: "#03771c",
-    cancelButtonColor: "#cf3939",
+    confirmButtonColor: "#303030",
+    denyButtonColor: "#303030",
   }).then((result) => {
     if (result.isConfirmed) {
       $piece.remove();
     } else if (result.isDenied) {
     }
   });
+};
+
+const upvotesAdder = (pieceID) => {
+  let $currentCounts = $(`.upvotes-counts-${pieceID}`).text();
+  let $newCounts = $currentCounts * 1 + 1;
+  $(`.upvotes-counts-${pieceID}`).text($newCounts);
+  return;
+};
+
+const disableButton = ($buttonID) => {
+  $buttonID.attr("disabled", true);
 };
