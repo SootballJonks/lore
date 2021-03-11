@@ -19,7 +19,17 @@ VALUES
     'Those With Purpose Will never hollow',
     'Time passed rather slowly for the princes sequestered high above the Grand Archives, at the top of Lothric Castle. Ever since they both agreed to let the fire die, having locked themselves away in the younger brother’s bedchamber, Lorian found himself in a state of dormancy he was unaccustomed to. Lorian had bared his brother’s curse to help ease their suffering, and in turn, he had gone from being a skilled and revered knight to being one unable to walk or speak. And, while he was reconciled to his fate & acquired disabilities, there were certainly times where he yearned to spar on the training grounds again, or laugh with comrades in the barracks.
     </br></br>
-    Just how many hours, days, months—perhaps even years—have now passed with him watching the dust swirl in the fleeting sunlight, as he rests beside Lothric? And just how many more until the fire finally fades? Is time even progressing as they lay in meditative silence? Lorian strived to push such thoughts out of his mind, for the sake of his own sanity.',
+    Just how many hours, days, months—perhaps even years—have now passed with him watching the dust swirl in the fleeting sunlight, as he rests beside Lothric? And just how many more until the fire finally fades? Is time even progressing as they lay in meditative silence? Lorian strived to push such thoughts out of his mind, for the sake of his own sanity.
+    </br></br>
+    Sometimes, a misguided warrior or two would push open the doors to the bedchamber, and provide Lorian a moment of reprieve from his thoughts and his monotony. Although he could only muster the strength to crawl, what remained of his skill with his sword, coupled with Lothric’s miracles, were usually more than enough to obliterate any intruder and ignite Lorian''s old desire for battle.
+    </br></br>
+    Lothric, on the other hand, loathed any and all interruptions to the end that he resigned himself to. The sound of the bedchamber doors opening once more, ruining his perfect, comfortable silence, elicited a spite-filled scoff from his throat.
+    </br></br>
+    "Oh, dear. Another dogged contender..." Lothric couldn’t help but roll his eyes under the concealment of his hood. "Welcome, unkindled one. Purloiner of cinders," he mocked the small figure that peeked its helm into the room.
+    </br></br>
+    The figure hesitated, as if they were contemplating what decisions that led them to such a place, but ultimately the figure stepped fully into view - the door shutting abruptly behind them. The figure, clad in a set of mismatched full-plate, moved to stand in the center of the bedchamber, before clearing their throat. "Prince Lothric, I have come to persuade you - to take your place as a Lord of Cinder, and to aid in the linking of the fire."
+    </br></br>
+    "Well," Lothric tilted his head at the audacity of the Ashen One, "mind you, the mantle of Lord interests me none. The Firelinking curse, the legacy of the Lords - I intend to let it all fade into nothing."',
     ARRAY ['fanfiction', 'darksouls', 'twinprinces', 'lothric']
   );
 

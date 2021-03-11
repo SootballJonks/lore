@@ -1,9 +1,9 @@
 INSERT INTO
  pieces (user_id, story_id, text)
 VALUES
-  (1, 2, 'Sometimes, a misguided warrior or two would push open the doors to the bedchamber, and provide Lorian a moment of reprieve from his thoughts and his monotony. Although he could only muster the strength to crawl, what remained of his skill with his sword, coupled with Lothric’s miracles, were usually more than enough to obliterate any intruder and ignite Lorian''s old desire for battle.
+  (1, 2, '"... Oh, um..." Lothric watched in slight bewilderment as the armored figure awkwardly fumbled with the large sword strapped to their back. After a few moments, they were able to free it from its sheath and take up a combat-like stance. "I guess I''ll have to convince you the hard way... Uh, t-then..." Their voice, along with their confidence, trailed off as they noticed a massive figure emerging from the darkness of the bed frame.
   </br></br>
-  Lothric, on the other hand, loathed any and all interruptions to the end that he resigned himself to. The sound of the bedchamber doors opening once more, ruining his perfect, comfortable silence, elicited a spite-filled scoff from his throat.');
+  Lorian''s armour scraped against the feathers and stone that littered the floor, each movement echoing around the large room as he dragged himself towards the intruder. Lothric clasped his hands together and continued, "You''ve done quite enough, unkindled one. Now have your rest."');
 
 INSERT INTO
  pieces (user_id, story_id, text)
@@ -28,11 +28,7 @@ VALUES
   INSERT INTO
  pieces (user_id, story_id, text)
 VALUES
-  (2, 2, '"Oh, dear. Another dogged contender..." Lothric couldn’t help but roll his eyes under the concealment of his hood. "Welcome, unkindled one. Purloiner of cinders," he mocked the small figure that peeked its helm into the room.
-  </br></br>
-  The figure hesitated, as if they were contemplating what decisions that led them to such a place, but ultimately the figure stepped fully into view - the door shutting abruptly behind them. The figure, clad in a set of mismatched full-plate, moved to stand in the center of the bedchamber, before clearing their throat. "Prince Lothric, I have come to persuade you - to take your place as a Lord of Cinder, and to aid in the linking of the fire."
-  </br></br>
-  "Well," Lothric tilted his head at the audacity of the Ashen One, "mind you, the mantle of Lord interests me none. The Firelinking curse, the legacy of the Lords - I intend to let it all fade into nothing."');
+  (2, 2, 'This is also a test!');
 
   INSERT INTO
  pieces (user_id, story_id, text)
