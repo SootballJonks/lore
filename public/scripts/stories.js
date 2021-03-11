@@ -30,7 +30,7 @@ const createStories = (story) => {
   <header>
     <span class="story-title">${story.title}</span>
   </header>
-  <span class="story-status">Pending</span>
+  <span class="stamp is-approved story-pending">pending</span>
   <p class="story-text">${snippet}...</p>
   <a href="#" class="story-read-more">Read More</a>
   <footer class="story-tags">
@@ -43,7 +43,7 @@ const createStories = (story) => {
     <header>
       <span class="story-title">${story.title}</span>
     </header>
-    <span class="story-status">Completed</span>
+    <span class="stamp is-approved">completed</span>
     <p class="story-text">${snippet}...</p>
     <a href="#" class="story-read-more">Read More</a>
     <footer class="story-tags">
