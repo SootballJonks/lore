@@ -24,8 +24,16 @@ router.post("/", (req, res) => {
 
   getID(username)
     .then((data) => {
-      addUpvote(data, pieceID);
+      addUpvote(data, pieceID)
+        .then(data2 => {
+          console.log("new upvote count: ",data2.rowCount);
+          res.json(data2.rowCount);
+        })
+        .catch((err) => {
+          res.send("Already upvoted!");
+        });
     })
+
 })
 
 module.exports = router;

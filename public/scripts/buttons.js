@@ -50,6 +50,22 @@ const upvoteButton = () => {
       url: "/api/upvotes",
       data: { pieceID: pieceID },
     }).then((res) => {
+      console.log(res); //res will currently either be a number, or the string "already upvoted". Can remove this string by removing the .catch() in the router.
+    });
+  })
+}
+
+const deletePieceButton = () => {
+  $(document).on("click", "#delete-btn", function (event) {
+    event.preventDefault();
+
+    let pieceID = $(this).attr("data-pieces-id");
+
+    $.ajax({
+      method: "post",
+      url: "/api/pieces/:storyID/delete",
+      data: { pieceID: pieceID },
+    }).then((res) => {
       console.log(res);
     });
   })
@@ -61,4 +77,5 @@ $(document).ready(() => {
   newStoryButton();
   completeButton();
   upvoteButton();
+  deletePieceButton();
 });

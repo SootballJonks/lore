@@ -41,14 +41,21 @@ router.get("/:storyID", (req, res) => {
 // http://localhost:8080/api/pieces/:storyID
 
 router.post("/:storyID", (req, res) => {
-  const username = req.session.username;
 
   addPieceToStory(req.body)
     .then((appendedStory) => {
-      res.json(appendedStory.text);
+      console.log("appended story?: ", appendedStory);
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
     });
 });
+
+//DELETE A PIECE
+router.post("/:storyID/delete", (req, res) => {
+
+
+
+});
+
 module.exports = router;
