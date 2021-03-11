@@ -65,4 +65,5 @@ $(document).ready(() => {
   newStoryButton();
   completeButton();
   upvoteButton();
+  allStoriesButton();
 });
