@@ -15,6 +15,15 @@ const storyIDSlicer = (storyIDAttr) => {
   }
   return storyID;
 };
+const pieceIDSlicer = (storyIDAttr) => {
+  let storyID = "";
+  for (let i = 0; i < storyIDAttr.length; i++) {
+    if (storyIDAttr.charCodeAt(i) > 47 && storyIDAttr.charCodeAt(i) < 58) {
+      storyID += storyIDAttr[i];
+    }
+  }
+  return storyID;
+};
 //if there is no content when user click submit, show warning
 const warning = () => {
   Swal.fire({

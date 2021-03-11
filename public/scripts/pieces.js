@@ -12,7 +12,9 @@ const createExistingPieces = (storyID, pieces) => {
           <div class=piece-content>${pieces.text}</div>
           <footer>
             <wired-icon-button id="upvote-btn" data-pieces-id="${pieces.id}">
+              <div class="upvotes-counts-${pieces.id}">
               <i class="fas fa-heart"></i>
+              </div>
             </wired-icon-button>
           </footer>
           </wired-card>`
@@ -50,6 +52,7 @@ const renderPieces = () => {
       $.ajax(`api/pieces/${storyID}`, {
         method: "get",
         success: function (res) {
+          renderUpvotes();
           return res.forEach((piece) => {
             createExistingPieces(storyID, piece);
           });
