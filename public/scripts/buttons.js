@@ -70,20 +70,11 @@ const deletePieceButton = () => {
       url: "/api/pieces/:storyID/delete",
       data: { pieceID: pieceID },
     }).then((res) => {
-      console.log(`#piece-${pieceID}`);
-      $(`#piece-${pieceID}`).remove();
+      confirmDelete($(`#piece-${pieceID}`));
     });
   });
 };
 
-const loginWarning = () => {
-  $(document).on("click", "#login-button", function (event) {
-    // event.preventDefault();
-    $.ajax("/login", { method: "GET" }).then((res) => {
-      console.log(res);
-    });
-  });
-};
 const approvePieceButton = () => {
   $(document).on("click", "#approve-btn", function (event) {
     event.preventDefault();

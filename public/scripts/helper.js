@@ -39,4 +39,25 @@ const warningLogin = () => {
   });
 };
 
+jQuery.fn.fadeOutAndRemove = function (speed) {
+  $(this).fadeOut(speed, function () {
+    $(this).remove();
+  });
+};
+const confirmDelete = ($piece) => {
+  Swal.fire({
+    title: "Are you sure you want to delete?",
+    showDenyButton: true,
+    confirmButtonText: `Yes`,
+    denyButtonText: `No`,
+    confirmButtonColor: "#03771c",
+    cancelButtonColor: "#cf3939",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      $piece.remove();
+    } else if (result.isDenied) {
+    }
+  });
+};
+
 $(document).ready(() => {});
