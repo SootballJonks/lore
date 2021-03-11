@@ -113,6 +113,9 @@ const createSingleStory = (story) => {
         <header>
           <span class="story-title">${story.title}</span>
         </header>
+        <div class="complete-story-status">
+        <span class="stamp is-approved">Completed</span>
+        </div>
         <p class="story-text">${story.text}</p>
 
         <footer class="story-tags">

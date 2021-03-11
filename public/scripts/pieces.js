@@ -6,7 +6,6 @@ const createExistingPieces = (storyID, pieces) => {
     url: "/users",
     data: { storyID },
     success: function (res) {
-      console.log("res: ", res); //there is a value returning here
       if (!res) {
         $pieces = $(
           `<wired-card elevation="2" id="piece-${pieces.id}" class="piece">

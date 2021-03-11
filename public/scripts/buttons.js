@@ -29,13 +29,16 @@ const newStoryButton = () => {
 
 const completeButton = () => {
   $(document).on("click", "#complete-button", function (event) {
-    // let storyID = $($story).find(".storyID").attr("name");
+    let storyID = $($story).find(".storyID").attr("name");
     event.preventDefault();
-    let storyID = 2;
+
     $.ajax({
       method: "post",
       url: "/users/complete",
-      data: { storyID: storyID },
+      data: { storyID },
+    }).then((res) => {
+      $(".single-story").empty();
+      appendSingleStory(res);
     });
   });
 };

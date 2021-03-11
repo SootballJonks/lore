@@ -1,8 +1,443 @@
 body {
-  background-color: #EEE;
+  font-family: "Mali", cursive;
+  background-color: #eee;
 }
 
 body h1 {
-  color: #244751;
+  font-family: "Mali", cursive;
+  font-weight: 700;
+  color: white;
+  background-color: #303030;
+}
+
+nav li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+nav .navbar-brand {
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.all-stories-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.all-stories-container main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.all-stories-container main .story {
+  width: 25rem;
+  cursor: pointer;
+  -webkit-transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.3s;
+  margin: 1rem;
+}
+
+.all-stories-container main .story:hover {
+  background-color: white;
+}
+
+.all-stories-container main .story .story-title {
+  font-weight: 700;
+}
+
+.all-stories-container main .story header {
+  margin: 1rem;
+}
+
+.all-stories-container main .story p {
+  margin: 1rem;
+  text-align: left;
+}
+
+.all-stories-container main .story .story-read-more {
+  font-weight: 600;
+  color: black;
+  font-size: 0.8rem;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  padding: 0.3rem;
+}
+
+.all-stories-container main .story .story-read-more:hover {
+  text-decoration: none;
+  color: white;
+  background-color: black;
+}
+
+.all-stories-container main .story footer {
+  font-weight: 600;
+  margin: 1rem;
+}
+
+button {
+  background-color: transparent;
+  margin: 1rem;
+}
+
+button:focus {
+  outline: none;
+}
+
+wired-button {
+  margin: 0.3rem;
+}
+
+wired-button:focus {
+  outline: none;
+}
+
+wired-textarea textarea {
+  font-family: "Mali", cursive;
+}
+
+.single-story-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.single-story-container .piece {
+  max-width: 30rem;
+}
+
+.single-story-container .single-story {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 60rem;
+  text-align: center;
+}
+
+.single-story-container .single-story .story {
+  margin: 1rem;
+  padding: 2rem;
+  -webkit-transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.3s;
+}
+
+.single-story-container .single-story .story:hover {
+  background-color: white;
+}
+
+.single-story-container .single-story .story .story-title {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.single-story-container .single-story .story header {
+  margin: 1rem;
+}
+
+.single-story-container .single-story .story p {
+  margin: 1rem;
+  text-align: left;
+}
+
+.single-story-container .single-story .story .story-read-more {
+  font-size: 0.8rem;
+  color: black;
+}
+
+.single-story-container .single-story .story footer {
+  margin: 1rem;
+  font-weight: 600;
+}
+
+.single-story-container .single-story .story .piece-text-box {
+  margin: 1rem;
+}
+
+.single-story-container .single-story .story i {
+  color: #f05151;
+}
+
+.single-story-container .single-story .story .pieces-spot {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.single-story-container .single-story .story .piece {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 1rem;
+  min-width: 33rem;
+  text-align: left;
+  padding: 1.5rem;
+}
+
+.single-story-container .single-story .story .piece .piece-content {
+  margin-bottom: 0.8rem;
+}
+
+.single-story-container .single-story .story .piece footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0;
+}
+
+.single-story-container .single-story .story .contribution {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.single-story-container .single-story .story .contribution textarea {
+  font-family: "Mali", cursive;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  resize: none;
+  outline: none;
+  background-color: #f5f5f5;
+  border-bottom: 2px solid black;
+  width: 38rem;
+  margin: 2rem;
+}
+
+.single-story-container .single-story .story .back-button {
+  margin-bottom: 1rem;
+}
+
+.single-story-container .single-story .story .complete-button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.single-story-container .single-story .story textarea {
+  font-family: "Mali", cursive;
+}
+
+.single-story-container .single-story .story .complete-story-status {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.login-card-container {
+  margin-top: 15rem;
+  font-family: "Mali", cursive;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login-card-container form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2rem;
+}
+
+.login-card-container .email-input {
+  margin-left: 2rem;
+}
+
+.login-card-container .password-input {
+  margin: 1rem;
+}
+
+.new-story-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 1rem;
+}
+
+.new-story-container .new-story-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1rem;
+}
+
+.new-story-container submit-new-story {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.new-story-container header {
+  margin: 2rem;
+}
+
+.new-story-container textarea {
+  font-family: "Mali", cursive;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  resize: none;
+  outline: none;
+  background-color: #f5f5f5;
+  border-bottom: 2px solid black;
+  width: 39rem;
+  height: 39rem;
+  margin: 2rem;
+}
+
+.new-story-container footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin: 2rem;
+}
+
+.new-story-container .new-story-submit-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.new-story-container label {
+  margin-right: 0.6rem;
+}
+
+.swal2-styled .swal2-confirm {
+  background-color: black;
+}
+
+.stamp {
+  -webkit-transform: rotate(12deg);
+          transform: rotate(12deg);
+  color: #555;
+  font-size: 1rem;
+  font-weight: 700;
+  border: 0.25rem solid #555;
+  display: inline-block;
+  padding: 0.25rem 1rem;
+  text-transform: uppercase;
+  border-radius: 1rem;
+  font-family: "Courier";
+  -webkit-mask-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/8399/grunge.png");
+  -webkit-mask-size: 944px 604px;
+  mix-blend-mode: multiply;
+}
+
+.is-approved {
+  color: #0a9928;
+  border: 0.6rem solid #0a9928;
+  -webkit-mask-position: 13rem 6rem;
+  -webkit-transform: rotate(-14deg);
+          transform: rotate(-14deg);
+  border-radius: 0;
 }
 /*# sourceMappingURL=layout.css.map */
