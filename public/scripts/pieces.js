@@ -87,22 +87,6 @@ const submitPiece = () => {
 };
 
 //APPROVE PIECE AND ADD TO BOTTOM OF STORY
-const approvePieceButton = () => {
-  $(document).on("click", "#approve-btn", function (event) {
-    event.preventDefault();
-
-    let storyID = $($story).find(".storyID").attr("name");
-    let pieceID = $(this).attr("data-pieces-id");
-
-    $.ajax({
-      method: "post",
-      url: "/api/pieces/:storyID",
-      data: { storyID: storyID, pieceID: pieceID },
-    }).then((res) => {
-      appendNewPieceInStory(storyID);
-    });
-  });
-};
 
 const appendNewPieceInStory = (storyID) => {
   $.ajax("api/stories", { method: "GET" }).then((response) => {
@@ -122,5 +106,4 @@ const appendNewPieceInStory = (storyID) => {
 $(document).ready(() => {
   submitPiece();
   renderPieces();
-  approvePieceButton();
 });

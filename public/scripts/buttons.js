@@ -82,15 +82,30 @@ const loginWarning = () => {
     });
   });
 };
+const approvePieceButton = () => {
+  $(document).on("click", "#approve-btn", function (event) {
+    event.preventDefault();
+
+    let storyID = $($story).find(".storyID").attr("name");
+    let pieceID = $(this).attr("data-pieces-id");
+
+    $.ajax({
+      method: "post",
+      url: "/api/pieces/:storyID",
+      data: { storyID: storyID, pieceID: pieceID },
+    }).then((res) => {
+      appendNewPieceInStory(storyID);
+    });
+  });
+};
 $(document).ready(() => {
   backButton();
   mystoryButton();
   newStoryButton();
   completeButton();
   upvoteButton();
-
+  approvePieceButton();
   deletePieceButton();
-
   allStoriesButton();
   loginWarning();
 });
