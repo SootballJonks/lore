@@ -1,15 +1,23 @@
-LHL Node Skeleton
+WELCOME TO  L O R E ~
 =========
 
-## Project Setup
+!["Screenshot"]()
+!["Screenshot"]()
+!["Screenshot"]()
 
-The following steps are only for _one_ of the group members to perform.
 
-1. Create your own copy of this repo using the `Use This Template` button, ideally using the name of your project. The repo should be marked Public
-2. Verify that the skeleton code now shows up in your repo on GitHub, you should be automatically redirected
-3. Clone your copy of the repo to your dev machine
-4. Add your team members as collaborators to the project so that they can push to this repo
-5. Let your team members know the repo URL so that they use the same repo (they should _not_ create a copy/fork of this repo since that will add additional workflow complexity to the project)
+## About This Project
+
+LORE is a collaborative story-creator webapp, which lets users post the start of a story, and have other users submit contributions (known as pieces). If the owner of the story deems the contribution worthy, they may merge it to the original story.
+
+Features include:
+1. Users can start a story with a specified title, as well as tags.
+2. Users can add contributions to existing stories.
+3. Users can see and upvote the contributions that they like.
+4. The creator of the story can approve a contribution and have it merge seamlessly to the rest of the story.
+5. Users can view all of the stories, whether pending or completed, on the main page, as well as view their own stories under the "My Stories" tab.
+6. The creator of the story can mark theirs as "completed", stopping further contributions from being added, and removing any pending ones.
+
 
 
 ## Getting Started
