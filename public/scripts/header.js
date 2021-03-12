@@ -50,6 +50,23 @@ const headerGenerator = () => {
   $("body").prepend($header);
 };
 
+const welcomeMsgGenerator = (username) => {
+  $header = $(` <wired-card elevation="10"
+  ><h1 class="username">
+    Welcome to Lore <span>${username}</span>
+  </h1></wired-card
+>`);
+
+  $(".welcome-msg")
+    .append($header)
+    .fadeIn(400)
+    .fadeOut(400)
+    .fadeIn(400)
+    .fadeOut(400)
+    .fadeIn(400);
+};
+
 $(document).ready(() => {
   headerGenerator();
+  welcomeMsgGenerator(username);
 });

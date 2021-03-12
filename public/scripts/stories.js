@@ -64,12 +64,13 @@ const renderSingleStory = () => {
 
     if (storyID) {
       $(".all-stories").empty();
+      $(".single-story").empty();
       $.ajax("api/stories", {
         method: "GET",
         success: function (res) {
-          createSingleStory(res[storyID - 1])
-        }
-      })
+          createSingleStory(res[storyID - 1]);
+        },
+      });
     }
   });
 };
@@ -113,6 +114,7 @@ const createSingleStory = (story) => {
             </wired-card>`
           );
           $(".single-story").append($story);
+          return $story;
         }
         $story = $(
           `<wired-card elevation="5" id="story-${story.id}" class="story">
@@ -163,10 +165,9 @@ const createSingleStory = (story) => {
         );
         $(".single-story").append($story);
       }
-
       return $story;
-    }
-  })
+    },
+  });
 };
 
 $(document).ready(() => {

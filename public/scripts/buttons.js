@@ -42,7 +42,7 @@ const completeButton = () => {
       data: { storyID },
     }).then((res) => {
       $(".single-story").empty();
-      appendSingleStory(res);
+      createSingleStory(res);
     });
   });
 };

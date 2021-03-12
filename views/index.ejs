@@ -40,7 +40,11 @@
 
   <body>
     <div class="welcome-msg">
-      <h1 class="username">Welcome to Lore <span><%= username %></span></h1>
+      <!-- <wired-card elevation="10"
+        ><h1 class="username">
+          Welcome to Lore <span><%= username %></span>
+        </h1></wired-card
+      > -->
     </div>
     <div class="all-stories-container">
       <main class="all-stories"></main>
@@ -56,9 +60,9 @@
   </body>
 
   <!-- scripts-file  -->
-  <!-- <script>
+  <script>
     const username = <%- JSON.stringify(username) %>;
-  </script> -->
+  </script>
   <script type="text/javascript" src="/scripts/upvotes.js"></script>
   <script type="text/javascript" src="/scripts/background.js"></script>
   <script type="text/javascript" src="/scripts/header.js"></script>
