@@ -66,69 +66,108 @@ const renderSingleStory = () => {
       $(".all-stories").empty();
       $.ajax("api/stories", {
         method: "GET",
+        success: function (res) {
+          createSingleStory(res[storyID - 1])
+        }
       })
-        .then((res) => appendSingleStory(res[storyID - 1]))
-        .catch((err) => console.log(err));
     }
   });
 };
 //appen story to the single story div
-const appendSingleStory = (story) => {
-  $(".single-story").append(createSingleStory(story));
-};
+// const appendSingleStory = (story) => {
+//   $(".single-story").append(createSingleStory(story));
+// };
 //create the story element
 const createSingleStory = (story) => {
-  if (story.active) {
-    //if the story is active use this template
-    $story = $(
-      `<wired-card elevation="5" id="story-${story.id}" class="story">
-        <header>
-          <span class="story-title">${story.title}</span>
-        </header>
-        <div class="complete-button-container">
-        <form id="complete-story">
-        <wired-button type=submit id=complete-button>Complete Story</wired-button>
-        </form>
-        </div>
-        <footer class="story-tags">
-        ${story.tags}
-        </>
-      </footer>
-        <p class="story-text">${story.text}</p>
-        <div class="pieces-spot">
-        </div>
-        <form id="submit-piece">
-          <span class="storyID" name="${story.id}"></span>
-          <div class="contribution">
-          <wired-textarea placeholder="Are you there Ashen One?" rows="6" class="wired-rendered piece-text-box"></wired-textarea>
-          <wired-button id="submit-piece-btn" type="submit">submit</wired-button>
-        </form>
+  //get TRUE/FALSE if current user is the owner of story
+  console.log("storyID", story.id)
+  $.ajax({
+    method: "POST",
+    url: "/users",
+    data: { storyID: story.id },
+    success: function (res) {
+      if (story.active) {
+        //if the story is active use this template
+        if (!res) {
+          //if signed-in user is NOT the owner, render this one...
+          $story = $(
+            `<wired-card elevation="5" id="story-${story.id}" class="story">
+              <header>
+                <span class="story-title">${story.title}</span>
+              </header>
+              <footer class="story-tags">
+              ${story.tags}
+              </>
+              </footer>
+              <p class="story-text">${story.text}</p>
+              <div class="pieces-spot">
+              </div>
+              <form id="submit-piece">
+                <span class="storyID" name="${story.id}"></span>
+                <div class="contribution">
+                <wired-textarea placeholder="Speak thine heart's desire..." rows="6" class="wired-rendered piece-text-box"></wired-textarea>
+                <wired-button id="submit-piece-btn" type="submit">submit</wired-button>
+              </form>
 
-          <wired-button id="btn2" class="back-button">Back</wired-button>
-        </div>
-      </wired-card>`
-    );
-  } else {
-    $story = $(
-      //if the story is not active use this template
-      `<wired-card elevation="5" id="story-${story.id}" class="story">
-        <header>
-          <span class="story-title">${story.title}</span>
-        </header>
-        <div class="complete-story-status">
-        <span class="stamp is-approved">Completed</span>
-        </div>
-        <p class="story-text">${story.text}</p>
+                <wired-button id="btn2" class="back-button">Back</wired-button>
+              </div>
+            </wired-card>`
+          );
+          $(".single-story").append($story);
+        }
+        $story = $(
+          `<wired-card elevation="5" id="story-${story.id}" class="story">
+            <header>
+              <span class="story-title">${story.title}</span>
+            </header>
+            <div class="complete-button-container">
+            <form id="complete-story">
+            <wired-button type=submit id=complete-button>Complete Story</wired-button>
+            </form>
+            </div>
+            <footer class="story-tags">
+            ${story.tags}
+            </>
+          </footer>
+            <p class="story-text">${story.text}</p>
+            <div class="pieces-spot">
+            </div>
+            <form id="submit-piece">
+              <span class="storyID" name="${story.id}"></span>
+              <div class="contribution">
+              <wired-textarea placeholder="Speak thine heart's desire..." rows="6" class="wired-rendered piece-text-box"></wired-textarea>
+              <wired-button id="submit-piece-btn" type="submit">submit</wired-button>
+            </form>
 
-        <footer class="story-tags">
-          ${story.tags}
-          </div>
-        </footer>
-      </wired-card>`
-    );
-  }
+              <wired-button id="btn2" class="back-button">Back</wired-button>
+            </div>
+          </wired-card>`
+        );
+        $(".single-story").append($story);
+      } else {
+        $story = $(
+          //if the story is not active use this template
+          `<wired-card elevation="5" id="story-${story.id}" class="story">
+            <header>
+              <span class="story-title">${story.title}</span>
+            </header>
+            <div class="complete-story-status">
+            <span class="stamp is-approved">Completed</span>
+            </div>
+            <p class="story-text">${story.text}</p>
 
-  return $story;
+            <footer class="story-tags">
+              ${story.tags}
+              </div>
+            </footer>
+          </wired-card>`
+        );
+        $(".single-story").append($story);
+      }
+
+      return $story;
+    }
+  })
 };
 
 $(document).ready(() => {

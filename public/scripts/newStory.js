@@ -5,9 +5,9 @@ const createNewStoryForm = () => {
   <header>
     <label for="story-title-input"> Story Title</label><input type="title" name="title" id="story-title" class="story-title-input"></input>
   </header>
-  <textarea type="text" name="text" placeholder="Thy Tale" rows="6" class="wired-rendered piece-text-box"></textarea>
+  <textarea type="text" name="text" placeholder="Type thine holy words of fiction here." rows="6" class="wired-rendered piece-text-box"></textarea>
   <footer class="story-tags-input">
-  <label for="story-tags-input"> Tags</label><input type="tags" name="tags" id="story-tags" class="story-tags-input"></input>
+  <label for="story-tags-input"> Tags</label><input type="tags" name="tags" id="story-tags" class="story-tags-input" placeholder="Separate tags with spaces"></input>
   </footer>
   <div class=new-story-submit-button>
   <wired-button id="submit-new-story-button" type="submit">submit</wired-button>
