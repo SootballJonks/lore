@@ -47,4 +47,35 @@ INSERT INTO
 VALUES
   (1, 3, 'You startle again, reflexively lashing out at the talking gargoyle. A cracking sound could be heard as you bust your knuckles on the statue''s head.
   </br></br>
-  Clutching your now-broken hand, you scramble back towards the safety of the dungeon you''ve cleared, in hopes that the statue won''t be able to follow.');
+  Clutching your now-broken hand, you scramble back towards the safety of the dungeon you''ve cleared, in hopes that the statue would not be able to follow.');
+
+INSERT INTO
+ pieces (user_id, story_id, text)
+VALUES
+  (5, 6, 'The next day I woke up in my bedroom. It was snowing and raining again. I opened the door of my coffin and drank some blood from a bottle I had. My coffin was black ebony and inside it was hot pink velvet with black lace on the ends. I got out of my coffin and took of my giant MCR t-shirt which I used for pajamas. Instead, I put on a black leather dress, a pentagram necklace, combat boots and black fishnets on. I put on four pairs of earrings in my pierced ears, and put my hair in a kind of messy bun.
+  </br></br>
+  My friend, Willow (AN: Raven dis is u!) woke up then and grinned at me. She flipped her long waist-length raven black hair with pink streaks and opened her forest-green eyes. She put on her Marilyn Manson t-shirt with a black mini, fishnets and pointy high-heeled boots. We put on our makeup (black lipstick white foundation and black eyeliner.)
+  </br></br>
+  “OMFG, I saw you talking to Draco Malfoy yesterday!” she said excitedly.
+  </br></br>
+  “Yeah? So?” I said, blushing.
+  </br></br>
+  “Do you like Draco?” she asked as we went out of the Slytherin common room and into the Great Hall.
+  </br></br>
+  “No I so fucking don’t!” I shouted.
+  </br></br>
+  “Yeah right!” she exclaimed. Just then, Draco walked up to me.
+  </br></br>
+  “Hi.” he said.
+  </br></br>
+  “Hi.” I replied flirtily.
+  </br></br>
+  “Guess what.” he said.
+  </br></br>
+  “What?” I asked.
+  </br></br>
+  “Well, Good Charlotte are having a concert in Hogsmeade.” he told me.
+  </br></br>
+  “Oh. My. Fucking. God!” I screamed. I love GC. They are my favorite band, besides MCR. “Well…. do you want to go with me?” he asked.
+  </br></br>
+  I gasped.');
