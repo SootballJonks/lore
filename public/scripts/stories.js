@@ -90,7 +90,6 @@ const createSingleStory = (story) => {
         //if the story is active use this template
         if (!res) {
           //if signed-in user is NOT the owner, render this one...
-
           $story = $(
             `<wired-card elevation="5" id="story-${story.id}" class="story">
               <header>
@@ -165,8 +164,8 @@ const createSingleStory = (story) => {
           </wired-card>`
         );
         $(".single-story").append($story);
-        return $story;
       }
+      return $story;
     },
   });
 };
