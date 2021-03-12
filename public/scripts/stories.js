@@ -114,6 +114,7 @@ const createSingleStory = (story) => {
             </wired-card>`
           );
           $(".single-story").append($story);
+          scrollUpAction();
           return $story;
         }
         $story = $(
@@ -145,6 +146,7 @@ const createSingleStory = (story) => {
           </wired-card>`
         );
         $(".single-story").append($story);
+        scrollUpAction();
       } else {
         $story = $(
           //if the story is not active use this template
@@ -164,6 +166,7 @@ const createSingleStory = (story) => {
           </wired-card>`
         );
         $(".single-story").append($story);
+        scrollUpAction();
       }
       return $story;
     },

@@ -5,6 +5,7 @@ const mystoryButton = () => {
   $(document).on("click", "#user-stories", function () {
     $(".single-story").empty();
     $(".new-story").empty();
+    scrollUpAction();
   });
 };
 //click to see all the available stories
@@ -13,6 +14,7 @@ const allStoriesButton = () => {
     $(".single-story").empty();
     $(".new-story").empty();
     loadStories(renderStories);
+    scrollUpAction();
   });
 };
 //go back to the all stories page
@@ -29,6 +31,7 @@ const newStoryButton = () => {
     $(".all-stories").empty();
     $(".single-story").empty();
     renderNewStoryForm();
+    scrolltoNewStoryFormAction();
   });
 };
 

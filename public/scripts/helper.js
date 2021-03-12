@@ -75,3 +75,10 @@ const disableButton = ($buttonID) => {
 const scrollUpAction = () => {
   $("html, body").animate({ scrollTop: 0 }, 300);
 };
+const scrollDownAction = () => {
+  $("html, body").animate({ scrollTop: 300 }, 300);
+};
+
+const scrolltoNewStoryFormAction = () => {
+  $("html, body").animate({ scrollTop: 133 }, 300);
+};
