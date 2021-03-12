@@ -80,5 +80,5 @@ const scrollDownAction = () => {
 };
 
 const scrolltoNewStoryFormAction = () => {
-  $("html, body").animate({ scrollTop: 143 }, 300);
+  $("html, body").animate({ scrollTop: 133 }, 300);
 };
