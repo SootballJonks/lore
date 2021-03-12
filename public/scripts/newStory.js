@@ -5,12 +5,12 @@ const createNewStoryForm = () => {
   <header>
     <label for="story-title-input"> Story Title</label><input type="title" name="title" id="story-title" class="story-title-input"></input>
   </header>
-  <textarea type="text" name="text" placeholder="Thy Tale" rows="6" class="wired-rendered piece-text-box"></textarea>
+  <textarea type="text" name="text" placeholder="Type thine holy words of fiction here." rows="6" class="wired-rendered piece-text-box"></textarea>
   <footer class="story-tags-input">
-  <label for="story-tags-input"> Tags</label><input type="tags" name="tags" id="story-tags" class="story-tags-input"></input>
+  <label for="story-tags-input"> Tags</label><input type="tags" name="tags" id="story-tags" class="story-tags-input" placeholder="Separate tags with spaces"></input>
   </footer>
   <div class=new-story-submit-button>
-  <button id="submit" type="submit">submit</button>
+  <wired-button id="submit-new-story-button" type="submit">submit</wired-button>
   </div>
   </wired-card>
   </form>`);
@@ -24,7 +24,7 @@ const renderNewStoryForm = () => {
 };
 
 const submitNewStory = () => {
-  $(document).on("submit", "#submit-new-story", (event) => {
+  $(document).on("click", "#submit-new-story-button", (event) => {
     event.preventDefault();
     let text = $("textarea").val();
     if (!textValidation(text)) {

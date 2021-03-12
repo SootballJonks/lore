@@ -33,6 +33,15 @@ const createExistingPieces = (storyID, pieces) => {
         `<wired-card elevation="2" id="piece-${pieces.id}" class="piece">
         <div class=piece-content>${pieces.text}</div>
         <footer>
+        <button id="upvote-btn" data-pieces-id="${pieces.id}">
+              <div class="upvotes">
+              <div class="upvotes-icon">
+              <i class="fas fa-heart"></i>
+              </div>
+              </button>
+              <div class="upvotes-counts-${pieces.id} upvotes-counts-container">
+              </div>
+              </div>
           <button id="approve-btn" data-pieces-id="${pieces.id}">
             <i class="fas fa-check"></i>
           </button>
@@ -47,7 +56,6 @@ const createExistingPieces = (storyID, pieces) => {
     },
   });
 };
-
 
 //RENDER ALL THE PIECES TO A STORY WHEN USER CLICK THE STORY CARD
 const renderPieces = () => {
@@ -69,7 +77,6 @@ const renderPieces = () => {
     }
   });
 };
-
 
 $(document).ready(() => {
   renderPieces();

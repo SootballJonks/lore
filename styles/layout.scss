@@ -2,7 +2,7 @@
 
 body {
   font-family: "Mali", cursive;
-  background-color: #eee;
+  background-color: rgb(236, 235, 235);
 
   h1 {
     font-family: "Mali", cursive;
@@ -13,6 +13,7 @@ body {
 }
 
 nav {
+  font-family: "Open Sans", sans-serif;
   li {
     display: flex;
   }
@@ -22,6 +23,10 @@ nav {
   }
   .nav-stories {
     display: flex;
+  }
+  .btn {
+    font-weight: 300;
+    margin: 0.7rem;
   }
 }
 //this is the container for all the stories
@@ -38,14 +43,15 @@ nav {
     flex-wrap: wrap;
     text-align: center;
     justify-content: center;
-
+    margin-top: 6rem;
     .story {
       //this is styling for individual story card
       width: 25rem;
       cursor: pointer;
       transition: ease-in-out 0.3s;
+      background-color: white;
       &:hover {
-        background-color: white;
+        background-color: #eee;
       }
       margin: 1rem;
       .story-title {
@@ -127,6 +133,7 @@ wired-textarea {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   .piece {
     max-width: 30rem;
   }
@@ -136,13 +143,15 @@ wired-textarea {
     justify-content: center;
     max-width: 60rem;
     text-align: center;
+
     .story {
       //this is styling for individual story card
       margin: 1rem;
       padding: 2rem;
       transition: ease-in-out 0.3s;
+      background-color: white;
       &:hover {
-        background-color: white;
+        background-color: #eee;
       }
 
       .story-title {
@@ -243,6 +252,9 @@ wired-textarea {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  .login-card {
+    background-color: white;
+  }
   form {
     display: flex;
     flex-direction: column;
@@ -266,6 +278,7 @@ wired-textarea {
   .new-story-form {
     display: flex;
     padding: 1rem;
+    background-color: white;
   }
 
   submit-new-story {
@@ -280,7 +293,7 @@ wired-textarea {
     display: flex;
     resize: none;
     outline: none;
-    background-color: #f5f5f5;
+    background-color: white;
     border-bottom: 2px solid black;
     width: 39rem;
     height: 39rem;
@@ -308,7 +321,7 @@ wired-textarea {
 .stamp {
   transform: rotate(12deg);
   color: #555;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 700;
   border: 0.25rem solid #555;
   display: inline-block;
@@ -324,10 +337,21 @@ wired-textarea {
   border: 0.3rem solid #03771c;
   -webkit-mask-position: 13rem 6rem;
   transform: rotate(-14deg);
-  border-radius: 0;
+  border-radius: 3;
+  padding: 0.2rem;
 }
 
 .story-pending {
   color: #cf3939;
   border: 0.3rem solid #cf3939;
+}
+.ball {
+  position: absolute;
+  border-radius: 100%;
+  opacity: 0.7;
+  z-index: -1;
+}
+
+#approve-btn {
+  margin-left: 6rem;
 }

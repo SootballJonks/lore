@@ -48,7 +48,7 @@ jQuery.fn.fadeOutAndRemove = function (speed) {
 //show warning if user is deleting the piece, confirm to delete and no to cancel
 const confirmDelete = ($piece) => {
   Swal.fire({
-    title: "Are you sure you want to delete?",
+    title: "Are you sure you want to delete this?",
     showDenyButton: true,
     confirmButtonText: `Yes`,
     denyButtonText: `No`,
@@ -71,4 +71,7 @@ const upvotesAdder = (pieceID) => {
 
 const disableButton = ($buttonID) => {
   $buttonID.attr("disabled", true);
+};
+const scrollUpAction = () => {
+  $("html, body").animate({ scrollTop: 0 }, 300);
 };
