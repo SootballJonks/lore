@@ -21,8 +21,9 @@ Main page:
 
 Contribution examples:
 
-!["Contributions"](https://github.com/SootballJonks/lore/blob/master/screenshots/likeStory.png)
-!["Contributions2"](https://github.com/SootballJonks/lore/blob/master/screenshots/EditPiece.png)
+!["Contributions"](https://github.com/SootballJonks/lore/blob/master/screenshots/Demo/approveStory.gif)
+!["Contributions2"](https://github.com/SootballJonks/lore/blob/master/screenshots/Demo/likeStory.gif)
+!["contributions3"](https://github.com/SootballJonks/lore/blob/master/screenshots/Demo/deleteStory.gif)
 
 ## Getting Started
 
