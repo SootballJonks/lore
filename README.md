@@ -16,10 +16,14 @@ Features include:
 6. The creator of the story can mark theirs as "completed", stopping further contributions from being added, and removing any pending ones.
 
 Main page:
+
 !["Main page"](https://github.com/SootballJonks/lore/blob/master/screenshots/allstories.png)
+
 Contribution examples:
+
 !["Contributions"](https://github.com/SootballJonks/lore/blob/master/screenshots/likeStory.png)
 !["Contributions2"](https://github.com/SootballJonks/lore/blob/master/screenshots/EditPiece.png)
+
 ## Getting Started
 
 1. Create the `.env` by using `.env.example` as a reference: `cp .env.example .env`
