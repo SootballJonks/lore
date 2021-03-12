@@ -28,7 +28,6 @@ const headerGenerator = () => {
         </form>
       </li>
     </ul>
-
     <button
       id="newStory-button"
       class="btn btn-outline-success my-2 my-sm-0 btn-outline-dark"

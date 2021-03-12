@@ -6,12 +6,12 @@ const { checkEmail } = require("../lib/queries");
 //Currently set to render a login page?
 router.get("/", (req, res) => {
   res.render("login");
+  check;
 });
 
 //Post route to log in with email (does not check password)
 router.post("/", (req, res) => {
   const email = req.body.email;
-  console.log(email);
   //const password = req.body.password;
   checkEmail(email).then((user) => {
     if (!user) {

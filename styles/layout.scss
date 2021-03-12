@@ -6,13 +6,35 @@ body {
 
   h1 {
     font-family: "Mali", cursive;
-    font-weight: 700;
+    font-weight: 300;
     color: white;
     background-color: #303030;
+  }
+  .welcome-msg {
+    h1 {
+      background-color: transparent;
+      color: #303030;
+      margin-right: 9rem;
+    }
+
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5rem;
+    font-family: "Mali", cursive;
+    font-weight: 700;
+    font-size: 0.8rem;
+
+    span {
+      margin-left: 0.5rem;
+      font-weight: 700;
+      font-size: 2rem;
+    }
   }
 }
 
 nav {
+  display: flex;
+  justify-content: space-between;
   font-family: "Open Sans", sans-serif;
   li {
     display: flex;
@@ -27,6 +49,16 @@ nav {
   .btn {
     font-weight: 300;
     margin: 0.7rem;
+  }
+
+  .welcome {
+    font-family: "Mali", cursive;
+  }
+  .right-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 //this is the container for all the stories
@@ -43,7 +75,7 @@ nav {
     flex-wrap: wrap;
     text-align: center;
     justify-content: center;
-    margin-top: 6rem;
+
     .story {
       //this is styling for individual story card
       width: 25rem;

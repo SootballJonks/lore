@@ -39,6 +39,9 @@
   </head>
 
   <body>
+    <div class="welcome-msg">
+      <h1 class="username">Welcome to Lore <span><%= username %></span></h1>
+    </div>
     <div class="all-stories-container">
       <main class="all-stories"></main>
     </div>
@@ -48,10 +51,14 @@
     <div class="new-story-container">
       <div class="new-story"></div>
     </div>
+
+    <!-- <h1><%=username %></h1> -->
   </body>
 
   <!-- scripts-file  -->
-
+  <!-- <script>
+    const username = <%- JSON.stringify(username) %>;
+  </script> -->
   <script type="text/javascript" src="/scripts/upvotes.js"></script>
   <script type="text/javascript" src="/scripts/background.js"></script>
   <script type="text/javascript" src="/scripts/header.js"></script>
