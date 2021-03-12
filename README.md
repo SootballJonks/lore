@@ -1,10 +1,7 @@
 WELCOME TO  L O R E ~
 =========
 
-!["Main page"](https://github.com/SootballJonks/lore/blob/master/screenshots/allstories.png)
-!["Contributions"](https://github.com/SootballJonks/lore/blob/master/screenshots/likeStory.png)
-!["Contributions2"](https://github.com/SootballJonks/lore/blob/master/screenshots/EditPiece.png)
-
+!["Login"](https://github.com/SootballJonks/lore/blob/master/screenshots/login.png)
 
 ## About This Project
 
@@ -18,8 +15,11 @@ Features include:
 5. Users can view all of the stories, whether pending or completed, on the main page, as well as view their own stories under the "My Stories" tab.
 6. The creator of the story can mark theirs as "completed", stopping further contributions from being added, and removing any pending ones.
 
-
-!["Login"](https://github.com/SootballJonks/lore/blob/master/screenshots/login.png)
+Main page:
+!["Main page"](https://github.com/SootballJonks/lore/blob/master/screenshots/allstories.png)
+Contribution examples:
+!["Contributions"](https://github.com/SootballJonks/lore/blob/master/screenshots/likeStory.png)
+!["Contributions2"](https://github.com/SootballJonks/lore/blob/master/screenshots/EditPiece.png)
 ## Getting Started
 
 1. Create the `.env` by using `.env.example` as a reference: `cp .env.example .env`
