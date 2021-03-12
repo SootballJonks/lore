@@ -80,7 +80,6 @@ const renderSingleStory = () => {
 //create the story element
 const createSingleStory = (story) => {
   //get TRUE/FALSE if current user is the owner of story
-  console.log("storyID", story.id)
   $.ajax({
     method: "POST",
     url: "/users",
