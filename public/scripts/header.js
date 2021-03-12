@@ -1,7 +1,7 @@
 //generate the navigator
 const headerGenerator = () => {
   $header = $(`
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/">LORE</a>
   <button
     class="navbar-toggler"

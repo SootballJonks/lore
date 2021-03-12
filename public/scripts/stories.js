@@ -26,7 +26,7 @@ const createStories = (story) => {
     }
   }
   if (story.active) {
-    $story = $(`<wired-card elevation="4" id="story-${story.id}" class="story">
+    $story = $(`<wired-card elevation="6" id="story-${story.id}" class="story">
   <header>
     <span class="story-title">${story.title}</span>
   </header>
@@ -39,7 +39,7 @@ const createStories = (story) => {
   </footer>
   </wired-card>`);
   } else {
-    $story = $(`<wired-card elevation="4" id="story-${story.id}" class="story">
+    $story = $(`<wired-card elevation="6" id="story-${story.id}" class="story">
     <header>
       <span class="story-title">${story.title}</span>
     </header>
@@ -81,7 +81,7 @@ const createSingleStory = (story) => {
   if (story.active) {
     //if the story is active use this template
     $story = $(
-      `<wired-card elevation="4" id="story-${story.id}" class="story">
+      `<wired-card elevation="5" id="story-${story.id}" class="story">
         <header>
           <span class="story-title">${story.title}</span>
         </header>
@@ -111,7 +111,7 @@ const createSingleStory = (story) => {
   } else {
     $story = $(
       //if the story is not active use this template
-      `<wired-card elevation="4" id="story-${story.id}" class="story">
+      `<wired-card elevation="5" id="story-${story.id}" class="story">
         <header>
           <span class="story-title">${story.title}</span>
         </header>
