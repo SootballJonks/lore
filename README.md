@@ -1,21 +1,6 @@
 # WELCOME TO L O R E ~
 
-<<<<<<< HEAD
-!["Login"](https://github.com/SootballJonks/lore/blob/master/screenshots/login.png)
-=======
-!["Screenshot"](screenshots/login.png)
-!["Screenshot"](screenshots/allstories.png)
-!["Screenshot"](screenshots/mystories.png)
-!["Screenshot"](screenshots/newstory.png)
-
-# DEMO
-
-!["Screenshot"](screenshots/Demo/makeContribution.gif)
-!["Screenshot"](screenshots/Demo/upVote.gif)
-!["Screenshot"](screenshots/Demo/approveStory.gif)
-!["Screenshot"](screenshots/Demo/deleteStory.gif)
-!["Screenshot"](screenshots/Demo/completeStory.gif)
->>>>>>> 0936df3
+!["Login"](screenshots/login.png)
 
 ## About This Project
 
@@ -30,19 +15,18 @@ Features include:
 5. Users can view all of the stories, whether pending or completed, on the main page, as well as view their own stories under the "My Stories" tab.
 6. The creator of the story can mark theirs as "completed", stopping further contributions from being added, and removing any pending ones.
 
-<<<<<<< HEAD
 Main page:
 
-!["Main page"](https://github.com/SootballJonks/lore/blob/master/screenshots/allstories.png)
+!["Main page"](screenshots/allstories.png)
 
 Contribution examples:
 
-!["Contributions"](https://github.com/SootballJonks/lore/blob/master/screenshots/Demo/approveStory.gif)
-!["Contributions2"](https://github.com/SootballJonks/lore/blob/master/screenshots/Demo/likeStory.gif)
-!["contributions3"](https://github.com/SootballJonks/lore/blob/master/screenshots/Demo/deleteStory.gif)
+!["Contributions"](screenshots/demo/approveStory.gif)
+!["Contributions2"](screenshots/demo/upVote.gif)
+!["Contributions2"](screenshots/demo/deleteStory.gif)
+!["contributions3"](screenshots/demo/makeContribution.gif)
+!["contributions3"](screenshots/demo/completeStory.gif)
 
-=======
->>>>>>> 0936df3
 ## Getting Started
 
 1. Create the `.env` by using `.env.example` as a reference: `cp .env.example .env`
